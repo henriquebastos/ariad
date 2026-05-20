@@ -1,28 +1,32 @@
-# Mirror Extension
+# Mirror Extension: Maestro
 
-The durable Ariad implementation target is a Mirror extension with a skill surface.
+The durable Ariad implementation target inside Mirror Mind is a Mirror extension called **Maestro**.
+
+Ariad is the method. Maestro is how Mirror runs the method. The two names are deliberately different:
+
+- **Ariad** lives in its own canonical repository. It is method, docs, templates, and principles. It does not depend on any specific runtime.
+- **Maestro** is a Mirror extension. It depends on Ariad as the source of truth for templates and on Mirror Mind for journeys, project paths, identity, and Builder Mode.
+
+Other runtimes could implement their own Ariad executors in the future. Maestro is the first one, and the reference one.
+
+## What Maestro Solves
 
 Manual adoption is useful for pilots because it keeps the method visible. It is not enough for repeated use across multiple users and projects. Without an extension, each project has to discover the canonical Ariad source manually, copy templates by hand, track version drift informally, and ask the Navigator where the method lives whenever canonical context is needed.
 
-The extension turns Ariad from documentation into an operational capability inside Mirror Mind.
+Maestro solves:
 
-## What the Extension Solves
+- discovering the canonical Ariad source,
+- installing a local Ariad instance into a project,
+- avoiding overwrite of existing project docs,
+- comparing local templates against canonical templates,
+- diagnosing whether a project is ready for Builder Mode,
+- inviting the next step when the project is not ready yet.
 
-The extension should solve the problems manual adoption leaves open:
-
-- discover the canonical Ariad source,
-- know which Ariad version a project is using,
-- install a local Ariad instance into a project,
-- reconcile existing project docs without overwriting them blindly,
-- update local Ariad templates when the canonical method changes,
-- diagnose whether a project is ready for Builder Mode,
-- inject canonical Ariad context when the method itself needs to be inspected.
-
-Manual adoption remains the learning path. The extension is the durable product path.
+Manual adoption remains the learning path. Maestro is the durable product path.
 
 ## Three Surfaces
 
-Ariad has three surfaces that should stay separate.
+The system has three surfaces that should stay separate.
 
 **Ariad repository.** The canonical method source: docs, templates, adoption guidance, and versioned method assets.
 
@@ -30,44 +34,66 @@ Ariad has three surfaces that should stay separate.
 
 **Target project.** The local method instance: `AGENTS.md`, local development guide, project briefing, decisions, roadmap, worklog, and product principles.
 
-The extension is the bridge between those surfaces.
+Maestro is the bridge between those surfaces.
 
-## Command Shape and Natural-Language Surface
+## Commands
 
-The first command set can stay small, but commands are not the primary user experience.
+All commands run through Mirror's external skill dispatch:
 
-A Mirror principle matters here: the user should be able to operate the system in natural language. Commands provide reliable internal operations. The skill surface translates user intent into the right command path, asks for missing information, and stops for Navigator review when judgment is needed.
+```bash
+uv run python -m memory ext maestro <command> [args]
+```
 
-### `ariad init`
+Commands resolve the project path from either `--project-path` or `--journey <slug>`. The canonical Ariad repository is resolved from `--ariad-root`, `ARIAD_ROOT`, or `~/ariad`.
 
-Create a new project prepared for Ariad.
+### `maestro doctor`
+
+Inspect a project and report Ariad Builder Mode readiness.
+
+Checks:
+
+- `AGENTS.md` exists and mentions Ariad,
+- `docs/process/development-guide.md` exists,
+- `docs/project/briefing.md` exists,
+- `docs/project/decisions.md` exists,
+- `docs/project/roadmap/index.md` exists,
+- `docs/product/principles.md` exists,
+- canonical Ariad repository is detected (and treated as such).
+
+When a project exists but is not ready, the command suggests the corresponding `adopt --dry-run` next step.
 
 Natural-language requests:
 
 ```text
-I want to create a new project using Ariad.
+Check whether this project is ready for Builder Mode.
 ```
 
 ```text
-Prepare a new Builder project with Ariad in ~/Code/my-project.
+Run a readiness check for the conjunto journey.
+```
+
+### `maestro init`
+
+Create a new project initialized with Ariad templates.
+
+The target directory is created if it does not exist. Existing files are preserved. `--dry-run` previews without writing.
+
+Natural-language requests:
+
+```text
+Start a new Ariad project at ~/Code/my-project.
 ```
 
 ```text
-Start a new Mirror journey and project using Ariad.
+Initialize a Mirror-ready project for this journey.
 ```
 
-Expected responsibilities:
+### `maestro adopt`
 
-- create or validate the target directory,
-- copy the local Ariad templates,
-- initialize the local documentation surface,
-- optionally initialize Git,
-- configure or suggest a Mirror journey and project path,
-- report what still needs Navigator review.
+Adopt Ariad in an existing project by copying missing canonical templates.
 
-### `ariad adopt`
-
-Adopt Ariad in an existing project.
+- Existing files are never overwritten.
+- `--dry-run` reports the plan without writing.
 
 Natural-language requests:
 
@@ -76,90 +102,36 @@ Adopt Ariad in this project.
 ```
 
 ```text
-Prepare this existing repo for Mirror Builder Mode with Ariad.
+Prepare this existing repo for Mirror Builder Mode.
 ```
 
-```text
-Inspect this project and reconcile it with Ariad without overwriting existing docs.
-```
+### `maestro update`
 
-Expected responsibilities:
+Compare a local Ariad instance against the canonical templates.
 
-- inspect whether `AGENTS.md` and expected docs already exist,
-- avoid overwriting existing files without confirmation,
-- copy missing templates,
-- detect mature local docs and prefer reconciliation over replacement,
-- produce an adoption report.
-
-### `ariad doctor`
-
-Inspect a project and report Ariad readiness.
+The command is report-only. It lists files missing locally, files that differ from canonical, and files that are up to date. It does not overwrite or merge.
 
 Natural-language requests:
 
 ```text
-Check whether this project is ready for Ariad Builder Mode.
+Check whether this project is out of date relative to canonical Ariad.
 ```
 
 ```text
-Run an Ariad readiness check for this journey.
+Show me what changed in Ariad since this project adopted the method.
 ```
-
-```text
-Tell me what is missing before this project can use Ariad well.
-```
-
-Expected checks:
-
-- `AGENTS.md` exists and mentions Ariad,
-- local development guide exists,
-- project briefing exists,
-- roadmap exists,
-- product principles exist,
-- Mirror journey has a project path,
-- local docs distinguish local instance from canonical Ariad when relevant.
-
-### `ariad update`
-
-Update a project's local Ariad instance from the canonical source.
-
-Natural-language requests:
-
-```text
-Update this project's Ariad files from the canonical method.
-```
-
-```text
-Check whether this local Ariad instance is out of date.
-```
-
-```text
-Show me what changed in Ariad and what we should reconcile here.
-```
-
-Expected responsibilities:
-
-- compare local template versions against canonical versions,
-- show proposed changes,
-- avoid blind overwrite,
-- preserve project-specific local content,
-- produce follow-up instructions when manual reconciliation is needed.
 
 ## Skill Surface
 
-The extension should expose a skill surface such as `/mm-ariad`.
+The skill `ext-maestro` (or `ext:maestro` on Claude) guides the agent-assisted parts of the workflow: interpreting an existing project, drafting local docs, explaining trade-offs, asking the Navigator for confirmation, and preparing the first Builder Mode session.
 
-The command layer should own deterministic operations: copying templates, checking files, reading extension metadata, comparing versions, and reporting readiness.
-
-The skill surface should guide the agent-assisted parts of the workflow: interpreting an existing project, drafting local docs, explaining trade-offs, asking the Navigator for confirmation, and preparing the first Builder Mode session.
-
-Ariad needs both. Commands give reliability. Skills give judgment-shaped workflow.
+The command layer owns deterministic operations. The skill surface owns judgment-shaped workflow. Maestro needs both.
 
 ## Agent-Assisted Responsibilities
 
-The extension should not try to automate interpretation too early.
+Maestro does not try to automate interpretation too early.
 
-The agent should remain responsible for:
+The agent (Driver) remains responsible for:
 
 - reading the target project,
 - drafting project-specific documentation,
@@ -168,19 +140,31 @@ The agent should remain responsible for:
 - asking for Navigator review before editing meaningful content,
 - preparing a first small Builder Mode story.
 
-This keeps Ariad aligned with its own method: the Driver drives, the Navigator navigates.
+This keeps Maestro aligned with Ariad's own method: the Driver drives, the Navigator navigates.
 
-## Out of Scope for the First Extension
+## Out of Scope for the First Operational Slice
 
-The first extension should not attempt to solve every distribution problem.
+The first Maestro slice does not attempt to solve every distribution problem.
 
 Out of scope initially:
 
 - hosted Ariad registry,
 - automatic background sync,
 - destructive overwrite of project docs,
-- broad runtime-agnostic support,
+- runtime-agnostic distribution (Maestro is Mirror-specific),
 - full semantic diff of local process adaptations,
+- automatic reconciliation of divergent local files,
 - migration across multiple Ariad major versions.
 
-The first useful extension should make the pilot flow repeatable: install, adopt, inspect, and guide the first Builder Mode session.
+The first useful slice makes the pilot flow repeatable: doctor, init, adopt, update, and guide the first Builder Mode session.
+
+## Installation
+
+```bash
+git clone https://github.com/alissonvale/mirror-extensions ~/Code/mirror-extensions
+
+uv run python -m memory extensions install maestro \
+  --extensions-root ~/Code/mirror-extensions
+```
+
+The target mirror home resolves from `MIRROR_HOME` or `MIRROR_USER` in the environment.

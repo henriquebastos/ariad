@@ -34,7 +34,7 @@ nav:
       - Agent-Assisted Initialization: adoption/agent-assisted-initialization.md
       - Builder Mode Guide: adoption/builder-mode-guide.md
       - First Adoption Session: adoption/first-adoption-session.md
-  - Extension:
+  - Extension (Maestro):
       - extension/index.md
 markdown_extensions:
   - admonition

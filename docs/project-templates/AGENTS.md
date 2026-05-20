@@ -81,7 +81,7 @@ Present:
 - **Manual validation route** — step-by-step instructions for the Navigator.
 - **Anything surprising** — unexpected behavior, edge cases discovered, scope questions.
 
-**→ Checkpoint 2: stop and present test results and validation route. Wait for Navigator to validate manually before proceeding.**
+**→ Checkpoint 2: stop and present test results AND the manual validation route. The validation route is a deliverable, not optional — the Navigator needs concrete steps (commands, URLs, what to observe, what to check) to validate the story. Wait for Navigator to validate manually before proceeding.**
 
 ### 5. Review and Refactoring Assessment
 

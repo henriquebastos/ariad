@@ -1,43 +1,54 @@
 # Ariad
 
-Ariad is the thread through the labyrinth of agentic software work.
+**Ariad is the thread through the labyrinth of agentic software work.**
 
 It is a method for integral agentic development: human-agent development that keeps the work whole over time.
 
-Coding agents make software work faster, but speed alone does not make the work coherent. A project can move quickly while losing the thread between intent, decisions, implementation, validation, documentation, and product direction.
+## Why Ariad exists
 
-Ariad exists to preserve that thread.
+Coding agents can move faster than a project can remember. They edit files, generate tests, refactor modules, and draft documentation in minutes. But if the work is not held by a coherent process, speed turns into fragmentation. Decisions happen, but future sessions cannot see them. Documentation exists, but no longer describes the product. The agent helps, but the project slowly forgets itself.
 
-The method gives coding agents an operating model for participating in a project without turning every session into a fresh start. It defines explicit human-agent roles, a small documentation surface, delivery checkpoints, and a lifecycle that keeps changes tied to the reasons they exist.
+The [method](docs/method/overview.md) exists to prevent that forgetting.
 
-Mirror Mind Builder Mode is the reference runtime for the first version of the method. Mirror provides journeys, project paths, memory, identity, skills, and context loading. Ariad provides the operating method those capabilities support.
+## The shape of the method
 
-The agent is the **Driver**. The human is the **Navigator**. The Driver reads, proposes, implements, validates, documents, and watches for drift. The Navigator holds intent, trade-offs, product judgment, and final validation.
+Ariad is built on three load-bearing ideas. They are small enough to internalize and complete enough to operate.
 
-The work stays coherent through a simple triad:
+**Two roles.** The agent is the [Driver](docs/method/driver-navigator.md). The human is the Navigator. The Driver reads, proposes, implements, validates, documents, and watches for drift. The Navigator holds intent, trade-offs, product judgment, and final validation. Neither replaces the other.
 
-- **Process**: how the work is done.
-- **Project**: what is being built and why.
-- **Product**: how the thing behaves for the people it serves.
+**Three dimensions.** Every change moves through the [triad](docs/method/triad.md) of **Process**, **Project**, and **Product** — how the work is done, what is being built and why, and how the thing behaves for the people it serves. Coherent work keeps the three in alignment.
 
-## Documentation
+**One rhythm.** Work flows through the [story lifecycle](docs/method/story-lifecycle.md): read and orient, plan, implement, test and validate, review, document, commit. The Driver self-conducts through the cycle, but [checkpoints](docs/method/checkpoints.md) pause the work for the Navigator at four deliberate moments.
 
-Run the local documentation site:
+Together these are the thread. Pull on any one and the others come with it.
+
+## Adopting Ariad
+
+A project adopts Ariad by giving its agents a small, explicit memory surface and a clear operating contract. The [adoption guide](docs/adoption/index.md) walks through the path.
+
+The shortest version:
+
+- [Install the method in a repository](docs/adoption/install-in-a-project.md). Copy the [project templates](docs/project-templates/index.md) and adapt them to the real context.
+- Let the agent help: [agent-assisted initialization](docs/adoption/agent-assisted-initialization.md) explains how to have the Driver inspect the project and draft the first project-specific documentation for Navigator review.
+- Run [the first adoption session](docs/adoption/first-adoption-session.md) to ground the method in a real, small change instead of an abstract documentation exercise.
+- Connect the project to an agentic coding runtime with the [Builder Mode guide](docs/adoption/builder-mode-guide.md).
+
+The reference runtime is **Mirror Mind**. The [Mirror extension Maestro](docs/extension/index.md) automates discovery, readiness checks, initialization, and updates of a local Ariad instance inside a Mirror Mind home.
+
+## Documentation site
+
+The full method site is built with MkDocs. To browse locally:
 
 ```bash
 uv sync
 uv run mkdocs serve
 ```
 
-Then open:
-
-```text
-http://127.0.0.1:8000
-```
+Then open `http://127.0.0.1:8000`.
 
 ## Status
 
-This repository is in an early pilot stage. The current goal is to make the method concrete enough to adopt in real projects while keeping it small enough to understand quickly.
+This repository is in an early pilot stage. The current goal is to make the method concrete enough to adopt in real projects while keeping it small enough to understand quickly. Feedback from real adoption shapes what gets added; ceremony for its own sake does not.
 
 ## License
 

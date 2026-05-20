@@ -22,3 +22,4 @@ The promise is not more ceremony. The promise is coherent progress.
 - [Story Lifecycle](method/story-lifecycle.md) describes how a change moves from intention to verified delivery.
 - [Install in a Project](adoption/install-in-a-project.md) shows how to adopt the method in a repository.
 - [Builder Mode Guide](adoption/builder-mode-guide.md) explains how to use the method with an agentic coding runtime.
+- [Mirror Extension](extension/index.md) describes the durable implementation path for Ariad inside Mirror Mind.

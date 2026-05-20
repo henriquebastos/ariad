@@ -6,7 +6,7 @@ The reference adoption path uses Mirror Mind Builder Mode. Mirror provides the r
 
 The first adoption model is deliberately manual. Copy the templates into the project, adapt them to the real context, connect a Mirror journey to the project path, and run one small change using the method. This keeps the method visible and avoids premature tooling.
 
-Future automation should be a Mirror extension with a skill surface. The extension can own deterministic operations such as initialization, adoption checks, template updates, and diagnostics. The skill surface can guide the agent-assisted workflow where interpretation and Navigator review matter.
+Future automation should be a [Mirror extension](../extension/index.md) with a skill surface. The extension can own deterministic operations such as initialization, adoption checks, template updates, and diagnostics. The skill surface can guide the agent-assisted workflow where interpretation and Navigator review matter.
 
 ## Adoption Goal
 

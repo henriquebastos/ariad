@@ -32,6 +32,7 @@ nav:
       - Install in a Project: adoption/install-in-a-project.md
       - Agent-Assisted Initialization: adoption/agent-assisted-initialization.md
       - Builder Mode Guide: adoption/builder-mode-guide.md
+      - First Adoption Session: adoption/first-adoption-session.md
 markdown_extensions:
   - admonition
   - toc:

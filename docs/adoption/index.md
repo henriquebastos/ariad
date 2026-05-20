@@ -26,4 +26,6 @@ Use [Install in a Project](install-in-a-project.md) to copy the templates into a
 
 Then use [Agent-Assisted Initialization](agent-assisted-initialization.md) to have the Driver inspect the project and draft the first project-specific documentation for Navigator review.
 
-Use [Builder Mode Guide](builder-mode-guide.md) to connect the project to a Mirror journey and run the first real Builder session.
+Use [Builder Mode Guide](builder-mode-guide.md) to connect the project to a Mirror journey.
+
+Use [First Adoption Session](first-adoption-session.md) to run the first real Builder session without turning adoption into an abstract documentation exercise.

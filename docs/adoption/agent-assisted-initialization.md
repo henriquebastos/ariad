@@ -10,6 +10,8 @@ This keeps adoption aligned with the method: the agent drives the repository wor
 
 Use agent-assisted initialization after copying the Ariad project templates into a repository and before the first meaningful Builder Mode cycle.
 
+The target project contains a local Ariad instance, not the canonical Ariad documentation. The Driver should draft project-specific docs for the target repository. If the canonical method itself needs to be inspected, ask the Navigator for the Ariad repository path or use the configured Mirror/Ariad extension when available.
+
 It works for existing projects and for new projects that already have enough context to describe purpose, product direction, and first work.
 
 ## Initialization Prompt

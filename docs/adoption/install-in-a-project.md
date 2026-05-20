@@ -2,7 +2,9 @@
 
 This is the manual pilot installation flow.
 
-The reference installation path assumes Mirror Mind Builder Mode as the runtime. The target project receives the Ariad documentation surface, and a Mirror journey points Builder Mode to that project.
+The reference installation path assumes Mirror Mind Builder Mode as the runtime. The target project receives a local Ariad instance, and a Mirror journey points Builder Mode to that project.
+
+Manual adoption does not vendor the full canonical Ariad documentation into the target project. The canonical source remains the Ariad repository. The project receives local operating docs that tell agents how to work in that project.
 
 Manual installation is intentional at this stage. It makes the method visible, keeps the project owner involved in the initial framing, and avoids hiding adoption behind tooling before the method has been tested in enough real contexts.
 

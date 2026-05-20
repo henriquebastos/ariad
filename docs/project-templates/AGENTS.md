@@ -2,7 +2,11 @@
 
 This project uses **Ariad**.
 
-Ariad is the canonical method. This repository's `docs/process/development-guide.md` is the local operating contract. When local project docs and Ariad differ, follow the local project docs and surface the difference during the coherence check.
+Ariad is the canonical method. This repository contains a local Ariad instance, not the canonical Ariad documentation. All project paths below are local to this repository.
+
+This repository's `docs/process/development-guide.md` is the local operating contract. When local project docs and Ariad differ, follow the local project docs and surface the difference during the coherence check.
+
+Canonical Ariad documentation is not vendored into this project. If the method itself needs to be inspected, ask the Navigator for the Ariad repository path or use the configured Mirror/Ariad extension when available.
 
 The agent is the **Driver**. The human is the **Navigator**.
 

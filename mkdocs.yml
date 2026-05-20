@@ -1,0 +1,40 @@
+site_name: Ariad
+site_description: The thread through the labyrinth of agentic software work.
+repo_url: https://github.com/alissonvale/ariad
+edit_uri: edit/main/docs/
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - content.action.edit
+    - content.code.copy
+nav:
+  - Home: index.md
+  - Method:
+      - method/index.md
+      - Overview: method/overview.md
+      - Driver and Navigator: method/driver-navigator.md
+      - Process, Project, Product: method/triad.md
+      - Story Lifecycle: method/story-lifecycle.md
+      - Checkpoints: method/checkpoints.md
+  - Project Templates:
+      - project-templates/index.md
+      - AGENTS.md: project-templates/AGENTS.md
+      - Project Briefing: project-templates/docs/project/briefing.md
+      - Decisions: project-templates/docs/project/decisions.md
+      - Roadmap: project-templates/docs/project/roadmap/index.md
+      - Worklog: project-templates/docs/process/worklog.md
+      - Product Principles: project-templates/docs/product/principles.md
+  - Adoption:
+      - adoption/index.md
+      - Install in a Project: adoption/install-in-a-project.md
+      - Agent-Assisted Initialization: adoption/agent-assisted-initialization.md
+      - Builder Mode Guide: adoption/builder-mode-guide.md
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+  - tables
+  - fenced_code

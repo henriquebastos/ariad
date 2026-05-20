@@ -38,3 +38,13 @@ http://127.0.0.1:8000
 ## Status
 
 This repository is in an early pilot stage. The current goal is to make the method concrete enough to adopt in real projects while keeping it small enough to understand quickly.
+
+## License
+
+Ariad is released under the [MIT License](LICENSE).
+
+### Using the templates
+
+The files in `docs/project-templates/` are designed to be copied into consumer projects and adapted to their context. When you copy a template into your own project, you do not need to preserve the Ariad copyright notice or carry the license text inside that project. The templates exist to be used; attribution is welcome but not required for files copied out as project scaffolding.
+
+The rest of the repository (canonical method docs, site configuration, and any future tooling) remains under the standard MIT terms: keep the copyright notice when redistributing.

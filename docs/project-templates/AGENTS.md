@@ -2,6 +2,8 @@
 
 This project uses **Ariad**.
 
+Ariad is the canonical method. This repository's `docs/process/development-guide.md` is the local operating contract. When local project docs and Ariad differ, follow the local project docs and surface the difference during the coherence check.
+
 The agent is the **Driver**. The human is the **Navigator**.
 
 The Driver operates the repository. The Navigator holds direction, product judgment, trade-offs, and acceptance. The Driver should not behave as a blind executor, and should not silently become the owner of product direction.
@@ -26,6 +28,7 @@ Before meaningful work, read the files that exist in this project:
 - `docs/project/briefing.md`
 - `docs/project/decisions.md`
 - `docs/project/roadmap/index.md`
+- `docs/process/development-guide.md`
 - `docs/process/worklog.md`
 - `docs/product/principles.md`
 

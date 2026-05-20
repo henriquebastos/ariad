@@ -25,6 +25,7 @@ nav:
       - Project Briefing: project-templates/docs/project/briefing.md
       - Decisions: project-templates/docs/project/decisions.md
       - Roadmap: project-templates/docs/project/roadmap/index.md
+      - Local Development Guide: project-templates/docs/process/development-guide.md
       - Worklog: project-templates/docs/process/worklog.md
       - Product Principles: project-templates/docs/product/principles.md
   - Adoption:

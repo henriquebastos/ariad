@@ -23,6 +23,7 @@ Install the project templates into the target repository and adapt the smallest 
 - `AGENTS.md`
 - `docs/project/briefing.md`
 - `docs/project/roadmap/index.md`
+- `docs/process/development-guide.md`
 - `docs/product/principles.md`
 
 Use [Agent-Assisted Initialization](agent-assisted-initialization.md) when possible. The Driver can inspect the repository and draft these files; the Navigator reviews and corrects the drafts.

@@ -30,6 +30,7 @@ Prepare drafts for:
 - docs/project/briefing.md
 - docs/product/principles.md
 - docs/project/roadmap/index.md
+- docs/process/development-guide.md
 - docs/project/decisions.md, only if you find real decisions worth preserving
 - docs/process/worklog.md, only if there is meaningful completed work to record
 - AGENTS.md, if it needs project-specific adjustments
@@ -54,6 +55,7 @@ A good initialization produces:
 - a briefing that explains what the project is and how work should happen,
 - product principles that guide trade-offs,
 - a roadmap with a current focus,
+- a local development guide with commands, validation, documentation, and release rules,
 - decisions only when there are real decisions to preserve,
 - a worklog only when there is meaningful completed work,
 - an `AGENTS.md` that tells future agents how to operate in this project.

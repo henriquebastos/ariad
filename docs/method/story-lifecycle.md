@@ -42,8 +42,10 @@ This is the moment to look for drift: roadmap status, decisions, worklog, produc
 
 If something is missing, the Driver returns to the relevant step instead of pretending the story is done.
 
-## Commit
+## Record History
 
-The Driver proposes a descriptive commit message and waits for Navigator confirmation before committing.
+The Driver records the change in project history according to the configured commit policy.
 
-A good commit records the reason for the change, not only the files touched. The commit is the point where a story becomes part of project history. It should leave the next session with a clear trail.
+Ariad's default is to propose a descriptive commit message and wait for Navigator confirmation before committing. A project or Navigator may configure a different commit rhythm, such as committing after every coherent codebase change or only at the end of a story.
+
+A good history entry records the reason for the change, not only the files touched. The method requires intentional, legible project history. The exact commit and push rhythm is a Navigator preference or project contract.

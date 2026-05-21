@@ -2,7 +2,7 @@
 
 Mirror Mind Builder Mode is the reference runtime for Ariad.
 
-Ariad can be read as a general method for human-agent software work, but its first concrete implementation assumes Mirror Mind. Mirror provides the runtime continuity: journeys, project paths, memory, identity, skills, and context loading. Ariad provides the operating method: Driver/Navigator roles, project documentation, story lifecycle, checkpoints, and coherence checks.
+Ariad can be read as a general method for human-agent software work, but its first concrete implementation assumes Mirror Mind. Mirror provides the runtime continuity: journeys, project paths, memory, identity, skills, and context loading. Ariad provides the operating method: Driver/Navigator roles, project documentation, story lifecycle, checkpoints, coherence checks, and opinionated Navigator preference defaults.
 
 ## How the Pieces Fit
 
@@ -46,7 +46,7 @@ Then activate Builder Mode:
 /mm-build <journey-slug>
 ```
 
-The agent should load the journey context, read the project documentation, apply the Driver/Navigator roles, and follow the story lifecycle and checkpoints.
+The agent should load the journey context, read the project documentation, apply the Driver/Navigator roles, and follow the story lifecycle and checkpoints. If the project defines Navigator preferences, such as commit frequency or push policy, the agent should follow them. If not, it should use Ariad defaults.
 
 ## First Builder Session
 
@@ -71,6 +71,6 @@ When the method is working, the Driver should:
 - provide concrete validation steps,
 - update documentation when the project state changes,
 - name follow-up work instead of absorbing it silently,
-- propose a commit message before committing.
+- propose a commit message before committing unless the local commit policy says otherwise.
 
 If the Driver skips these behaviors, update `AGENTS.md` or the project docs before adding more tooling. The first correction should be clarity, not automation.

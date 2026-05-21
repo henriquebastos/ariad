@@ -62,7 +62,7 @@ For non-trivial work, follow the Ariad lifecycle:
 - test and validate,
 - document,
 - review and coherence check,
-- commit after Navigator confirmation.
+- record project history according to the configured commit policy.
 
 Add any project-specific story rules here.
 
@@ -73,9 +73,20 @@ Stop for Navigator confirmation:
 - after the plan,
 - after tests and the validation route,
 - after review and refactoring assessment,
-- before commit and push.
+- before recording project history unless the local commit policy says otherwise.
 
 Add any project-specific checkpoint rules here.
+
+## Navigator Preferences
+
+Ariad ships with opinionated defaults. Override them here when this project or Navigator has a better local answer.
+
+- **Commit policy:** default is to commit after a coherent story or meaningful change is validated and accepted.
+- **Push policy:** default is to ask before pushing to a shared remote.
+- **Checkpoint compression:** default is full checkpoints for non-trivial work, compressed checkpoints only for trivial low-risk changes.
+- **Documentation detail:** default is the smallest documentation update that keeps the project coherent.
+- **Worklog policy:** default is to record meaningful milestones, not every edit.
+- **Branch/PR habits:** describe local branch, pull request, review, or merge expectations.
 
 ## Commit and Release Rules
 

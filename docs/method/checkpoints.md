@@ -11,9 +11,11 @@ For non-trivial work, the Driver stops:
 - after the plan,
 - after tests and the manual validation route,
 - after review and refactoring assessment,
-- before commit and push.
+- before recording the change in project history according to the configured commit policy.
 
 Between checkpoints, the Driver may operate without asking permission for every file. At checkpoints, the Driver stops for real. A confirmation releases the work until the next checkpoint, not through the entire lifecycle.
+
+Ariad's default is conservative: propose the commit message, wait for Navigator confirmation, then commit. Pushing to a shared remote is not a method invariant; it is a project contract or Navigator preference. When no preference is configured, ask before pushing.
 
 ## After the plan
 
@@ -33,11 +35,11 @@ The Driver reviews the changed surface, names design debt, and says what was cle
 
 This prevents the project from accumulating hidden structural cost while each individual story appears successful.
 
-## Before commit and push
+## Before recording history
 
-The Driver proposes the commit message and waits.
+The Driver proposes the commit message or history action and waits according to the configured commit policy.
 
-This gives the Navigator one final moment to check whether the story is coherent enough to enter project history.
+This gives the Navigator one final moment to check whether the story is coherent enough to enter project history. Ariad requires intentional history; the exact commit and push rhythm belongs to Navigator preferences or the project contract.
 
 ## Why checkpoints matter
 

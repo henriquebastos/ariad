@@ -18,7 +18,9 @@ Ariad is built on three load-bearing ideas. They are small enough to internalize
 
 **Three dimensions.** Every change moves through the [triad](docs/method/triad.md) of **Process**, **Project**, and **Product** — how the work is done, what is being built and why, and how the thing behaves for the people it serves. Coherent work keeps the three in alignment.
 
-**One rhythm.** Work flows through the [story lifecycle](docs/method/story-lifecycle.md): read and orient, plan, implement, test and validate, review, document, commit. The Driver self-conducts through the cycle, but [checkpoints](docs/method/checkpoints.md) pause the work for the Navigator at four deliberate moments.
+**One rhythm.** Work flows through the [story lifecycle](docs/method/story-lifecycle.md): read and orient, plan, implement, test and validate, review, document, record history. The Driver self-conducts through the cycle, but [checkpoints](docs/method/checkpoints.md) pause the work for the Navigator at four deliberate moments.
+
+**Opinionated defaults.** Ariad has a [method contract and Navigator preference defaults](docs/method/contracts-and-preferences.md). The contract protects coherence. The defaults give new users a complete starting posture. Advanced Navigators and projects can override preferences such as commit frequency, push policy, checkpoint compression, and documentation detail.
 
 Together these are the thread. Pull on any one and the others come with it.
 

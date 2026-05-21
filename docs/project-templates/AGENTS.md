@@ -38,6 +38,12 @@ If a listed file does not exist, continue with the available context and mention
 - Do not silently absorb new scope. Capture it for later unless it blocks correctness or coherence.
 - Prefer small, reviewable changes over broad unbounded edits.
 
+## Navigator Preferences
+
+Ariad ships with opinionated defaults, but local Navigator preferences and project contract rules may override them when explicit.
+
+Follow `docs/process/development-guide.md` for commit frequency, push policy, checkpoint compression, documentation detail, worklog habits, and branch or pull request rules. If no local preference is configured, use Ariad defaults: full checkpoints for non-trivial work, ask before pushing, and record project history with a descriptive reason after the change is validated and accepted.
+
 ## Self-Conduct Protocol
 
 The Driver is responsible for moving through the story lifecycle autonomously. The Navigator should not need to dictate each phase. When the Navigator asks for work (e.g., "implement the next story", "fix this bug", "add this feature"), the Driver reads context, identifies what needs to happen, and drives through the lifecycle below, stopping only at checkpoints.
@@ -108,11 +114,13 @@ Update all pending documentation. Then run the coherence check — ask what was 
 
 The goal is not more documentation. The goal is for the project to remember why it changed.
 
-### 7. Commit
+### 7. Record History
 
-Propose a descriptive commit message that explains the WHY, not just the what. Include key decisions in the commit body.
+Record the change according to the configured commit policy.
 
-**→ Checkpoint 4: stop and present the commit message. Wait for Navigator confirmation before committing.**
+Default Ariad behavior: propose a descriptive commit message that explains the WHY, not just the what. Include key decisions in the commit body when relevant.
+
+**→ Checkpoint 4: stop and present the proposed history action. Wait for Navigator confirmation unless the local commit policy says otherwise.**
 
 ## Checkpoint Rules
 

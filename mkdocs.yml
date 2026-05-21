@@ -19,6 +19,7 @@ nav:
       - Process, Project, Product: method/triad.md
       - Story Lifecycle: method/story-lifecycle.md
       - Checkpoints: method/checkpoints.md
+      - Contracts and Preferences: method/contracts-and-preferences.md
   - Project Templates:
       - project-templates/index.md
       - AGENTS.md: project-templates/AGENTS.md

@@ -2,6 +2,8 @@
 
 Ariad is opinionated, but not every opinion has the same authority.
 
+This distinction is connected to Ariad's [methodological roots](methodological-roots.md): XP contributes small verified change and feedback discipline; Kanban contributes visible work, explicit policies, and limits against uncontrolled scope expansion.
+
 The method ships with a recommended way to work because a method that begins completely neutral asks the Navigator to design a process before experiencing one. New users should be able to start with Ariad's defaults and get coherent behavior immediately.
 
 At the same time, Ariad should not confuse every recommended habit with an invariant of the method. Different Navigators, teams, and repositories may have different commit rhythms, push rules, branching habits, documentation detail levels, or checkpoint compression preferences.

@@ -161,7 +161,7 @@ The first useful slice makes the pilot flow repeatable: doctor, init, adopt, upd
 ## Installation
 
 ```bash
-git clone https://github.com/alissonvale/mirror-extensions ~/Code/mirror-extensions
+git clone https://github.com/mirror-mind-ai/extensions ~/Code/mirror-extensions
 
 uv run python -m memory extensions install maestro \
   --extensions-root ~/Code/mirror-extensions

@@ -21,6 +21,7 @@ The promise is not more ceremony. The promise is coherent progress.
 - [Process, Project, Product](method/triad.md) names the three dimensions of coherent work.
 - [Story Lifecycle](method/story-lifecycle.md) describes how a change moves from intention to verified delivery.
 - [Contracts and Preferences](method/contracts-and-preferences.md) separates Ariad's invariants from configurable Navigator preference defaults.
+- [Explicit Policies](method/explicit-policies.md) defines recurring operating policies, starting with coherent updates.
 - [Methodological Roots](method/methodological-roots.md) names Ariad's relationship with XP and Kanban.
 - [Install in a Project](adoption/install-in-a-project.md) shows how to adopt the method in a repository.
 - [Builder Mode Guide](adoption/builder-mode-guide.md) explains how to use the method with an agentic coding runtime.

@@ -20,6 +20,7 @@ nav:
       - Story Lifecycle: method/story-lifecycle.md
       - Checkpoints: method/checkpoints.md
       - Contracts and Preferences: method/contracts-and-preferences.md
+      - Explicit Policies: method/explicit-policies.md
       - Methodological Roots: method/methodological-roots.md
   - Project Templates:
       - project-templates/index.md

@@ -22,6 +22,8 @@ Ariad is built on three load-bearing ideas. They are small enough to internalize
 
 **Opinionated defaults.** Ariad has a [method contract and Navigator preference defaults](docs/method/contracts-and-preferences.md). The contract protects coherence. The defaults give new users a complete starting posture. Advanced Navigators and projects can override preferences such as commit frequency, push policy, checkpoint compression, and documentation detail.
 
+**Explicit policies.** Ariad makes recurring operational decisions visible through [explicit policies](docs/method/explicit-policies.md), starting with coherent updates to runtimes, methods, migrations, templates, and installed tooling.
+
 **Methodological roots.** Ariad's strongest [roots](docs/method/methodological-roots.md) are XP and Kanban: small verified change, feedback, refactoring, visible work, explicit policies, and limits against uncontrolled scope expansion.
 
 Together these are the thread. Pull on any one and the others come with it.

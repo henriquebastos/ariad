@@ -1,12 +1,12 @@
 # Checkpoints
 
-Checkpoints are moments where the Driver stops and the Navigator exercises judgment.
+Checkpoints are moments in Delivery Work where the Driver stops and the Navigator exercises judgment.
 
-They exist because coding agents can convert ambiguity into motion faster than humans can notice the drift. A checkpoint does not slow the work for its own sake. It gives direction a place to re-enter the work before the next slice begins.
+They exist because coding agents can convert ambiguity into motion faster than humans can notice the drift. A checkpoint does not slow the work for its own sake. It gives direction a place to re-enter the work before the next Delivery Story or behavior checkpoint begins.
 
 ## Mandatory checkpoints
 
-For non-trivial work, the Driver stops:
+For non-trivial Delivery Work, the Driver stops:
 
 - after the plan,
 - after tests and the manual validation route,
@@ -43,4 +43,4 @@ This gives the Navigator one final moment to check whether the story is coherent
 
 ## Why checkpoints matter
 
-The point is not ceremony. The point is preserving agency where it belongs. The agent can drive, but it should not silently own direction. Product judgment remains human, and checkpoints are how the method protects that judgment without requiring constant micromanagement.
+The point is not ceremony. The point is preserving agency where it belongs. The agent can drive, but it should not silently own direction. Product judgment remains human, and checkpoints are how Delivery protects that judgment without requiring constant micromanagement.

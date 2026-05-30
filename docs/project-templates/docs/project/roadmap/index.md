@@ -2,11 +2,13 @@
 
 The roadmap describes meaningful progress, not every task.
 
-Use the simplest hierarchy that fits the project. A useful default for software work is:
+Use the simplest hierarchy that fits the project. Ariad's default delivery taxonomy is:
 
-- **Capability**: a major user-visible or contributor-visible stage.
-- **Epic**: a cohesive block of work inside a capability.
-- **Story**: an atomic delivery that can be verified end to end.
+- **Value / CV**: a major delivery stage with clear impact. Ariad's default CV means Capability Value.
+- **Epic**: a cohesive block of work inside a Value / CV, with a done condition.
+- **Delivery Story**: an atomic delivery that can be verified end to end through observable behavior or capability.
+- **Task**: concrete work inside a Delivery Story.
+- **Maintenance**: legitimate work that may sit outside the roadmap hierarchy.
 
 Do not inflate maintenance work into roadmap structure just to make it visible. Use the worklog for meaningful operational progress and the radar for future possibilities.
 

@@ -53,7 +53,25 @@ Common documentation surfaces:
 - `docs/process/worklog.md`
 - `docs/product/principles.md`
 
-## Story Lifecycle
+## Roadmap Taxonomy
+
+Use Ariad's default taxonomy unless this project explicitly adapts it:
+
+- Value / CV: major delivery stage with clear impact.
+- Epic: cohesive block of work inside a Value / CV.
+- Delivery Story: atomic delivery that can be verified end to end through observable behavior or capability. For non-UI work, the validation route may be a dry-run, diagnostic, operation report, generated artifact, documented policy, runtime state, or other inspectable output.
+- Task: concrete work inside a Delivery Story.
+- Maintenance: legitimate work that may sit outside roadmap structure.
+
+Do not inflate maintenance into the roadmap just to make it visible.
+
+## Expand and Collapse
+
+Use expand when work is blocked by ambiguity: separate concerns, name options, clarify scope, or expand an Epic into Delivery Stories.
+
+Use collapse when work is lost in fragments: relate parts, update status, name emergent value, close a Delivery Story, close an Epic, or prepare a release boundary.
+
+## Delivery Story Lifecycle
 
 For non-trivial work, follow the Ariad lifecycle:
 
@@ -91,6 +109,8 @@ Ariad ships with opinionated defaults. Override them here when this project or N
 ## Commit and Release Rules
 
 Describe branch, commit, push, pull request, versioning, and release expectations for this project.
+
+If the work creates a release boundary, name the likely boundary explicitly: Value / CV, Epic, Delivery Story, or Maintenance.
 
 ## Local Exceptions
 

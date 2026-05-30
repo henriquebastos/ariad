@@ -15,13 +15,27 @@ nav:
   - Method:
       - method/index.md
       - Overview: method/overview.md
+      - Work Areas: method/work-areas.md
+      - Expand and Collapse: method/expand-collapse.md
       - Driver and Navigator: method/driver-navigator.md
       - Process, Project, Product: method/triad.md
-      - Story Lifecycle: method/story-lifecycle.md
-      - Checkpoints: method/checkpoints.md
       - Contracts and Preferences: method/contracts-and-preferences.md
       - Explicit Policies: method/explicit-policies.md
       - Methodological Roots: method/methodological-roots.md
+  - Exploration:
+      - exploration/index.md
+      - Conceptual Model: exploration/conceptual-model.md
+      - Exploratory Flow: exploration/flow.md
+      - Visual Grammar: exploration/visual-grammar.md
+  - Delivery:
+      - delivery/index.md
+      - Roadmap Taxonomy: delivery/roadmap-taxonomy.md
+      - Conceptual Model: delivery/conceptual-model.md
+      - Delivery Flow: delivery/flow.md
+      - Visual Grammar: delivery/visual-grammar.md
+      - Release Management: delivery/release-management.md
+      - Delivery Story Lifecycle: delivery/story-lifecycle.md
+      - Checkpoints: delivery/checkpoints.md
   - Project Templates:
       - project-templates/index.md
       - AGENTS.md: project-templates/AGENTS.md

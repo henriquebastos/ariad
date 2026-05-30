@@ -4,13 +4,19 @@ Ariad is not a collage of existing methods. It is a method for human-agent softw
 
 Still, it has roots. Naming those roots matters because it keeps Ariad honest about what it inherits and what it transforms.
 
-The strongest methodological roots in Ariad are **Extreme Programming** and **Kanban**.
+Ariad's roots differ across its two work areas.
+
+**Delivery** is rooted most strongly in **Extreme Programming** and **Kanban**: small verified change, fast feedback, explicit policies, visible work, refactoring, and limits against uncontrolled scope expansion.
+
+**Exploration** is rooted in Complexity Theory, Cynefin, sensemaking, inquiry, discovery work, and reflective practice: preserving weak signals, thickening context, forming hypotheses, learning through safe experiments, and delaying commitment until enough form has emerged.
+
+This distinction matters. Delivery protects execution from drift. Exploration protects discovery from premature closure.
 
 ## From Extreme Programming
 
 Ariad inherits XP's bias toward small, verified, continuously integrated work.
 
-The story lifecycle echoes XP's discipline of moving in small slices: clarify intention, implement narrowly, validate, refactor when needed, and leave the system better understood than before.
+The Delivery Story lifecycle echoes XP's discipline of moving through small verified changes: clarify intention, implement narrowly, validate, refactor when needed, and leave the system better understood than before.
 
 XP also informs Ariad's view of feedback. A change is not done because the Driver produced code. It is done when the project can verify it and the Navigator can judge whether it fits the intention.
 
@@ -55,9 +61,27 @@ The Driver should avoid expanding scope before the current work has collapsed in
 
 This is Ariad's version of limiting WIP: protect the current story until it reaches a coherent collapse: implemented, validated, reviewed, documented, and ready to enter project history.
 
+## From Sensemaking and Inquiry
+
+Exploration inherits a different discipline from Delivery.
+
+Where Delivery asks for bounded change, Exploration asks for attention before commitment. It treats early material as signals, not tasks. A signal can be a repeated friction, a bug that is not yet understood, a discomfort in the product, a methodological gap, a contradiction between documents, or a pattern appearing across sessions.
+
+Ariad's exploratory side borrows from Complexity Theory, Cynefin, and traditions of sensemaking and inquiry without importing any one framework wholesale. It values:
+
+- preserving weak signals before they disappear;
+- relating signals until a field becomes readable;
+- forming inquiries instead of jumping to solutions;
+- allowing competing hypotheses;
+- using experiments to introduce new material into the field;
+- promoting only what has gained enough form for Delivery;
+- archiving material without pretending it was wasted.
+
+This is why Exploration is organized around narrative thickening rather than task completion. Progress is not the closing of a ticket. Progress is the condensation of meaning.
+
 ## What Ariad Changes
 
-XP and Kanban were designed for human teams. Ariad is designed for human-agent collaboration.
+XP, Kanban, and many discovery practices were designed for human teams. Ariad is designed for human-agent collaboration.
 
 The agent introduces a new failure mode: it can produce movement faster than the human can notice that direction has shifted. Ariad's checkpoints, Driver/Navigator roles, and coherence checks exist to protect human judgment inside that acceleration.
 
@@ -71,4 +95,4 @@ Ariad does not require a Kanban board.
 
 Ariad does not import every XP or Kanban practice.
 
-It borrows the parts that protect coherence in agentic software work: small verified change, fast feedback, visible work, explicit policies, and limits against uncontrolled scope expansion.
+It borrows the parts that protect coherence in agentic software work: small verified change, fast feedback, visible work, explicit policies, limits against uncontrolled scope expansion, weak signal preservation, hypothesis formation, exploratory experiments, and disciplined passage from discovery into delivery.

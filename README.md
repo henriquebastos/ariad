@@ -2,7 +2,7 @@
 
 **Ariad is the thread through the labyrinth of agentic software work.**
 
-It is a method for integral agentic development: human-agent development that keeps the work whole over time.
+It is a method for integral agentic development: human-agent development that keeps the work whole over time, from the first weak signal to verified delivery.
 
 ## Why Ariad exists
 
@@ -12,19 +12,29 @@ The [method](docs/method/overview.md) exists to prevent that forgetting.
 
 ## The shape of the method
 
-Ariad is built on three load-bearing ideas. They are small enough to internalize and complete enough to operate.
+Ariad distinguishes two kinds of agentic software work: **Exploratory Work** and **Delivery Work**.
+
+[**Exploration**](docs/exploration/index.md) preserves and thickens signals before commitment. It holds bugs that are noticed but not understood, product discomforts that keep returning, methodological gaps that are felt before they can become proposals, and patterns that need attention before they deserve roadmap weight.
+
+[**Delivery**](docs/delivery/index.md) turns formed intent into verified change. It uses stories, checkpoints, validation, documentation, coherence checks, and intentional history to keep bounded change legible and trustworthy.
+
+The [work areas](docs/method/work-areas.md) page explains the boundary and passage between Exploration and Delivery. [Expand and Collapse](docs/method/expand-collapse.md) explains the operating rhythm, while [Roadmap Taxonomy](docs/delivery/roadmap-taxonomy.md) and [Release Management](docs/delivery/release-management.md) define how delivery arcs become recognized value and releases.
+
+Runtimes may implement these areas as modes. Ariad defines them as methodological work areas. Maestro, the Mirror extension, may speak of Exploratory Mode or Builder Mode because it executes and renders the method inside a runtime.
+
+Ariad is built on a small set of load-bearing ideas. They are simple enough to internalize and complete enough to operate.
 
 **Two roles.** The agent is the [Driver](docs/method/driver-navigator.md). The human is the Navigator. The Driver reads, proposes, implements, validates, documents, and watches for drift. The Navigator holds intent, trade-offs, product judgment, and final validation. Neither replaces the other.
 
-**Three dimensions.** Every change moves through the [triad](docs/method/triad.md) of **Process**, **Project**, and **Product** — how the work is done, what is being built and why, and how the thing behaves for the people it serves. Coherent work keeps the three in alignment.
+**Three dimensions.** Every change moves through the [triad](docs/method/triad.md) of **Process**, **Project**, and **Product**: how the work is done, what is being built and why, and how the thing behaves for the people it serves. Coherent work keeps the three in alignment.
 
-**One rhythm.** Work flows through the [story lifecycle](docs/method/story-lifecycle.md): read and orient, plan, implement, test and validate, review, document, record history. The Driver self-conducts through the cycle, but [checkpoints](docs/method/checkpoints.md) pause the work for the Navigator at four deliberate moments.
+**One passage.** Work can begin as exploration and later cross into delivery. A signal becomes an Exploratory Story; an Exploratory Story may thicken into a candidate; a candidate may become a Delivery Story when the Navigator accepts it. Ariad protects that passage so discovery does not prematurely become commitment, and commitment does not lose the inquiry that shaped it.
 
 **Opinionated defaults.** Ariad has a [method contract and Navigator preference defaults](docs/method/contracts-and-preferences.md). The contract protects coherence. The defaults give new users a complete starting posture. Advanced Navigators and projects can override preferences such as commit frequency, push policy, checkpoint compression, and documentation detail.
 
 **Explicit policies.** Ariad makes recurring operational decisions visible through [explicit policies](docs/method/explicit-policies.md), starting with coherent updates to runtimes, methods, migrations, templates, and installed tooling.
 
-**Methodological roots.** Ariad's strongest [roots](docs/method/methodological-roots.md) are XP and Kanban: small verified change, feedback, refactoring, visible work, explicit policies, and limits against uncontrolled scope expansion.
+**Methodological roots.** Ariad's [roots](docs/method/methodological-roots.md) differ by work area. Delivery draws most strongly from XP and Kanban. Exploration draws from Complexity Theory, Cynefin, sensemaking, inquiry, discovery work, and reflective practice.
 
 Together these are the thread. Pull on any one and the others come with it.
 

@@ -59,13 +59,13 @@ Activate Builder Mode:
 /mm-build <journey-slug>
 ```
 
-The Driver should load the journey context, read the Ariad project docs, and propose a first small story.
+The Driver should load the journey context, read the Ariad project docs, show the roadmap surface, and propose a first small pull: a Delivery Story or maintenance item. If the first useful work is still unclear, the Driver should name it as Exploration instead of forcing delivery.
 
-## The First Story
+## The First Pull
 
 Choose something small enough to complete in one session.
 
-Good first stories usually improve confidence without requiring broad architecture changes. Examples:
+Good first pulls usually improve confidence without requiring broad architecture changes. They may be a Delivery Story or meaningful maintenance. Examples:
 
 - document the current setup and verification command,
 - add one small missing test,
@@ -73,7 +73,7 @@ Good first stories usually improve confidence without requiring broad architectu
 - clarify one README section,
 - add one small feature with clear validation.
 
-Avoid vague goals such as "refactor the project", "improve architecture", or "make it production-ready". The first story should test the method, not exhaust it.
+Avoid vague goals such as "refactor the project", "improve architecture", or "make it production-ready". If the work is too large, expand it into an Epic and choose one Delivery Story. If the work is ambiguous, keep it in Exploration until it can collapse into a candidate. The first pull should test the method, not exhaust it.
 
 ## Expected Session Shape
 
@@ -94,4 +94,4 @@ The main evidence is not that many files changed. The evidence is that the Drive
 
 Record what happened in the target project's worklog if the session produced a meaningful milestone.
 
-If the adoption flow revealed friction, record it in the Ariad journey or roadmap. Early adoption is not only delivery; it is method discovery.
+If the adoption flow revealed friction, record it in the Ariad journey, roadmap, worklog, or Exploration surface. Early adoption is not only delivery; it is method discovery.

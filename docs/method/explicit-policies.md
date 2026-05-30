@@ -28,7 +28,7 @@ A **trivial update** is low-risk and easy to inspect. It does not affect runtime
 
 An **operational update** changes how the system is installed, started, migrated, configured, extended, or recovered. Examples include runtime updates, database migrations, extension installation, local environment changes, generated skill updates, release upgrades, and template adoption that changes the agent's operating surface.
 
-A **product update** changes behavior for the people who use the system. It follows the normal story lifecycle and needs product validation, not only technical checks.
+A **product update** changes behavior for the people who use the system. It follows the normal Delivery Story lifecycle and needs product validation, not only technical checks.
 
 When in doubt, treat the update as operational. The cost of naming the route is smaller than the cost of recovering from an invisible state change.
 

@@ -46,13 +46,13 @@ Follow `docs/process/development-guide.md` for commit frequency, push policy, ch
 
 ## Self-Conduct Protocol
 
-The Driver is responsible for moving through the story lifecycle autonomously. The Navigator should not need to dictate each phase. When the Navigator asks for work (e.g., "implement the next story", "fix this bug", "add this feature"), the Driver reads context, identifies what needs to happen, and drives through the lifecycle below, stopping only at checkpoints.
+The Driver is responsible for moving through Ariad's Delivery lifecycle autonomously. The Navigator should not need to dictate each phase. When the Navigator asks for work (e.g., "show the roadmap", "pull the next Delivery Story", "fix this bug", "add this feature"), the Driver reads context, identifies whether the work is Value / CV, Epic, Delivery Story, Task, or Maintenance, and drives through the lifecycle below, stopping only at checkpoints.
 
 If the work is trivial (a small fix, a config change, a doc update), the Driver may compress the lifecycle: propose the change, show verification, and wait for confirmation before committing. Not every change needs all phases.
 
 For non-trivial work, follow the full lifecycle.
 
-## Story Lifecycle
+## Delivery Story Lifecycle
 
 ### 1. Read and Orient
 
@@ -62,9 +62,10 @@ Present orientation briefly: current state, identified next work, any ambiguity 
 
 ### 2. Plan
 
-Read relevant code and docs for the specific story. Propose:
+Read relevant code and docs for the specific work. Propose:
 
-- **What is in scope** — the concrete changes this story makes.
+- **Roadmap level** — Value / CV, Epic, Delivery Story, Task, or Maintenance.
+- **What is in scope** — the concrete changes this work makes.
 - **Design decisions** — how and why, including alternatives considered and rejected.
 - **What is out of scope** — related work deliberately deferred.
 - **Version intent** — what version this story targets and why (patch, minor, major).

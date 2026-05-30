@@ -1,0 +1,55 @@
+# Delivery Story Lifecycle
+
+A Delivery Story is the normal unit of meaningful change in Delivery Work.
+
+A Delivery Story is not just a task. A task can be completed locally: edit a file, rename a function, add a test. A Delivery Story creates a recognizable change in the project. It has intent, scope, implementation, validation, documentation, and a moment where the Navigator can say: this is done.
+
+The lifecycle exists to keep Delivery Work bounded enough to finish and coherent enough to trust.
+
+## Plan
+
+The Driver begins by reading the relevant code and project documentation. It identifies what kind of work this is, what context matters, what is in scope, what is out of scope, which risks or trade-offs should be visible before implementation, and whether the work is truly one Delivery Story or should be expanded as an Epic.
+
+The plan must name the observable behavior or capability that will close the story. For non-UI work, the observable route may be a dry-run, diagnostic, operation report, generated artifact, documented policy, or runtime state. If the Driver can only name private implementation steps, the work should be reframed before implementation.
+
+For non-trivial Delivery Work, the Driver presents the plan and stops. The Navigator confirms, redirects, or narrows the route. This checkpoint is important because an agent can turn vague intention into concrete changes very quickly. The plan is where speed becomes direction.
+
+## Implement
+
+The Driver changes the repository to implement the Delivery Story. A Delivery Story should add behavior or capability that can be verified and observed through its validation route. Behavior changes should be test-driven when practical. Refactoring can happen inside the story when it supports the story's coherence, but new scope should not be silently absorbed.
+
+If implementation is too large to reach one coherent behavior validation point, the Driver should not hide that size inside the story. The work should become an Epic and be expanded into smaller Delivery Stories.
+
+If the work reveals a larger problem, the Driver names it. Some discoveries belong inside the current story because they block correctness. Others should become follow-up work. The Driver protects the story boundary so the Navigator can still recognize what is being delivered.
+
+## Test and Validate
+
+The Driver runs the relevant automated checks and prepares a behavior validation route.
+
+Automated tests tell the project that the implementation still satisfies known contracts. Behavior validation tells the Navigator how to inspect whether the change matches the intention. A good validation route is concrete: commands to run, files to inspect, URLs to open, expected observations, and conscious exclusions.
+
+For user-visible or product-visible work, automated tests alone are not enough. The Navigator needs a way to see the change. For technical stories inside an Epic, the Driver may record internal verification and continue until the next Navigator-visible behavior checkpoint.
+
+## Document
+
+Documentation changes happen in the same cycle as the change they describe.
+
+Documentation is not cleanup. It is part of the project memory. When code changes without documentation, future agents inherit a repository that works but cannot explain itself. When documentation changes without validation, future agents inherit confidence without proof.
+
+The Driver updates the smallest documentation surface needed to keep process, project, and product aligned.
+
+## Review and Coherence Check
+
+The Driver reviews what changed and why. It names design debt, checks whether refactoring is needed, and asks what was forgotten across the triad.
+
+This is the moment to look for drift: roadmap status, decisions, worklog, product principles, command references, tests, validation notes, and any instruction file the agent will read in future sessions.
+
+If something is missing, the Driver returns to the relevant step instead of pretending the story is done.
+
+## Record History
+
+The Driver records the change in project history according to the configured commit policy.
+
+Ariad's default is to propose a descriptive commit message and wait for Navigator confirmation before committing. A project or Navigator may configure a different commit rhythm, such as committing after every coherent codebase change or only at the end of a story.
+
+A good history entry records the reason for the change, not only the files touched. The method requires intentional, legible project history. The exact commit and push rhythm is a Navigator preference or project contract.

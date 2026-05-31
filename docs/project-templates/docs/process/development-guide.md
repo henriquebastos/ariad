@@ -50,6 +50,7 @@ Common documentation surfaces:
 - `docs/project/briefing.md`
 - `docs/project/decisions.md`
 - `docs/project/roadmap/index.md`
+- `docs/project/debt.md`
 - `docs/process/worklog.md`
 - `docs/product/principles.md`
 
@@ -58,24 +59,30 @@ Common documentation surfaces:
 Use Ariad's default taxonomy unless this project explicitly adapts it:
 
 - Value / CV: major delivery stage with clear impact.
-- Epic: cohesive block of work inside a Value / CV.
-- Delivery Story: atomic delivery that can be verified end to end through observable behavior or capability. For non-UI work, the validation route may be a dry-run, diagnostic, operation report, generated artifact, documented policy, runtime state, or other inspectable output.
-- Task: concrete work inside a Delivery Story.
+- Delivery Story: coherent delivery arc inside a Value / CV.
+- User Story: atomic user-observable delivery that can be verified end to end through observable behavior or capability. For non-UI work, the validation route may be a dry-run, diagnostic, operation report, generated artifact, documented policy, runtime state, or other inspectable output.
+- Technical Story: internal capability needed by a Delivery Story, still verified but not necessarily Navigator-visible by itself.
+- Task: concrete work inside a User Story or Technical Story.
 - Maintenance: legitimate work that may sit outside roadmap structure.
 
 Do not inflate maintenance into the roadmap just to make it visible.
 
+Use Ariad's default new-work codes unless this project explicitly adapts them: `CV<N>` for Values, `DS<N>` for Delivery Stories, `US<N>` for User Stories, and `TS<N>` for Technical Stories. Roadmap folders should use lowercase slugs such as `cv9-ds7-conversation-metadata-lifecycle` and child folders such as `cv9-ds7-us1-dry-run-metadata-lifecycle-decision-path`.
+
+Use Ariad's default roadmap states unless this project explicitly adapts them: `Planned`, `Active`, `Blocked`, `Validated`, `Done`, `Deferred`, and `Dropped`. When work cannot proceed, prefer `Blocked` with a reason over runtime warning labels such as `Attention`.
+
 ## Expand and Collapse
 
-Use expand when work is blocked by ambiguity: separate concerns, name options, clarify scope, or expand an Epic into Delivery Stories.
+Use expand when work is blocked by ambiguity: separate concerns, name options, clarify scope, or expand a Delivery Story into User Stories.
 
-Use collapse when work is lost in fragments: relate parts, update status, name emergent value, close a Delivery Story, close an Epic, or prepare a release boundary.
+Use collapse when work is lost in fragments: relate parts, update status, name emergent value, close a User Story or Technical Story, close a Delivery Story, or prepare a release boundary.
 
-## Delivery Story Lifecycle
+## User and Technical Story Lifecycle
 
 For non-trivial work, follow the Ariad lifecycle:
 
 - plan,
+- name User Story acceptance behavior, preferably as Given / When / Then / And,
 - implement,
 - test and validate,
 - document,
@@ -84,12 +91,26 @@ For non-trivial work, follow the Ariad lifecycle:
 
 Add any project-specific story rules here.
 
+## Technical Debt Tracking
+
+Use `docs/project/debt.md` when debt should outlive one story's review notes.
+
+During Review, name:
+
+- debt paid;
+- new debt introduced;
+- debt carried forward;
+- revisit trigger;
+- whether a Debt Ledger entry should be created or updated.
+
+Small local debt can be captured as follow-up. Debt that may affect future delivery, safety, maintainability, validation, operation, or product coherence should enter the ledger.
+
 ## Checkpoints
 
 Stop for Navigator confirmation:
 
-- after the plan,
-- after tests and the validation route,
+- after the Plan Checkpoint surface is shown; creating `plan.md` does not replace the visible checkpoint,
+- after automated checks, with a concrete Navigator validation route that includes expected observations, pass condition, and fail condition,
 - after review and refactoring assessment,
 - before recording project history unless the local commit policy says otherwise.
 
@@ -110,7 +131,7 @@ Ariad ships with opinionated defaults. Override them here when this project or N
 
 Describe branch, commit, push, pull request, versioning, and release expectations for this project.
 
-If the work creates a release boundary, name the likely boundary explicitly: Value / CV, Epic, Delivery Story, or Maintenance.
+If the work creates a release boundary, name the likely boundary explicitly: Value / CV, Delivery Story, User Story, Technical Story, or Maintenance.
 
 ## Local Exceptions
 

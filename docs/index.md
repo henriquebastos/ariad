@@ -29,11 +29,11 @@ The promise is not more ceremony. The promise is coherent progress.
 - [Expand and Collapse](method/expand-collapse.md) explains the rhythm by which work differentiates and reintegrates.
 - [Exploration](exploration/index.md) holds pre-roadmap signals, inquiries, hypotheses, experiments, and candidates before they become delivery work.
 - [Delivery](delivery/index.md) explains how formed intent becomes verified change.
-- [Roadmap Taxonomy](delivery/roadmap-taxonomy.md) defines Value/CV, Epic, Delivery Story, Task, and Maintenance.
+- [Roadmap Taxonomy](delivery/roadmap-taxonomy.md) defines Value/CV, Delivery Story, User Story, Technical Story, Task, and Maintenance.
 - [Release Management](delivery/release-management.md) defines release boundaries, release intent, release notes, and default versioning policy.
 - [Driver and Navigator](method/driver-navigator.md) defines the human-agent collaboration roles.
 - [Process, Project, Product](method/triad.md) names the three dimensions of coherent work.
-- [Delivery Story Lifecycle](delivery/story-lifecycle.md) describes the delivery rhythm for bounded change.
+- [User and Technical Story Lifecycle](delivery/story-lifecycle.md) describes the delivery rhythm for bounded change.
 - [Checkpoints](delivery/checkpoints.md) names the pauses where Navigator judgment re-enters delivery work.
 - [Contracts and Preferences](method/contracts-and-preferences.md) separates Ariad's invariants from configurable Navigator preference defaults.
 - [Explicit Policies](method/explicit-policies.md) defines recurring operating policies, starting with coherent updates.

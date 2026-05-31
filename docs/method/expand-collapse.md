@@ -43,9 +43,9 @@ Examples:
 | Intention into options | Optionality |
 | Problem into causes | Diagnosability |
 | Decision into trade-offs | Evaluability |
-| Value into Epics | Strategic progress |
-| Epic into Delivery Stories | Behavior validation |
-| Delivery Story into tasks | Executability |
+| Value into Delivery Stories | Strategic progress |
+| Delivery Story into User Stories / Technical Stories | Behavior validation and internal capability |
+| User Story / Technical Story into tasks | Executability |
 | Behavior into cases | Testability |
 | Change into risks | Prudence |
 | Document into sections | Navigability |
@@ -57,7 +57,7 @@ Collapse is the right movement when work is lost in fragments.
 Signals:
 
 - many files changed but the value is hard to name;
-- several Delivery Stories are done but Epic status is unclear;
+- several User Stories are done but Delivery Story status is unclear;
 - roadmap, docs, and implementation describe different states;
 - a version exists but has no narrative release note;
 - a refactor fixed parts but did not explain the new whole;
@@ -87,8 +87,8 @@ Examples:
 | Documentation collapses facts | Transmissibility |
 | Review collapses changes | Discernment |
 | Coherence check collapses artifacts | Coherence |
-| Delivery Stories collapse into Epic | Capability |
-| Epics collapse into Value / CV | Value recognition |
+| User Stories and Technical Stories collapse into Delivery Story | Capability |
+| Delivery Stories collapse into Value / CV | Value recognition |
 | Release note collapses changes | Public narrativity |
 | Version collapses delivery | Milestone |
 
@@ -98,7 +98,7 @@ Exploration and Delivery both use expand/collapse, but they use the rhythm diffe
 
 Exploration expands weak signals into richer meaning. A signal may expand into an Exploratory Story, gather related material, form clusters, open inquiries, test hypotheses, and then collapse into a candidate for Delivery.
 
-Delivery expands formed intent into verifiable structure. A Value expands into Epics, an Epic expands into Delivery Stories, and a Delivery Story expands into tasks. Delivery then collapses in the reverse direction: tasks close stories, stories close Epics, Epics close Values, and release management may name the public boundary.
+Delivery expands formed intent into verifiable structure. A Value expands into Delivery Stories, a Delivery Story expands into User Stories and Technical Stories, and a User Story or Technical Story expands into tasks. Delivery then collapses in the reverse direction: tasks close User Stories and Technical Stories, child stories close Delivery Stories, Delivery Stories close Values, and release management may name the public boundary.
 
 ## Making the movement visible
 
@@ -108,10 +108,10 @@ Use short narration at transitions and checkpoints:
 
 - "I am expanding this ambiguity into options."
 - "I am collapsing these findings into a plan."
-- "This pulled item is too large for one behavior checkpoint, so I am expanding it into an Epic and Delivery Stories."
+- "This pulled item is too large for one behavior checkpoint, so I am expanding it into a Delivery Story with User Stories and Technical Stories."
 - "I am collapsing the implementation into a validation route."
 - "Before closing, I am collapsing the artifacts through a coherence check."
-- "These Delivery Stories now collapse into the Epic; the next question is release intent."
+- "These User Stories now collapse into the Delivery Story; the next question is release intent."
 
 Do not narrate every micro-step. The goal is orientation, not self-commentary.
 

@@ -16,7 +16,7 @@ Exploration
 │  active Exploratory Stories                            │
 │  ▧ ES-001 Conversation metadata lifecycle              │
 │    state: promoted to Delivery                         │
-│    promoted as: CV9.E2.S5 Conversation Metadata        │
+│    promoted as: CV9.DS7 Conversation Metadata          │
 │    Lifecycle                                           │
 │                                                        │
 │  experiments                                           │
@@ -602,9 +602,9 @@ It can be promoted into Delivery when the Navigator accepts the candidate.
 
 Before or during promotion, the Driver should offer to generate Exploration Documentation. This is especially important when the exploration contains attractor evolution, experiments, Carry Forward Notes, or kept-for-later signals.
 
-The full document belongs to the Exploration area because it records the exploratory history. If the candidate promotes, the future Delivery Epic or Delivery Story should also receive a concise exploration summary with a link to the full document.
+The full document belongs to the Exploration area because it records the exploratory history. If the candidate promotes, the future Delivery Story should also receive a concise exploration summary with a link to the full document.
 
-Promotion means the candidate enters the Delivery field. By default, promoted Exploration candidates become an Epic or trigger Epic Expansion, because they usually contain multiple behavior boundaries. The handoff should include suggested roadmap placement, Epic seed, candidate Delivery Stories, validation seeds, pull state, and links to relevant Exploration Documentation. Promotion does not necessarily mean immediate implementation; the Epic may be ready for expansion, placed in backlog, or narrowed into a rare direct Delivery Story when it is truly story-sized.
+Promotion means the candidate enters the Delivery field. By default, promoted Exploration candidates become a Delivery Story, because they usually contain multiple behavior boundaries. The handoff should include suggested roadmap placement, Delivery Story seed, candidate User Stories and Technical Stories, validation seeds, pull state, and links to relevant Exploration Documentation. Promotion does not necessarily mean immediate implementation; the Delivery Story may be ready for expansion, placed in backlog, or narrowed into a rare direct User Story when it is truly behavior-sized.
 
 The Navigator says:
 
@@ -616,7 +616,7 @@ The Driver may first generate documentation:
 exploration_documented
   source: ES-042 Checkout address-step abandonment
   full_document: docs/project/exploration/es-042-checkout-address-step-abandonment.md
-  delivery_summary: docs/project/roadmap/cv2-checkout-recovery/cv2-e3/cv2-e3-s4/exploration-summary.md
+  delivery_summary: docs/project/roadmap/cv2-checkout-recovery/cv2-ds3-mobile-validation-recovery/exploration-summary.md
 ```
 
 ```text
@@ -632,8 +632,8 @@ Exploration
 │  step-abandonment.md                                   │
 │                                                        │
 │  delivery story summary                                │
-│  docs/project/roadmap/.../cv2-e3-s4/exploration-       │
-│  summary.md                                            │
+│  docs/project/roadmap/.../cv2-ds3-mobile-validation-   │
+│  recovery/exploration-summary.md                       │
 │                                                        │
 │  includes                                              │
 │  ✓ initial signal                                      │
@@ -651,18 +651,18 @@ The Driver records the transition from candidate to roadmap story:
 candidate_promoted
   from: ES-042 Checkout address-step abandonment
   to: Delivery roadmap
-  placement: CV2 Checkout Recovery / E3 Mobile validation recovery
-  epic_seed: Reduce mobile address validation abandonment with recoverable field-level guidance.
+  placement: CV2 Checkout Recovery / DS3 Mobile validation recovery
+  delivery_story_seed: Reduce mobile address validation abandonment with recoverable field-level guidance.
   candidate_stories:
-    - S4 Identify rejected mobile autofill value shapes
-    - S5 Show field-level recovery guidance
-    - S6 Validate recovery behavior in mobile checkout
+    - TS1 Identify rejected mobile autofill value shapes
+    - US1 Show field-level recovery guidance
+    - US2 Validate recovery behavior in mobile checkout
   validation_seeds:
     - inspect rejected value diagnostics
     - reproduce mobile address failure and verify field-level guidance
   exploration_document: docs/project/exploration/es-042-checkout-address-step-abandonment.md
-  exploration_summary: docs/project/roadmap/cv2-checkout-recovery/cv2-e3/exploration-summary.md
-  pull_state: ready for Epic expansion
+  exploration_summary: docs/project/roadmap/cv2-checkout-recovery/cv2-ds3-mobile-validation-recovery/exploration-summary.md
+  pull_state: ready for Delivery Story expansion
 ```
 
 ```text
@@ -677,16 +677,16 @@ Exploration
 │                                                        │
 │  suggested roadmap placement                           │
 │  🟪[CV2] Checkout Recovery                             │
-│    └─ 🟦[E3] Mobile validation recovery                │
+│    └─ 🟦[DS3] Mobile validation recovery               │
 │                                                        │
-│  Epic seed                                             │
+│  Delivery Story seed                                             │
 │  Reduce mobile address validation abandonment with     │
 │  recoverable field-level guidance.                     │
 │                                                        │
-│  candidate Delivery Stories                            │
-│  🟨[S4] Identify rejected mobile autofill value shapes │
-│  🟨[S5] Show field-level recovery guidance             │
-│  🟨[S6] Validate recovery behavior in mobile checkout  │
+│  candidate User / Technical Stories                │
+│  ◼[TS1] Identify rejected mobile autofill shapes       │
+│  🟨[US1] Show field-level recovery guidance            │
+│  🟨[US2] Validate recovery behavior in mobile checkout │
 │                                                        │
 │  validation seeds                                      │
 │  Inspect rejected value diagnostics; reproduce mobile  │
@@ -694,10 +694,10 @@ Exploration
 │                                                        │
 │  exploration source                                    │
 │  full brief: docs/project/exploration/es-042...md      │
-│  Epic summary: roadmap/.../exploration-summary.md      │
+│  Delivery Story summary: roadmap/.../exploration-summary.md      │
 │                                                        │
 │  pull state                                            │
-│  ready for Epic expansion                              │
+│  ready for Delivery Story expansion                              │
 ╰────────────────────────────────────────────────────────╯
 ```
 

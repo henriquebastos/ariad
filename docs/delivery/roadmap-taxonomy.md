@@ -1,58 +1,63 @@
-# Roadmap Taxonomy
+# Delivery Roadmap Taxonomy
 
 Ariad uses a delivery taxonomy to keep roadmap work meaningful without turning every task into roadmap structure.
 
-The default hierarchy is:
-
 ```text
-Value / CV -> Epic -> Delivery Story -> Task
+Value / CV -> Delivery Story -> User Story / Technical Story -> Task
 ```
 
-Maintenance work sits beside the hierarchy. It is real work, but it should not be inflated into Value, Epic, or Delivery Story unless it changes a meaningful product, project, or process capability.
+Maintenance work sits beside the hierarchy. It is real work, but it should not be inflated into Value, Delivery Story, User Story, or Technical Story unless it changes a meaningful product, project, or process capability.
 
-## Value
+## Value / CV
 
-A **Value** is a major delivery stage with clear impact for the people or community the project serves.
+A **Value** or **Capability Value (CV)** is a major delivery boundary.
 
-A Value names why a coherent arc matters. It is larger than a feature group. It changes what the project can do, who it can serve, how ready it is, or what capability it exposes.
+It names a capability, product stage, public promise, or project maturity level that matters beyond one local change. A Value / CV should be large enough to organize multiple delivery arcs and meaningful enough that closing it changes how the project describes itself.
 
-Ariad's default concrete form is **Capability Value**, abbreviated **CV**.
+A closed Value / CV may suggest a major release or public milestone.
 
-```text
-CV
-  Capability Value
-  a major delivery stage with clear user-visible, contributor-visible, operator-visible, community-visible, or business-visible impact
-```
-
-Projects may adapt the V in CV when their domain needs a sharper value lens, such as Community Value or Business Value. Ariad's default remains Capability Value because it works across product, platform, process, and tooling projects.
-
-## Epic
-
-An **Epic** is a cohesive block of work inside a Value.
-
-An Epic has a done condition. It is too large to deliver as one Delivery Story, but coherent enough to be recognized as one arc. If an Epic closes, the project should be able to say what capability, product behavior, operational state, or process maturity emerged.
-
-An Epic may suggest a release boundary when it closes, especially when it changes product behavior, public documentation, runtime reliability, or operational capability.
+Ariad uses **Capability Value** as the default meaning of CV. Other projects may adapt CV to Community Value, Customer Value, or Business Value when that vocabulary fits their domain, but the default method does not require that adaptation.
 
 ## Delivery Story
 
-A **Delivery Story** is an atomic delivery that can be verified end to end.
+A **Delivery Story** is a coherent delivery arc inside a Value / CV.
 
-A Delivery Story should add behavior or capability that can be validated. In user-facing work, the Navigator should be able to inspect the behavior through a manual validation route. In process, documentation, tooling, or technical work, the validation route may inspect commands, dry-runs, generated output, docs, runtime state, tests, diagnostics, operation evidence, or operational behavior.
+It is the story of a meaningful delivery outcome, not the smallest implementable unit. A Delivery Story may contain multiple User Stories and Technical Stories. It has a done condition: when it closes, the project should be able to say what capability, product behavior, operational state, documentation promise, or process maturity emerged.
 
-A Delivery Story should not be reduced to an internal implementation slice. If no observable behavior or capability can be named, either expose one through a validation route or treat the work as a Technical Story inside an Epic that leads toward a later behavior-visible checkpoint.
+Exploration candidates normally promote into Delivery as Delivery Stories, because exploration usually discovers an arc rather than one granular implementation unit.
 
-A Delivery Story is the normal unit of implementation. It is small enough to plan, implement, validate, document, review, check for coherence, and record in history.
+A Delivery Story may suggest a release boundary when it closes, especially when it changes product behavior, public documentation, runtime reliability, operational capability, or project maturity enough to warrant release management.
+
+## User Story
+
+A **User Story** is an implementable delivery unit with observable behavior or capability.
+
+A User Story should add behavior or capability that can be validated end to end by the Navigator. In user-facing work, the Navigator should be able to inspect the behavior through a concrete validation route. In process, documentation, tooling, or operational work, the validation route may inspect commands, dry-runs, generated output, docs, runtime state, diagnostics, operation evidence, or operational behavior. Automated tests support the story, but they do not replace Navigator-facing validation for a User Story.
+
+Ariad recommends writing the User Story's acceptance behavior in a lightweight BDD form when planning or expanding work:
+
+```text
+Given <relevant starting state>
+When <the user, operator, command, or runtime action happens>
+Then <observable behavior or capability is visible>
+And <important constraint or protection still holds>
+```
+
+For non-UI work, the `Then` may be an operation report, dry-run output, diagnostic result, generated artifact, documented policy, runtime state, or other inspectable evidence.
+
+A User Story should not be reduced to an internal implementation slice. If no observable behavior or capability can be named, either expose one through a validation route or treat the work as a Technical Story inside the Delivery Story.
 
 ## Technical Story
 
-A **Technical Story** is a Delivery Story whose immediate behavior is internal rather than directly visible to the Navigator.
+A **Technical Story** is an implementable delivery unit whose immediate behavior is internal rather than directly visible to the Navigator.
 
-Technical Stories are valid when they create necessary internal capability, safety, migration, infrastructure, instrumentation, test support, or operational substrate. They should still be verifiable. They may not justify a Navigator behavior checkpoint by themselves, but inside an Epic they should lead toward a later behavior-visible checkpoint.
+Technical Stories are valid when they create necessary internal capability, safety, migration, infrastructure, instrumentation, test support, or operational substrate for a Delivery Story. Their primary validation belongs to the Driver through automated or internal evidence: tests, type checks, diagnostics, fixtures, preflights, internal reports, or contract checks. They may not justify a Navigator behavior checkpoint by themselves, but inside a Delivery Story they should lead toward a later User Story or behavior-visible checkpoint.
+
+The Navigator should not normally be asked to manually validate private technical substrate. Exceptions include high-risk operations, real data mutation, insufficient automated evidence, or explicit Navigator request.
 
 ## Task
 
-A **Task** is concrete work inside a Delivery Story.
+A **Task** is concrete work inside a User Story or Technical Story.
 
 Tasks help the Driver execute. They are not normally roadmap items. A task may edit a file, add a test, rename a function, update a command, or adjust a document section. Tasks should not be used to create a false sense of roadmap progress.
 
@@ -60,58 +65,143 @@ Tasks help the Driver execute. They are not normally roadmap items. A task may e
 
 **Maintenance** is legitimate work that may not belong in the roadmap hierarchy.
 
-Examples include typo fixes, dependency updates, CI adjustments, documentation reconciliation, internal cleanup, small process corrections, and low-risk operational upkeep.
+Examples:
 
-Maintenance may produce:
+- dependency updates;
+- local cleanup;
+- one-off operational repair;
+- documentation correction;
+- release note fix;
+- CI retry or environment adjustment.
 
-- no release, when it changes only internal project state;
+Do not inflate maintenance into a Value, Delivery Story, User Story, or Technical Story just to make it visible. Record it in the worklog when meaningful.
+
+Maintenance can still create a release boundary, especially:
+
 - a patch release, when it changes observable behavior, public documentation, packaging, runtime reliability, or user-facing operation.
 
-Do not inflate maintenance into a Value, Epic, or Delivery Story just to make it visible. Record it in the worklog when meaningful.
+## Roadmap states
+
+Ariad recommends a small canonical state vocabulary for roadmap items:
+
+```text
+Planned      known, not currently being worked
+Active       currently pulled into Delivery Work
+Blocked      cannot progress until a named dependency, decision, or condition changes
+Validated    implementation passed automated evidence and Navigator validation, but story closure/history may still be pending
+Done         closed, coherent, documented, and recorded in project history
+Deferred     intentionally postponed while remaining valid
+Dropped      intentionally abandoned or no longer valid
+```
+
+Use a short reason with `Blocked`, `Deferred`, and `Dropped`:
+
+```text
+Active; blocked by TS1 policy refinement
+Deferred; waiting for release channel decision
+Dropped; replaced by DS4 runtime update path
+```
+
+`Attention` is not a canonical roadmap state. It may be useful in a runtime UI, checkpoint risk posture, or visual warning, but the roadmap should name the actual lifecycle condition: usually `Blocked`, `Deferred`, `Needs expansion`, or a specific dependency.
+
+Projects may adapt labels for local systems, but new Ariad roadmap docs should keep the method-level meaning visible.
+
+## Codes and folder names
+
+Ariad recommends stable, readable codes for roadmap levels:
+
+```text
+CV<N>      Value / Capability Value
+DS<N>      Delivery Story inside a Value / CV
+US<N>      User Story inside a Delivery Story
+TS<N>      Technical Story inside a Delivery Story
+Task       local checklist item inside a User Story or Technical Story
+```
+
+Project folders should mirror the delivery hierarchy when the project keeps roadmap work as files.
+Use lowercase slugs and keep the parent code in child folder names so links remain understandable when copied out of context.
+
+Recommended pattern:
+
+```text
+docs/project/roadmap/
+  cv<N>-<value-slug>/
+    index.md
+    cv<N>-ds<M>-<delivery-story-slug>/
+      index.md
+      exploration-summary.md        # when promoted from Exploration
+      cv<N>-ds<M>-us<K>-<user-story-slug>/
+        index.md
+        plan.md
+        test-guide.md
+      cv<N>-ds<M>-ts<K>-<technical-story-slug>/
+        index.md
+        plan.md
+        test-guide.md
+```
+
+Example:
+
+```text
+docs/project/roadmap/
+  cv9-mirror-1-0/
+    cv9-ds7-conversation-metadata-lifecycle/
+      index.md
+      exploration-summary.md
+      cv9-ds7-us1-dry-run-metadata-lifecycle-decision-path/
+        index.md
+        plan.md
+        test-guide.md
+```
+
+Numbering is project-local. A project may keep legacy codes such as `E` and `S` for already-recorded history, but new Ariad delivery work should use `DS`, `US`, and `TS` when adopting this taxonomy.
+
+Do not create a folder before the work has crossed the right methodological boundary. Exploration documentation may suggest placement, but the Delivery entry step should confirm whether the candidate is a Delivery Story, User Story, or Technical Story before creating roadmap paths.
 
 ## Expand and collapse in the roadmap
 
 The roadmap expands and collapses.
 
-```text
-Value / CV expands into Epics.
-Epic expands into Delivery Stories.
-Delivery Story expands into Tasks.
-```
-
-The reverse direction is collapse:
+Expansion:
 
 ```text
-completed Tasks close a Delivery Story
-completed Delivery Stories close an Epic
-completed Epics close a Value / CV
+Value / CV expands into Delivery Stories.
+Delivery Story expands into User Stories and Technical Stories.
+User Story / Technical Story expands into Tasks.
 ```
 
-Every collapse should name the emergent value of the whole. An Epic is not done merely because its stories are checked off. It is done when those stories produce a coherent capability or outcome. A Value is not done merely because its Epics are closed. It is done when the project reaches the value boundary the CV named.
+Collapse:
+
+```text
+completed Tasks close a User Story or Technical Story
+completed User Stories and Technical Stories close a Delivery Story
+completed Delivery Stories close a Value / CV
+```
+
+Every collapse should name the emergent value of the whole. A Delivery Story is not done merely because its child stories are checked off. It is done when those stories produce a coherent capability or outcome. A Value is not done merely because its Delivery Stories are closed. It is done when the project reaches the value boundary the CV named.
+
+See [Expand and Collapse](../method/expand-collapse.md) for the general method pattern.
 
 ## When to expand
 
-Expand when the work is too ambiguous or too large to validate coherently.
+The Driver should expand when:
 
-Common signals:
-
-- the proposed Delivery Story needs multiple behavior checkpoints;
-- the Navigator cannot validate the result in one coherent route;
+- the proposed User Story needs multiple behavior checkpoints;
 - technical prerequisites hide the user-facing behavior;
-- the scope mixes product, process, project, and release concerns;
-- the work has more than one done condition.
+- validation would be too broad or vague;
+- several independent risks are being bundled together;
+- the Navigator cannot reasonably accept the whole in one validation moment.
 
-In those cases, the Driver should propose an Epic or Value expansion rather than hide complexity inside one story.
+In those cases, the Driver should propose a Delivery Story or Value expansion rather than hide complexity inside one story.
 
 ## When to collapse
 
-Collapse when the parts have produced a new whole.
+The Driver should collapse when:
 
-Common signals:
-
-- the last Delivery Story in an Epic has been validated;
+- a User Story or Technical Story has been implemented, validated, documented, reviewed, and checked for coherence;
+- the last child story in a Delivery Story has been validated;
+- a Value / CV's Delivery Stories have produced the intended value boundary;
 - roadmap, docs, tests, decisions, and worklog now describe the same state;
-- release notes can name the arc clearly;
-- the Navigator can recognize the outcome without reading every implementation detail.
+- release management needs to name what changed publicly.
 
-Collapse should produce recognition: story done, Epic done, Value done, release candidate, or next coherent horizon.
+Collapse should produce recognition: User Story done, Technical Story done, Delivery Story done, Value done, release candidate, or next coherent horizon.

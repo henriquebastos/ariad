@@ -20,11 +20,11 @@ Progress in Exploration is not completion of a target. It is condensation of mea
 
 **Delivery** turns formed intent into verified change.
 
-Delivery begins when the work has enough form to become a bounded commitment. A Delivery Story can be planned, implemented, validated, documented, reviewed, checked for coherence, and recorded in history. When the work is too large for one behavior validation moment, it becomes an Epic and is expanded into smaller Delivery Stories. The work may come from a direct request, roadmap item, known bug, or candidate promoted from Exploration.
+Delivery begins when the work has enough form to become a bounded commitment. A Delivery Story names the delivery arc. It is expanded into User Stories and Technical Stories that can be planned, implemented, validated, documented, reviewed, checked for coherence, and recorded in history. The work may come from a direct request, roadmap item, known bug, or candidate promoted from Exploration.
 
-Delivery is centered on the **Delivery Story**.
+Delivery is centered on the **Delivery Story** as an arc of delivery.
 
-A Delivery Story gives the Driver and Navigator a recognizable unit of change with intent, scope, implementation, validation, documentation, review, and closure.
+User Stories and Technical Stories give the Driver and Navigator recognizable units of implementation with intent, scope, validation, documentation, review, and closure.
 
 Progress in Delivery is not activity. It is coherent collapse: the point where the change becomes intelligible, validated, documented, coherent, and ready to enter project history.
 
@@ -34,16 +34,16 @@ Exploration and Delivery are connected, but they should not collapse into each o
 
 Exploration protects discovery from premature commitment. Delivery protects commitment from vague motion.
 
-A candidate crosses from Exploration into Delivery only when the Navigator accepts that it has enough form. Until then, the material can remain exploratory without becoming roadmap noise. Once accepted into Delivery, the work receives a place in the [roadmap taxonomy](../delivery/roadmap-taxonomy.md): usually Epic first, then Delivery Stories. Direct promotion to one Delivery Story is the exception for candidates that are already story-sized.
+A candidate crosses from Exploration into Delivery only when the Navigator accepts that it has enough form. Until then, the material can remain exploratory without becoming roadmap noise. Once accepted into Delivery, the work receives a place in the [roadmap taxonomy](../delivery/roadmap-taxonomy.md): usually Delivery Story first, then User Stories and Technical Stories. Direct promotion to one User Story is the exception for candidates that are already one behavior-sized unit.
 
 ```text
-signal -> Exploratory Story -> candidate -> Epic -> Delivery Stories -> verified change
+signal -> Exploratory Story -> candidate -> Delivery Story -> User/Technical Stories -> verified change
 ```
 
 Rare direct path:
 
 ```text
-signal -> Exploratory Story -> story-sized candidate -> Delivery Story -> verified change
+signal -> Exploratory Story -> behavior-sized candidate -> User Story -> verified change
 ```
 
 The passage is not mandatory. Some exploratory material pauses or archives. Some delivery work begins directly from a clear Navigator request. The method only requires that the Driver preserve the boundary: do not turn uncertainty into commitment silently, and do not let delivery dissolve back into open-ended exploration without naming the change.

@@ -20,6 +20,7 @@ The documentation templates create the minimum memory surface required for coher
 - **Project briefing**: stable project context that should not be re-explained every session.
 - **Decisions**: choices and open discussions that should shape future work.
 - **Roadmap**: meaningful progress, active focus, planned work, and radar.
+- **Technical Debt Ledger**: structural cost consciously carried by the project, with revisit triggers.
 - **Local development guide**: project-specific commands, validation, documentation, and release rules.
 - **Worklog**: completed milestones and verification notes.
 - **Product principles**: product behavior guidance that should influence trade-offs.

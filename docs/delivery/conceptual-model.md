@@ -1,95 +1,72 @@
 # Delivery Conceptual Model
 
-This document names the conceptual elements of Ariad Delivery.
+This document names the core concepts of Ariad Delivery.
 
-It does not explain the practical flow. The step-by-step sequence, examples, checkpoints, and visual feedback live in [Delivery Flow](flow.md).
+It does not explain the practical flow. The step-by-step sequence, examples, checkpoints, validation, and visual feedback live in [Delivery Flow](flow.md).
 
-For the method-level distinction between Exploration and Delivery, see [Work Areas](../method/work-areas.md). For the hierarchy that organizes Delivery, see [Roadmap Taxonomy](roadmap-taxonomy.md).
+## Core idea
 
-## Progress semantics
+Delivery treats progress as movement toward verified change. A delivery arc is not merely advanced through tasks. It becomes trustworthy as intent, implementation, validation, documentation, review, coherence, and history converge.
 
-Delivery treats progress as movement toward verified change. A Delivery Story is not merely advanced through tasks. It becomes trustworthy as intent, implementation, validation, documentation, review, coherence, and history converge.
+Delivery begins when work has enough form to become a bounded commitment. That commitment may come from a roadmap item, direct request, known bug, operational need, or candidate promoted from Exploration.
 
-This gives Delivery a formative teleology:
-
-```text
-Delivery
-  formative teleology
-  the work moves toward a known or chosen form
-  progress means the intended delivery is becoming complete, verified, and recorded
-```
-
-Progress in Delivery is not activity. It is coherent collapse.
-
-A Delivery Story collapses coherently when the Driver and Navigator can say what behavior or project capability changed, why it changed, how it was validated, where the project memory was updated, what risks remain, and how the change entered history. An Epic collapses coherently when its Delivery Stories have produced the intended behavior arc and the Navigator can accept the whole as complete.
+Delivery is centered on the **Delivery Story** as an arc of delivery. The implementable units inside that arc are **User Stories** and **Technical Stories**.
 
 ## Concepts
 
-### Intentional Pull
-
-An intentional pull is the Navigator's act of selecting work for active Delivery.
-
-The Driver may show the roadmap, identify the next backlog item, and recommend a promoted candidate when recent Exploration changes the delivery field. The Navigator still pulls the work. This keeps prioritization explicit and prevents the Driver from silently turning availability into commitment.
-
 ### Value / CV
 
-A Value is a major delivery stage with clear impact. Ariad's default concrete form is Capability Value, abbreviated CV.
+A Value or Capability Value is a major delivery boundary.
 
-A Value / CV expands into Epics and collapses when those Epics produce the intended value boundary. A closed Value / CV may suggest a major release or public milestone.
-
-### Epic
-
-An Epic is a coherent delivery arc inside a Value / CV that is too large to implement as one Delivery Story.
-
-If planning reveals that a proposed Delivery Story needs multiple behavior changes, multiple validation moments, or a sequence of dependent technical work before the Navigator can judge the result, the Driver should name it as an Epic and expand it into smaller Delivery Stories.
-
-An Epic is not a dumping ground for unrelated tasks. It holds a meaningful product, project, or process outcome that requires more than one story to deliver responsibly.
+A Value / CV names a capability, product stage, public promise, or project maturity level that matters beyond one local change. A closed Value / CV may suggest a major release or public milestone.
 
 ### Delivery Story
 
-A Delivery Story is a bounded unit of meaningful change.
+A Delivery Story is a coherent delivery arc inside a Value / CV.
 
-It is larger than a task and smaller than an Epic. It creates a recognizable change in the project and gives the Navigator a concrete moment to accept, redirect, or reject the result.
+It names the meaningful outcome that is being delivered. It may contain multiple User Stories and Technical Stories. It closes when those child stories produce the intended behavior arc, capability arc, operational state, documentation promise, or process maturity and the Navigator can accept the whole as complete.
 
-A Delivery Story may come from a direct Navigator request, roadmap item, known bug, explicit project need, rare story-sized candidate promoted from Exploration, or Epic expansion.
+Exploration candidates normally promote into Delivery as Delivery Stories, because exploration tends to discover an arc rather than one granular implementation unit.
 
-Most promoted Exploration candidates should become an Epic or trigger Epic Expansion before implementation, because Exploration tends to discover an arc rather than one story-sized behavior. Direct promotion to a Delivery Story should be justified during planning.
+A Delivery Story is not a dumping ground for unrelated work. It should have a recognizable done condition and a coherent release or history boundary.
 
-A Delivery Story should add behavior or capability that can be verified. In user-facing work, that behavior should be visible to the Navigator through a manual validation route. In technical, tooling, documentation, or operational work, the behavior may be a command output, dry-run report, generated document, diagnostic result, runtime state, testable policy, or operation evidence. It should still be observable enough for the Navigator to understand what changed.
+### User Story
 
-A Delivery Story should not close on private implementation alone. If the work has no observable behavior or capability yet, it should either become a Technical Story inside an Epic that leads to a later visible behavior checkpoint, or the plan should expose an observable validation route such as a dry-run, diagnostic, generated artifact, or operation report.
+A User Story is a bounded implementable unit with observable behavior or capability.
 
-### Intent
+A User Story may come from a Delivery Story expansion, direct Navigator request, roadmap item, known bug, or explicit project need.
 
-Intent is the reason the story exists.
+A User Story should add behavior or capability that can be verified by the Navigator. In user-facing work, that behavior should be visible to the Navigator through a concrete validation route. In technical, tooling, documentation, or operational work, the behavior may be a command output, dry-run report, generated document, diagnostic result, runtime state, or operation evidence. It should still be observable enough for the Navigator to understand what changed. Automated tests are supporting evidence, not a substitute for Navigator-facing validation.
 
-Intent names the change the project is trying to make, not just the files the Driver expects to edit. Without intent, the story becomes a task list. With intent, implementation, validation, and documentation can stay aligned.
-
-### Scope
-
-Scope is the boundary of the story.
-
-It names what belongs inside the current delivery and what should remain outside. Scope can change when correctness requires it, but it should not expand silently.
-
-### Plan
-
-A plan is the Driver's proposed route through the story.
-
-It includes relevant context, affected surfaces, implementation approach, validation route, documentation impact, known risks, and conscious exclusions. A plan is not a guarantee. It is a checkpoint where speed becomes direction.
+A User Story should not close on private implementation alone. If the work has no observable behavior or capability yet, it should either become a Technical Story inside a Delivery Story that leads to a later visible behavior checkpoint, or the plan should expose an observable validation route such as a dry-run, diagnostic, generated artifact, or operation report.
 
 ### Technical Story
 
-A Technical Story is a Delivery Story whose immediate behavior is not directly visible to the Navigator.
+A Technical Story is an implementable delivery unit whose immediate behavior is internal rather than directly visible to the Navigator.
 
-Technical Stories are valid when they create necessary internal capability, safety, migration, infrastructure, or test support for an Epic. They still require verification, but they may not justify a Navigator behavior-validation checkpoint by themselves.
+Technical Stories are valid when they create necessary internal capability, safety, migration, infrastructure, instrumentation, test support, or operational substrate for a Delivery Story. They still require verification, but their primary validation belongs to the Driver through automated or internal evidence: tests, type checks, diagnostics, fixtures, preflights, internal reports, or contract checks. They may not justify a Navigator behavior-validation checkpoint by themselves.
 
-When an Epic contains technical stories, the Driver may continue through subsequent stories until a Navigator-visible behavior checkpoint is reached, unless risk, project policy, or Navigator preference requires an earlier stop.
+When a Delivery Story contains Technical Stories, the Driver may continue through subsequent stories until a Navigator-visible User Story checkpoint is reached, unless risk, project policy, or Navigator preference requires an earlier stop.
+
+### Task
+
+A task is concrete work inside a User Story or Technical Story.
+
+Tasks are useful for execution, but they are not the normal roadmap unit. They should not be used to create a false sense of progress.
+
+### Cadence
+
+A Cadence is an event-triggered methodological rhythm at a Delivery boundary.
+
+Cadences name the questions that become alive when work changes state. For example, closing a User Story triggers questions about history, parent progress, debt, next pull, and release possibility. Cadences are not mandatory full ceremonies; they are compressible prompts that help the Driver avoid silent skips.
+
+See [Delivery Cadences](cadences.md).
 
 ### Behavior Checkpoint
 
-A Behavior Checkpoint is the moment where the Navigator validates newly created behavior.
+A Behavior Checkpoint is the moment where the Navigator validates newly created behavior or capability.
 
-For visible Delivery Stories, the Behavior Checkpoint normally happens after implementation and validation route preparation. For technical stories inside an Epic, the Driver records internal verification and continues until the next story that exposes behavior the Navigator can inspect.
+For User Stories, the Behavior Checkpoint normally happens after implementation and validation route preparation. For Technical Stories inside a Delivery Story, the Driver records internal verification and continues until the next story that exposes behavior the Navigator can inspect.
 
 ### Operation Evidence
 
@@ -97,92 +74,97 @@ Operation evidence is structured proof produced by a controlled operation.
 
 It may come from runtime health checks, backups, migrations, release doctors, smoke commands, web operation runs, approval flows, or other allowlisted project operations. Operation evidence should expose state and relevant details in a form the Navigator can inspect before falling back to raw machine payloads.
 
-Operation evidence is especially important for technical stories, release candidates, and operational updates where the behavior is not a simple user-interface change.
+Operation evidence is especially important for Technical Stories, release candidates, and operational updates where the behavior is not a simple user-interface change.
 
 ### Validation Route
 
 A validation route is the concrete path by which the project and Navigator can inspect the change.
 
-It includes automated checks when available and manual inspection steps when the change is user-visible, product-visible, process-visible, or documentation-visible.
+It can include automated tests, commands, screenshots, local web checks, CLI outputs, logs, dry-runs, generated artifacts, operation evidence, or manual instructions.
 
-### Documentation Surface
+### Delivery Handoff
 
-A documentation surface is any project memory that must change for future Drivers and humans to understand the new truth.
+A Delivery Handoff is the information carried from Exploration or a higher roadmap level into active Delivery.
 
-It may include README files, architecture notes, roadmap status, decision records, development guides, product principles, command references, worklogs, or local agent instructions.
+When the source is Exploration, the handoff should include the source Exploratory Story, Exploration Documentation, Delivery Story seed, candidate User Stories and Technical Stories, validation seeds, Carry Forward Notes, and known kept-for-later signals.
 
-### Review
+### Technical Debt
 
-Review is the Driver's inspection of what changed and what the change implies.
+Technical debt is structural cost consciously carried by the project.
 
-It names design debt, checks whether refactoring is needed, distinguishes cleanup from new scope, and prepares the coherence check.
+Debt may live in code, tests, documentation, architecture, operations, release process, or method usage. Ariad does not treat all debt as failure. Some debt is a valid trade-off when it preserves delivery momentum. The method requires that debt be visible, named, and revisitable.
 
-### Coherence Check
+A Delivery Review should distinguish:
 
-A coherence check asks whether Process, Project, and Product still agree after the change.
+- **debt paid** — existing structural cost reduced by the story;
+- **new debt introduced** — structural cost created by the story;
+- **debt carried forward** — known debt accepted for now;
+- **revisit trigger** — the condition that should bring the debt back into active work.
 
-It looks for drift between implementation, tests, documentation, roadmap, decisions, validation notes, and any instruction surface future agents will read.
+A project may keep a **Debt Ledger** when debt cannot be held safely inside one story's review notes. A debt item should name its source story, kind, severity, carrying reason, revisit trigger, and status.
+
+Technical debt can become Delivery Work. Small local repayment may be Maintenance. Larger internal repayment may be a Technical Story. A broad structural arc may become a Delivery Story.
 
 ### Release Intent
 
-Release intent names whether the current Delivery arc is expected to become a release.
+Release Intent appears when a Delivery Story, Value / CV, maintenance fix, or operational change may deserve release management.
 
-It may be known during planning or emerge when a Delivery Story, Epic, or Value collapses. The Driver should surface release intent when the work changes behavior, public documentation, runtime operation, packaging, or user-facing capability enough to warrant release management.
+It may be known during planning or emerge when a User Story, Technical Story, Delivery Story, or Value collapses. The Driver should surface release intent when the work changes behavior, public documentation, runtime operation, packaging, or user-facing capability enough to warrant release management.
 
-### History Entry
-
-A history entry records the change according to the configured commit or recording policy.
-
-It should preserve why the change happened, not only what files changed. Ariad requires intentional, legible project history. The exact commit and push rhythm belongs to the project contract or Navigator preferences.
+See [Release Management](release-management.md).
 
 ## Events
 
 Delivery can be understood through events. Events are moments where the method recognizes that something changed in the delivery field.
 
-Events are not visual components. They may produce visual feedback, conversation feedback, stored records, or later automation, depending on the runtime.
-
 ```text
-roadmap_requested
-  the Navigator asks to see the delivery field before pulling work
-
-roadmap_presented
+roadmap_snapshot_rendered
   the Driver renders current focus, backlog, promoted candidates, and constraints
 
-delivery_item_recommended
-  the Driver recommends what to pull next by balancing backlog order, current focus, and newly promoted Exploration candidates
+pull_recommended
+  the Driver recommends a next Delivery Story, User Story, Technical Story, or Maintenance item without silently choosing it
 
-delivery_story_pulled
-  the Navigator intentionally selects a backlog item or promoted candidate for active Delivery Work
+work_pulled
+  the Navigator intentionally selects a roadmap item or promoted candidate for active Delivery Work
 
-story_identified
-  the Driver recognizes a bounded Delivery Story from the pulled item
+delivery_story_identified
+  the Driver recognizes a coherent delivery arc from the pulled item or promoted Exploration candidate
 
-epic_identified
-  planning reveals that the pulled item is too large for one Delivery Story
+delivery_story_expanded
+  the Driver proposes User Stories and Technical Stories that preserve validation boundaries
 
-epic_expanded
-  the Driver proposes smaller Delivery Stories that preserve behavior validation boundaries
+cadence_triggered
+  a boundary such as validation, review, story closure, parent collapse, or release makes a recurring set of questions active
 
-context_loaded
-  relevant code, documentation, roadmap, decisions, and project instructions are read
+user_story_identified
+  the Driver recognizes an implementable story with observable behavior or capability
 
-plan_presented
-  the Driver proposes scope, route, risks, validation, and documentation impact
+technical_story_identified
+  the Driver recognizes an implementable internal capability needed by the Delivery Story
+
+plan_checkpoint_reached
+  the Driver has enough context to propose a route before implementation
 
 plan_confirmed
   the Navigator accepts, redirects, or narrows the delivery route
 
 implementation_started
-  the Driver begins focused repository changes inside the confirmed Delivery Story boundary
+  the Driver begins focused repository changes inside the confirmed story boundary
 
 technical_story_verified
-  a technical story inside an Epic passes its internal verification without requiring a behavior checkpoint
+  a Technical Story passes internal verification without requiring a Navigator behavior checkpoint
 
 behavior_checkpoint_reached
-  a Delivery Story creates behavior visible enough for Navigator validation
+  a User Story creates behavior visible enough for Navigator validation
 
-automated_checks_run
-  tests, builds, linters, or other automated checks are executed when relevant
+debt_delta_recorded
+  the Driver names debt paid, introduced, or carried forward during review
+
+debt_registered
+  a carried debt item is recorded in the project Debt Ledger with revisit criteria
+
+debt_payment_proposed
+  the Driver recommends paying debt before continuing feature work
 
 validation_route_prepared
   the Driver gives the Navigator a concrete route to inspect the change
@@ -191,33 +173,30 @@ operation_evidence_recorded
   a controlled operation produces structured evidence for validation, release, or operational review
 
 documentation_updated
-  the smallest necessary project memory surface is updated
+  project memory changes to match the implemented reality
 
 review_completed
-  the Driver reviews changed surfaces and names refactoring or design debt
+  the Driver inspects code, tests, docs, risks, and debt after implementation
 
 coherence_checked
-  the Driver checks alignment across Process, Project, and Product
+  process, project, and product are checked for agreement
 
-history_proposed
-  the Driver proposes the commit message or history action
+user_story_closed
+  the Navigator accepts the User Story and the work enters project history or another configured record
 
-story_closed
-  the Navigator accepts the Delivery Story and the work enters project history or another configured record
+technical_story_closed
+  the Technical Story is verified and recorded inside the Delivery Story
 
-epic_closed
-  all Delivery Stories in the Epic have reached their validation and coherence criteria
+delivery_story_closed
+  all child User Stories and Technical Stories in the Delivery Story have reached their validation and coherence criteria
 
-release_candidate_suggested
-  Epic closure suggests that release management may begin
-
-follow_up_captured
-  adjacent work is preserved without silently entering the current story
+release_intent_detected
+  Delivery Story closure or another delivery boundary suggests that release management may begin
 ```
 
 ## Delivery surfaces
 
-A runtime may render Delivery through different surfaces. Maestro currently uses structured checkpoints for delivery work.
+Common Delivery surfaces include:
 
 ```text
 Roadmap Snapshot
@@ -229,11 +208,11 @@ Pull Recommendation
 Plan Checkpoint
   Is the route right before implementation begins?
 
-Epic Expansion
-  Should this work become multiple Delivery Stories?
+Delivery Story Expansion
+  Should this delivery arc become multiple User Stories and Technical Stories?
 
 Implementation Orientation
-  What is being changed inside the Delivery Story boundary?
+  What is being changed inside the active story boundary?
 
 Validation Checkpoint
   What passed, what needs manual inspection, and what remains uncertain?
@@ -248,10 +227,16 @@ Coherence Checkpoint
   Do Process, Project, and Product still agree?
 
 History Checkpoint
-  Is the Delivery Story coherent enough to enter project history?
+  Is the story coherent enough to enter project history?
 
-Epic Closure
-  Is the Epic complete enough to suggest release management?
+Transition View
+  What closed, where was it absorbed, what did it unlock, and what moves next?
+
+Delivery Story Closure
+  Is the delivery arc complete enough to suggest release management?
+
+Release Intent
+  Is there a release boundary now?
 ```
 
-These surfaces support the method, but they do not define it. A Delivery Story remains a Delivery Story whether it appears as a checkpoint card, a terminal panel, a web task, a commit proposal, or a conversation summary. An Epic remains an Epic whether it appears as a roadmap group, milestone, release candidate, or expanded set of Delivery Stories.
+These surfaces support the method, but they do not define it. A User Story remains a User Story whether it appears as a checkpoint card, terminal panel, web task, commit proposal, or conversation summary. A Delivery Story remains a Delivery Story whether it appears as a roadmap group, milestone, release candidate, or expanded set of User Stories and Technical Stories.

@@ -2,9 +2,9 @@
 
 This document explains Ariad Delivery through a practical sequence.
 
-The [Conceptual Model](conceptual-model.md) names the concepts. [Roadmap Taxonomy](roadmap-taxonomy.md) defines Value/CV, Epic, Delivery Story, Task, and Maintenance. This page shows how those concepts appear in use: events, checkpoints, validation, review, coherence, and history.
+The [Conceptual Model](conceptual-model.md) names the concepts. [Roadmap Taxonomy](roadmap-taxonomy.md) defines Value/CV, Delivery Story, User Story, Technical Story, Task, and Maintenance. This page shows how those concepts appear in use: events, checkpoints, validation, review, coherence, and history.
 
-The flow is not a rigid bureaucracy. Delivery work can discover new information, require refactoring, or return to an earlier step. The sequence below is a teaching path.
+The flow is not a rigid bureaucracy. Delivery work can discover new information, require refactoring, or return to an earlier step. The sequence below is a teaching path. [Cadences](cadences.md) name the recurring boundary questions that appear inside this flow, such as validation, review/debt, story closure, parent collapse, and release.
 
 ## Step 1. Navigator Pulls from the Roadmap
 
@@ -14,9 +14,9 @@ The Navigator asks for the delivery field before choosing what to work on:
 
 > Show me the roadmap and recommend what we should pull next.
 
-The Driver reads the roadmap, active focus, planned work, and any recently promoted candidates from Exploration. A promoted candidate should already have a Delivery handoff: suggested Value / CV, Epic seed, candidate Delivery Stories, validation seeds, pull state, and an exploration source. The exploration source should include a concise summary near the roadmap Epic or Story and a link to the full Exploration document. The Driver then renders the delivery field before recommending a next item.
+The Driver reads the roadmap, active focus, planned work, and any recently promoted candidates from Exploration. A promoted candidate should already have a Delivery handoff: suggested Value / CV, Delivery Story seed, candidate User Stories and Technical Stories, validation seeds, pull state, and an exploration source. The exploration source should include a concise summary near the roadmap Delivery Story or child story and a link to the full Exploration document. The Driver then renders the delivery field before recommending a next item.
 
-Promoted Exploration candidates normally enter Delivery as an Epic or Epic Expansion. Direct pull as one Delivery Story is reserved for candidates that are already story-sized.
+Promoted Exploration candidates normally enter Delivery as a Delivery Story. Direct pull as one User Story is reserved for candidates that are already behavior-sized.
 
 ```text
 Delivery
@@ -26,8 +26,8 @@ Delivery
 │  current Value / CV                                    │
 │  CV2 Checkout Recovery                                 │
 │                                                        │
-│  active Epic                                           │
-│  E3 Reduce checkout abandonment without redesign       │
+│  active Delivery Story                                    │
+│  DS3 Reduce checkout abandonment without redesign       │
 │                                                        │
 │  backlog                                               │
 │  1. Add saved-address editing                          │
@@ -45,17 +45,17 @@ Delivery
 
 The Driver combines ordinary backlog priority with the new delivery pressure created by Exploration:
 
-> The next backlog item would normally be **Add saved-address editing** because it is the highest planned item in CV2.E3. However, **Improve mobile address validation recovery** was just promoted from Exploration and sits directly inside the active Epic: reducing checkout abandonment without redesigning checkout. I recommend pulling the promoted Delivery Story now, then returning to saved-address editing. That keeps the roadmap order visible, but lets recent learning influence the next commitment instead of aging in the backlog.
+> The next backlog item would normally be **Add saved-address editing** because it is the highest planned item in CV2.DS3. However, **Improve mobile address validation recovery** was just promoted from Exploration and sits directly inside the active Delivery Story: reducing checkout abandonment without redesigning checkout. I recommend pulling the promoted User Story now, then returning to saved-address editing. That keeps the roadmap order visible, but lets recent learning influence the next commitment instead of aging in the backlog.
 
 The Navigator decides what to pull:
 
 > Pull the promoted validation recovery story.
 
-The pull is the moment where the Navigator turns a candidate, backlog item, Epic, Value, or maintenance item into active Delivery Work. If the pulled item is above story level, the Driver expands it before implementation.
+The pull is the moment where the Navigator turns a candidate, backlog item, Delivery Story, User Story, Technical Story, Value, or maintenance item into active Delivery Work. If the pulled item is above story level, the Driver expands it before implementation.
 
 ## Step 2. Delivery Story Identified
 
-The Driver identifies the selected work as Delivery because the intent is formed enough to define a roadmap object. If the pulled work came from Exploration, the Driver first checks whether it is an Epic or a rare single Delivery Story.
+The Driver identifies the selected work as Delivery because the intent is formed enough to define a roadmap object. If the pulled work came from Exploration, the Driver first checks whether it is a Delivery Story or a rare single User Story.
 
 ```text
 Delivery
@@ -72,8 +72,8 @@ Delivery
 │                                                        │
 │  roadmap placement                                     │
 │  🟪[CV2] Checkout Recovery                             │
-│    └─ 🟦[E3] Reduce checkout abandonment               │
-│         └─ 🟨[S4] Mobile validation recovery           │
+│    └─ 🟦[DS3] Reduce checkout abandonment               │
+│         └─ 🟨[US3] Mobile validation recovery           │
 │                                                        │
 │  intent                                                │
 │  help mobile users recover from address errors         │
@@ -92,7 +92,7 @@ Delivery
 ╰────────────────────────────────────────────────────────╯
 ```
 
-No repository change has happened yet. The Delivery Story is identified, not implemented. If the promoted candidate is larger than one behavior validation route, the next step is Epic Expansion rather than implementation.
+No repository change has happened yet. The Delivery Story is identified, not implemented. If the promoted candidate is a Delivery Story arc, the next step is Delivery Story Expansion into User Stories and Technical Stories before implementation.
 
 ## Step 3. Context Loaded
 
@@ -127,9 +127,11 @@ Context loading prevents the Driver from treating the repository as a set of fil
 
 The Driver proposes the route before implementation.
 
-A good plan names the intent, scope, exclusions, implementation approach, validation route, documentation impact, and risks. It also checks whether the pulled item is truly a Delivery Story or whether it should become an Epic expanded into smaller Delivery Stories.
+When a User Story or Technical Story is pulled, the Driver must render a Plan Checkpoint surface and stop for Navigator confirmation before implementation. Creating `plan.md` is not enough; the visible surface is the checkpoint.
 
-The plan should identify the observable behavior or capability that will let the Navigator accept the story. For non-UI work, this may be a dry-run, diagnostic command, generated artifact, operation evidence, documented policy, runtime state, or other inspectable output. If the plan can only name private implementation steps, the work is not yet a behavior-verifiable Delivery Story; it should be reframed as a Technical Story inside an Epic or reshaped around an observable validation route.
+A good plan names the intent, scope, exclusions, implementation approach, validation route, documentation impact, and risks. It also checks whether the pulled item is a Delivery Story arc or an implementable User Story / Technical Story. Delivery Story arcs should expand into smaller child stories before implementation.
+
+The plan should identify the observable behavior or capability that will let the Navigator accept the story. For User Stories, Ariad recommends a lightweight BDD acceptance behavior: `Given` a starting state, `When` an action occurs, `Then` observable behavior appears, and `And` important constraints still hold. For non-UI work, this may be a dry-run, diagnostic command, generated artifact, operation evidence, documented policy, runtime state, or other inspectable output. If the plan can only name private implementation steps, the work is not yet a behavior-verifiable User Story; it should be reframed as a Technical Story inside a Delivery Story or reshaped around an observable validation route.
 
 The Driver says:
 
@@ -150,6 +152,12 @@ Delivery
 │  checkout redesign                                     │
 │  address validation rule redesign                      │
 │                                                        │
+│  acceptance behavior                                   │
+│  Given a mobile autofill value is rejected             │
+│  When checkout shows the validation error              │
+│  Then the user sees field-level recovery guidance      │
+│  And checkout redesign is not required                 │
+│                                                        │
 │  validation                                            │
 │  automated tests for mobile autofill-shaped values     │
 │  manual checkout check on mobile viewport              │
@@ -162,7 +170,7 @@ Delivery
 ╰────────────────────────────────────────────────────────╯
 ```
 
-The Driver stops. The Navigator confirms, redirects, or narrows the plan.
+The Driver stops. The Navigator confirms, redirects, or narrows the plan. If the Driver created or updated a plan file, it should still show this Plan Checkpoint surface instead of assuming the file itself is the checkpoint.
 
 The Navigator says:
 
@@ -170,49 +178,56 @@ The Navigator says:
 
 The plan is now confirmed. Speed has direction.
 
-If the Driver discovers that the requested work is too large for one behavior validation moment, the Driver does not hide multiple behavior steps inside one story. It proposes an Epic expansion instead.
+If the Driver discovers that the requested work is too large for one behavior validation moment, the Driver does not hide multiple behavior steps inside one story. It proposes a Delivery Story expansion instead.
+
+Delivery Story Expansion is a roadmap-structure checkpoint. The Driver should render the current roadmap context, explain why expansion is needed, show proposed child stories as siblings, recommend the first pull, and ask for Navigator acceptance before creating child folders or plans.
+
+Technical Story and User Story rows should align visually. A compact Technical Story marker must not make later User Stories appear nested below it.
 
 ```text
 Delivery
 ╭────────────────────────────────────────────────────────╮
-│        🧩  EPIC EXPANSION                              │
+│        🧩  DELIVERY STORY EXPANSION                    │
 │                                                        │
-│  epic                                                  │
-│  Improve mobile address validation recovery            │
+│  roadmap context                                       │
+│  🟪 [CV2]  Checkout Recovery                           │
+│  🟦 [DS3]  Mobile validation recovery                  │
 │                                                        │
-│  reason                                                │
+│  why expansion is needed                               │
 │  The work contains multiple behavior and technical     │
 │  steps that should not be hidden inside one story.     │
 │                                                        │
-│  proposed Delivery Stories                             │
-│  1. Classify mobile autofill validation failures       │
-│     type: technical                                    │
-│     validation: automated and diagnostic               │
+│  proposed child stories                                │
+│  ◼ [TS1]  Classify mobile autofill failures            │
+│           validation: automated and diagnostic         │
+│  ■ [US1]  Show field-level recovery guidance           │
+│           validation: Navigator behavior checkpoint    │
+│  ■ [US2]  Record validation guidance in project docs   │
+│           validation: documentation review             │
 │                                                        │
-│  2. Show field-level recovery guidance                 │
-│     type: behavior-visible                            │
-│     validation: Navigator behavior checkpoint          │
+│  recommended first pull                                │
+│  ■ [US1] Show field-level recovery guidance            │
 │                                                        │
-│  3. Record validation guidance in project docs         │
-│     type: documentation-visible                        │
-│     validation: documentation review                   │
+│  Navigator decision                                    │
+│  Accept this expansion, reorder it, narrow it, or      │
+│  keep the Delivery Story unexpanded for now?           │
 ╰────────────────────────────────────────────────────────╯
 ```
 
-The Navigator may accept the expansion, reorder the stories, or narrow the Epic.
+The Navigator may accept the expansion, reorder the stories, narrow the Delivery Story, or keep it unexpanded for now.
 
-## Step 5. Implement Delivery Story
+## Step 5. Implement User Story or Technical Story
 
-The Driver implements one Delivery Story at a time.
+The Driver implements one User Story or Technical Story at a time inside the active Delivery Story.
 
-A Delivery Story should create new behavior or capability that can be verified and observed through the validation route named in the plan. It should not be a container for a long implementation hidden behind one validation moment, and it should not close on private implementation alone. If the implementation needs multiple behavior checkpoints, the work is probably an Epic and should be expanded during planning.
+A User Story should create new behavior or capability that can be verified and observed through the validation route named in the plan. It should not be a container for private implementation hidden behind one validation moment. If implementation needs multiple behavior checkpoints, the parent Delivery Story should be expanded into smaller User Stories and Technical Stories.
 
 For a behavior-visible story, the Driver implements until the new behavior can be validated by the Navigator:
 
 ```text
 Delivery
 ╭────────────────────────────────────────────────────────╮
-│        ◼  DELIVERY STORY IMPLEMENTED                  │
+│        ◼  USER STORY IMPLEMENTED                  │
 │                                                        │
 │  story                                                │
 │  Show field-level recovery guidance                   │
@@ -228,7 +243,7 @@ Delivery
 ╰────────────────────────────────────────────────────────╯
 ```
 
-For a technical story inside an Epic, the Driver verifies the internal behavior and continues until a behavior-visible checkpoint is reached.
+For a technical story inside a Delivery Story, the Driver verifies the internal behavior and continues until a behavior-visible checkpoint is reached.
 
 ```text
 Delivery
@@ -263,13 +278,15 @@ follow_up_captured
 
 Delivery protects the Delivery Story boundary so the Navigator can still recognize what is being delivered.
 
-## Step 6. Tests and Behavior Validation Route
+## Step 6. Automated Checks and Navigator Validation Route
 
-The Driver runs relevant automated checks and prepares manual validation.
+The Driver runs relevant automated checks and prepares validation appropriate to the story type.
 
-Automated checks tell the project that known contracts still hold. Behavior validation tells the Navigator how to inspect whether the change matches the intention.
+For User Stories, automated checks tell the project that known contracts still hold, and the Navigator validation route tells the Navigator how to inspect whether the change matches the intention. A User Story Validation Checkpoint needs both: automated evidence and a concrete route the Navigator can execute or inspect.
 
-For technical stories inside an Epic, the Driver records internal verification and may continue to the next Delivery Story. The Navigator-facing behavior checkpoint appears when a story creates behavior the Navigator can inspect.
+The route should be simple: command, URL, file, operation, sample data, expected observation, pass condition, and fail condition. For non-UI work, it may be a dry-run, diagnostic command, operation report, generated artifact, documented policy, runtime state, or other inspectable evidence.
+
+For Technical Stories inside a Delivery Story, the Driver records automated/internal verification and may continue to the next User Story. The Navigator should not normally need to validate private technical substrate manually. The Navigator-facing behavior checkpoint appears when a story creates behavior the Navigator can inspect.
 
 ```text
 Delivery
@@ -283,12 +300,20 @@ Delivery
 │  checkout form tests passed                            │
 │  build passed                                          │
 │                                                        │
-│  manual route                                          │
-│  open checkout in mobile viewport                      │
-│  enter autofill-shaped address values                  │
-│  submit address step                                   │
-│  expect field-level recovery guidance                  │
-│  expect no generic address failure message             │
+│  Navigator validation route                            │
+│  1. open checkout in mobile viewport                   │
+│  2. enter autofill-shaped address values               │
+│  3. submit address step                                │
+│                                                        │
+│  expected observation                                  │
+│  field-level recovery guidance appears                 │
+│  generic address failure message does not appear       │
+│                                                        │
+│  pass condition                                        │
+│  Navigator can recover from the rejected field         │
+│                                                        │
+│  fail condition                                        │
+│  only generic feedback appears or recovery is unclear  │
 │                                                        │
 │  conscious exclusions                                  │
 │  no desktop visual redesign                            │
@@ -329,9 +354,9 @@ Documentation is not cleanup. It is part of delivery.
 
 ## Step 8. Review and Coherence Check
 
-The Driver reviews what changed and why.
+The Driver reviews what changed, why, and what happened to the structure of the codebase or project surface.
 
-Review looks at the changed surface. Coherence checks whether Process, Project, and Product still agree.
+Review looks at the changed surface and includes a refactoring and technical-debt assessment. It should say what debt was paid, what debt was introduced, what debt remains, and whether any debt blocks closure. If carried debt should outlive the story, the Driver records it in the project Debt Ledger or captures a follow-up with revisit criteria. Coherence checks whether Process, Project, and Product still agree.
 
 ```text
 Delivery
@@ -342,11 +367,24 @@ Delivery
 │  mobile autofill validation failures now map to        │
 │  field-level recovery guidance                         │
 │                                                        │
-│  refactoring                                           │
+│  refactoring done                                      │
 │  extracted error classifier branch for readability     │
 │                                                        │
-│  design debt                                           │
+│  refactoring considered                                │
+│  separate postal normalization module                  │
+│                                                        │
+│  debt paid                                             │
+│  generic error branch is no longer duplicated          │
+│                                                        │
+│  new debt introduced                                   │
+│  none                                                  │
+│                                                        │
+│  debt carried forward                                  │
 │  country-specific postal normalization remains uneven  │
+│  revisit when a second country-specific case appears   │
+│                                                        │
+│  debt ledger                                           │
+│  no new ledger entry; follow-up is enough              │
 │                                                        │
 │  follow-up                                             │
 │  Review country-specific postal code normalization     │
@@ -375,11 +413,11 @@ Delivery
 ╰────────────────────────────────────────────────────────╯
 ```
 
-The Driver stops at behavior checkpoints and coherence boundaries. If something is missing, the work returns to the relevant step instead of pretending the Delivery Story is done.
+The Driver stops at behavior checkpoints and coherence boundaries. If something is missing, the work returns to the relevant step instead of pretending the User Story or Technical Story is done.
 
-## Step 9. History, Epic Closure, and Release Handoff
+## Step 9. History, Delivery Story Closure, and Release Handoff
 
-When the Delivery Story is coherent, the Driver proposes the history action according to the configured commit policy.
+When the User Story or Technical Story is coherent, the Driver proposes the history action according to the configured commit policy.
 
 Ariad's default is conservative: propose a descriptive commit message and wait for Navigator confirmation before committing.
 
@@ -410,7 +448,7 @@ The Navigator accepts:
 
 > Commit it.
 
-The Driver records history and closes the Delivery Story.
+The Driver records history and closes the User Story.
 
 ```text
 story_closed
@@ -419,9 +457,9 @@ story_closed
   result: verified behavior
 ```
 
-A Delivery Story is not closed because files changed. It is closed because the change became intelligible, validated, documented, coherent, and recorded.
+A User Story is not closed because files changed. It is closed because the change became intelligible, validated, documented, coherent, and recorded.
 
-The Driver then shows the transition: what closed, where it was absorbed, what it unlocked, and what movement is coherent next.
+The story closure cadence now triggers transition questions. The Driver shows what closed, where it was absorbed, what it unlocked, whether debt/history/release questions are active, and what movement is coherent next.
 
 ```text
 Delivery
@@ -429,34 +467,34 @@ Delivery
 │        ⇄  TRANSITION VIEW                              │
 │                                                        │
 │  completed                                             │
-│  S2 Show field-level recovery guidance                 │
+│  US1 Show field-level recovery guidance                 │
 │                                                        │
 │  absorbed into                                         │
-│  E3 Improve mobile address validation recovery         │
+│  DS3 Improve mobile address validation recovery         │
 │                                                        │
 │  unlocked                                              │
 │  Navigator can validate recovery behavior on mobile    │
 │                                                        │
-│  remaining in Epic                                     │
-│  S3 Record validation guidance in project docs         │
+│  remaining in Delivery Story                            │
+│  US2 Record validation guidance in project docs         │
 │                                                        │
 │  next coherent movement                                │
-│  Pull S3, then collapse the Epic if validation and     │
+│  Pull US2, then collapse the Delivery Story if validation and     │
 │  documentation remain coherent.                        │
 ╰────────────────────────────────────────────────────────╯
 ```
 
-When all Delivery Stories in an Epic have closed, the Epic becomes the delivery-level unit of completion.
+When all User Stories in a Delivery Story have closed, the Delivery Story becomes the delivery-level unit of completion.
 
 ```text
 Delivery
 ╭────────────────────────────────────────────────────────╮
-│        🟩▣  EPIC CLOSED                                │
+│        🟩▣  DELIVERY STORY CLOSED                                │
 │                                                        │
-│  epic                                                  │
+│  delivery story                                        │
 │  Improve mobile address validation recovery            │
 │                                                        │
-│  completed Delivery Stories                            │
+│  completed child stories                            │
 │  ✓ Classify mobile autofill validation failures        │
 │  ✓ Show field-level recovery guidance                  │
 │  ✓ Record validation guidance in project docs          │
@@ -469,11 +507,11 @@ Delivery
 │  release management                                    │
 │                                                        │
 │  likely release boundary                               │
-│  Epic close suggests a MINOR release by Ariad default  │
+│  Delivery Story close suggests a MINOR release by Ariad default  │
 ╰────────────────────────────────────────────────────────╯
 ```
 
-Epic closure suggests, but does not automatically start, release management. The Driver should name the release handoff when the completed Epic changes product behavior or operational state enough to warrant packaging, release notes, deployment, or version decisions.
+Delivery Story closure suggests, but does not automatically start, release management. The Driver should name the release handoff when the completed Delivery Story changes product behavior or operational state enough to warrant packaging, release notes, deployment, or version decisions.
 
 ```text
 Delivery
@@ -484,7 +522,7 @@ Delivery
 │  emergent                                              │
 │                                                        │
 │  likely boundary                                       │
-│  MINOR, because an Epic closed without closing CV2     │
+│  MINOR, because a Delivery Story closed without closing CV2     │
 │                                                        │
 │  release candidate                                     │
 │  Checkout Recovery: mobile validation guidance         │
@@ -500,12 +538,12 @@ Delivery
 ╰────────────────────────────────────────────────────────╯
 ```
 
-If the closed Epic also completes the Value / CV, the collapse is larger:
+If the closed Delivery Story also completes the Value / CV, the collapse is larger:
 
 ```text
 value_closed
   value: CV2 Checkout Recovery
-  completed Epics: 3/3
+  completed Delivery Stories: 3/3
   emergent value: checkout abandonment can be diagnosed and reduced without broad redesign
   likely release boundary: MAJOR by Ariad default, unless the project overrides versioning policy
 ```

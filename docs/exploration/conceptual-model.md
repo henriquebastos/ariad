@@ -93,9 +93,9 @@ Exploration Documentation is a durable narrative record of an Exploratory Story.
 
 It preserves the useful shape of the exploration: initial signal, thickened story, attractors and refinements, experiments, findings, Carry Forward Notes, decisions, kept-for-later signals, and current state. It may be generated when a story is promoted, paused, archived, or simply reaches a meaningful documentation boundary.
 
-When a candidate is promoted, the full Exploration Documentation should remain in the Exploration area. The future Delivery Epic or Delivery Story may receive a shorter exploration summary with a link back to the full document.
+When a candidate is promoted, the full Exploration Documentation should remain in the Exploration area. The future Delivery Story may receive a shorter exploration summary with a link back to the full document.
 
-Exploration candidates usually promote to an Epic or Epic Expansion, because exploratory material often contains more than one behavior validation boundary. Direct promotion to a single Delivery Story is the exception: use it only when the candidate is already one story-sized, has one observable validation route, and does not hide later user-facing behavior behind a technical prerequisite.
+Exploration candidates usually promote to a Delivery Story, because exploratory material often contains more than one behavior validation boundary. Direct promotion to a single User Story is the exception: use it only when the candidate is already one behavior-sized unit, has one observable validation route, and does not hide later user-facing behavior behind a technical prerequisite.
 
 ### Carry Forward Notes
 
@@ -111,9 +111,9 @@ A candidate is a thickened Exploratory Story, inquiry, hypothesis, or experiment
 
 Promotion is a Navigator decision. The Driver may suggest promotion, but it should not silently convert exploration into delivery.
 
-Promotion is not only naming an idea. A promoted candidate should produce a Delivery handoff: suggested roadmap placement, Epic seed, candidate Delivery Stories, validation seeds, and pull state. The candidate enters the Delivery field under the roadmap taxonomy — usually as an Epic inside a Value / CV, then expanded into Delivery Stories — even if the Navigator has not pulled the first Delivery Story for implementation yet.
+Promotion is not only naming an idea. A promoted candidate should produce a Delivery handoff: suggested roadmap placement, Delivery Story seed, candidate User Stories and Technical Stories, validation seeds, and pull state. The candidate enters the Delivery field under the roadmap taxonomy — usually as a Delivery Story inside a Value / CV, then expanded into child stories — even if the Navigator has not pulled the first User Story or Technical Story for implementation yet.
 
-Direct-to-Delivery-Story promotion is allowed, but rare. The Driver should explicitly justify it by showing that the candidate has exactly one behavior/capability boundary and can be validated end to end as one Delivery Story.
+Direct-to-User-Story promotion is allowed, but rare. The Driver should explicitly justify it by showing that the candidate has exactly one behavior/capability boundary and can be validated end to end as one User Story.
 
 ### Archive
 
@@ -180,13 +180,13 @@ exploration_documented
   a durable Exploration document is generated or updated for an Exploratory Story, regardless of whether it promotes to Delivery
 
 promotion_brief_generated
-  a promoted candidate receives a full Exploration brief plus a concise Delivery Epic or Delivery Story summary/link
+  a promoted candidate receives a full Exploration brief plus a concise Delivery Story summary/link
 
 candidate_formed
   material has enough form to be considered for Delivery
 
 candidate_promoted
-  the Navigator accepts a candidate into Delivery; the handoff normally includes Epic placement, candidate Delivery Stories, validation seeds, and pull state
+  the Navigator accepts a candidate into Delivery; the handoff normally includes Delivery Story placement, candidate User Stories and Technical Stories, validation seeds, and pull state
 
 signal_archived
   exploratory material leaves the active field without being erased

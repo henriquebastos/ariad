@@ -59,7 +59,7 @@ Examples:
 - commit after every codebase change;
 - commit only at the end of a story;
 - push after every accepted story;
-- push only at an epic boundary;
+- push only at a Delivery Story boundary;
 - never push without explicit confirmation;
 - use compressed checkpoints for documentation-only work;
 - require full checkpoints for every code change;

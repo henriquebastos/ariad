@@ -10,9 +10,9 @@ A release boundary appears when completed work should be named beyond the local 
 
 Common signals:
 
-- an Epic closes and produces a coherent capability;
+- a Delivery Story closes and produces a coherent capability;
 - a Value / CV closes and reaches a major value boundary;
-- a Delivery Story or maintenance fix should be shipped independently;
+- a User Story, Technical Story, or maintenance fix should be shipped independently;
 - public documentation, runtime behavior, package behavior, or operational reliability changed;
 - users or contributors need to understand what changed without reading commits.
 
@@ -27,10 +27,10 @@ Known release intent
   the version, channel, and release scope are already part of the plan
 
 Emergent release intent
-  delivery reveals that a story, Epic, or Value now deserves a release boundary
+  delivery reveals that a User Story, Technical Story, Delivery Story, or Value now deserves a release boundary
 ```
 
-The Driver should surface release intent during planning when known, and during Epic or Value collapse when emergent.
+The Driver should surface release intent during planning when known, and during Delivery Story or Value collapse when emergent.
 
 ## Default versioning policy
 
@@ -41,13 +41,13 @@ MAJOR
   a Value / CV is completed and release-ready
 
 MINOR
-  an Epic is completed and released without closing a Value / CV
+  a Delivery Story is completed and released without closing a Value / CV
 
 PATCH
-  a Delivery Story, maintenance fix, or small correction is released independently
+  a User Story, Technical Story, maintenance fix, or small correction is released independently
 ```
 
-The version number says what level of work collapsed into a release. It does not encode which Value, Epic, or Delivery Story produced it. That identity belongs in the release note.
+The version number says what level of work collapsed into a release. It does not encode which Value, Delivery Story, User Story, or Technical Story produced it. That identity belongs in the release note.
 
 ## Release note
 
@@ -97,16 +97,16 @@ A push, merge, or commit is not necessarily a release. A release happens when th
 
 ## Handoff from Delivery
 
-When a Delivery Story closes, the Driver asks whether it closes an Epic or creates an independent patch boundary.
+When a User Story or Technical Story closes, the Driver asks whether it closes the parent Delivery Story or creates an independent patch boundary.
 
-When an Epic closes, the Driver asks whether it suggests release management.
+When a Delivery Story closes, the Driver asks whether it suggests release management.
 
 When a Value / CV closes, the Driver asks whether it creates a major release or public value milestone.
 
 The handoff should be explicit:
 
 ```text
-Epic closed
+Delivery Story closed
   completed stories: 3/3
   emergent capability: mobile users can recover from address validation failures
   suggested next process: release management

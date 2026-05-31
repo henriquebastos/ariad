@@ -9,7 +9,7 @@ They exist because coding agents can convert ambiguity into motion faster than h
 For non-trivial Delivery Work, the Driver stops:
 
 - after the plan,
-- after tests and the manual validation route,
+- after automated checks and with a concrete Navigator validation route,
 - after review and refactoring assessment,
 - before recording the change in project history according to the configured commit policy.
 
@@ -23,11 +23,22 @@ The Driver presents the route before implementation. The Navigator confirms that
 
 This prevents the agent from building the wrong thing well.
 
-## After tests and validation route
+## After automated checks and Navigator validation route
 
-The Driver reports automated checks and gives the Navigator a concrete way to inspect the change.
+The Driver reports automated checks and gives the Navigator a concrete, simple way to inspect the change.
 
-This prevents the story from being treated as done merely because the agent says it is done.
+For User Stories, a Validation Checkpoint should include both:
+
+- **Automated evidence** — tests, builds, linters, focused checks, or operation preflights the Driver already ran, with results.
+- **Navigator validation route** — the shortest concrete route by which the Navigator can inspect the claimed behavior or capability.
+
+The Navigator route should name the command, URL, file, operation, sample data, or UI path to use; the expected observation; the pass condition; and the fail condition. For non-UI work, this may be a dry-run, diagnostic, operation report, generated artifact, documented policy, runtime state, or other inspectable output.
+
+For Technical Stories, automated/internal evidence is normally the validation route. The Driver should present enough evidence for the Navigator to trust the substrate without manually running private scripts. A Navigator route is only required for Technical Stories when risk, real data mutation, weak automated evidence, project policy, or Navigator preference calls for it.
+
+Automated checks are necessary evidence, but they are not a substitute for Navigator validation when the story claims observable behavior.
+
+This prevents the story from being treated as done merely because tests passed or because the agent says it is done.
 
 ## After review and refactoring assessment
 

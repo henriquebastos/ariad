@@ -37,6 +37,7 @@ mkdir -p /path/to/project/docs/project/roadmap \
 cp docs/project-templates/docs/project/briefing.md /path/to/project/docs/project/briefing.md
 cp docs/project-templates/docs/project/decisions.md /path/to/project/docs/project/decisions.md
 cp docs/project-templates/docs/project/roadmap/index.md /path/to/project/docs/project/roadmap/index.md
+cp docs/project-templates/docs/project/debt.md /path/to/project/docs/project/debt.md
 cp docs/project-templates/docs/process/worklog.md /path/to/project/docs/process/worklog.md
 cp docs/project-templates/docs/product/principles.md /path/to/project/docs/product/principles.md
 ```
@@ -73,7 +74,7 @@ Good first pulls usually improve confidence without requiring broad architecture
 - clarify one README section,
 - add one small feature with clear validation.
 
-Avoid vague goals such as "refactor the project", "improve architecture", or "make it production-ready". If the work is too large, expand it into an Epic and choose one Delivery Story. If the work is ambiguous, keep it in Exploration until it can collapse into a candidate. The first pull should test the method, not exhaust it.
+Avoid vague goals such as "refactor the project", "improve architecture", or "make it production-ready". If the work is too large, expand it into a Delivery Story and choose one User Story or Technical Story. If the work is ambiguous, keep it in Exploration until it can collapse into a candidate. The first pull should test the method, not exhaust it.
 
 ## Expected Session Shape
 

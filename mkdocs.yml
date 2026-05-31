@@ -33,8 +33,9 @@ nav:
       - Conceptual Model: delivery/conceptual-model.md
       - Delivery Flow: delivery/flow.md
       - Visual Grammar: delivery/visual-grammar.md
+      - Cadences: delivery/cadences.md
       - Release Management: delivery/release-management.md
-      - Delivery Story Lifecycle: delivery/story-lifecycle.md
+      - User and Technical Story Lifecycle: delivery/story-lifecycle.md
       - Checkpoints: delivery/checkpoints.md
   - Project Templates:
       - project-templates/index.md
@@ -42,6 +43,7 @@ nav:
       - Project Briefing: project-templates/docs/project/briefing.md
       - Decisions: project-templates/docs/project/decisions.md
       - Roadmap: project-templates/docs/project/roadmap/index.md
+      - Technical Debt Ledger: project-templates/docs/project/debt.md
       - Local Development Guide: project-templates/docs/process/development-guide.md
       - Worklog: project-templates/docs/process/worklog.md
       - Product Principles: project-templates/docs/product/principles.md

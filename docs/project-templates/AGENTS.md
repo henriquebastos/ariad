@@ -20,6 +20,7 @@ Before meaningful work, read the files that exist in this project:
 - `docs/project/briefing.md`
 - `docs/project/decisions.md`
 - `docs/project/roadmap/index.md`
+- `docs/project/debt.md`
 - `docs/process/development-guide.md`
 - `docs/process/worklog.md`
 - `docs/product/principles.md`
@@ -46,13 +47,13 @@ Follow `docs/process/development-guide.md` for commit frequency, push policy, ch
 
 ## Self-Conduct Protocol
 
-The Driver is responsible for moving through Ariad's Delivery lifecycle autonomously. The Navigator should not need to dictate each phase. When the Navigator asks for work (e.g., "show the roadmap", "pull the next Delivery Story", "fix this bug", "add this feature"), the Driver reads context, identifies whether the work is Value / CV, Epic, Delivery Story, Task, or Maintenance, and drives through the lifecycle below, stopping only at checkpoints.
+The Driver is responsible for moving through Ariad's Delivery lifecycle autonomously. The Navigator should not need to dictate each phase. When the Navigator asks for work (e.g., "show the roadmap", "pull the next Delivery Story", "fix this bug", "add this feature"), the Driver reads context, identifies whether the work is Value / CV, Delivery Story, User Story, Technical Story, Task, or Maintenance, and drives through the lifecycle below, stopping only at checkpoints.
 
 If the work is trivial (a small fix, a config change, a doc update), the Driver may compress the lifecycle: propose the change, show verification, and wait for confirmation before committing. Not every change needs all phases.
 
 For non-trivial work, follow the full lifecycle.
 
-## Delivery Story Lifecycle
+## User and Technical Story Lifecycle
 
 ### 1. Read and Orient
 
@@ -64,14 +65,15 @@ Present orientation briefly: current state, identified next work, any ambiguity 
 
 Read relevant code and docs for the specific work. Propose:
 
-- **Roadmap level** — Value / CV, Epic, Delivery Story, Task, or Maintenance.
+- **Roadmap level** — Value / CV, Delivery Story, User Story, Technical Story, Task, or Maintenance.
 - **What is in scope** — the concrete changes this work makes.
+- **Acceptance behavior** — for User Stories, preferably in lightweight BDD form: Given / When / Then / And.
 - **Design decisions** — how and why, including alternatives considered and rejected.
 - **What is out of scope** — related work deliberately deferred.
 - **Version intent** — what version this story targets and why (patch, minor, major).
 - **Risks or ambiguities** — anything that needs Navigator judgment before implementation.
 
-**→ Checkpoint 1: stop and present the plan. Wait for Navigator confirmation before writing any code or changing any file.**
+**→ Checkpoint 1: stop and present the Plan Checkpoint surface. If you created or updated `plan.md`, still render the plan visibly for the Navigator. Wait for Navigator confirmation before writing any code or changing any implementation file.**
 
 ### 3. Implement
 
@@ -79,27 +81,30 @@ Write code following the plan. Keep scope stable. If new work surfaces during im
 
 ### 4. Test and Validate
 
-Run automated tests. For user-visible or product-visible work, prepare a manual validation route: commands, URLs, expected observations, and what to check.
+Run automated tests. For user-visible, product-visible, or capability-visible work, prepare a Navigator validation route: commands, URLs, files, operation surfaces, sample data, expected observations, pass condition, and fail condition.
 
 Present:
 
 - **Files changed** — list of modified and new files.
 - **Test results** — which tests ran, pass/fail count.
-- **Manual validation route** — step-by-step instructions for the Navigator.
+- **Navigator validation route** — step-by-step instructions for the Navigator, including expected observations, pass condition, and fail condition.
 - **Anything surprising** — unexpected behavior, edge cases discovered, scope questions.
 
-**→ Checkpoint 2: stop and present test results AND the manual validation route. The validation route is a deliverable, not optional — the Navigator needs concrete steps (commands, URLs, what to observe, what to check) to validate the story. Wait for Navigator to validate manually before proceeding.**
+**→ Checkpoint 2: stop and present automated evidence AND the Navigator validation route. The validation route is a deliverable, not optional — the Navigator needs concrete steps (commands, URLs, samples, what to observe, pass condition, and fail condition) to validate the story. Automated tests are necessary evidence but not a substitute for Navigator validation when the story claims observable behavior. Wait for Navigator to validate manually before proceeding.**
 
 ### 5. Review and Refactoring Assessment
 
 Review what was built. Assess:
 
 - **Refactoring done** — what was improved during implementation and why.
-- **Refactoring deferred** — what was evaluated and consciously left for later, with revisit criteria.
-- **Design debt** — any debt created by this story, with justification.
+- **Refactoring considered** — what was evaluated but not done.
+- **Debt paid** — existing technical debt reduced by this story.
+- **New debt introduced** — any debt created by this story, with justification.
+- **Debt carried forward** — accepted remaining debt, with revisit criteria.
+- **Debt ledger impact** — whether `docs/project/debt.md` needs a new or updated item.
 - **Documentation pending** — list every doc that needs updating before the story closes.
 
-**→ Checkpoint 3: stop and present the review. Wait for Navigator confirmation before updating docs and preparing the commit.**
+**→ Checkpoint 3: stop and present the review, including refactoring and technical-debt assessment. Wait for Navigator confirmation before updating docs and preparing the commit.**
 
 ### 6. Document and Coherence Check
 

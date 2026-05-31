@@ -129,7 +129,7 @@ Exploration
 │  ▧ ES-001 Conversation metadata lifecycle              │
 │    state: promoted to Delivery                         │
 │    attractor: Conversation metadata lifecycle          │
-│    promoted as: 🟨 CV9.E2.S5 Conversation Metadata     │
+│    promoted as: 🟦 CV9.DS7 Conversation Metadata       │
 │                 Lifecycle                              │
 │    full doc: docs/project/exploration/es-001...md      │
 │                                                        │
@@ -522,12 +522,12 @@ full exploration document
   stored in the Exploration area
   contains the complete exploratory narrative
 
-Delivery Epic or Delivery Story exploration summary
-  stored beside the future roadmap Epic or Story
+Delivery Story exploration summary
+  stored beside the future roadmap Delivery Story, User Story, or Technical Story
   summarizes the exploration and links to the full document
 ```
 
-Most promoted candidates should create an Epic-level summary, because Exploration usually discovers an arc larger than one Delivery Story. Story-level summaries are reserved for rare direct-to-story promotions.
+Most promoted candidates should create a Delivery Story-level summary, because Exploration usually discovers a delivery arc. User Story-level summaries are reserved for rare direct-to-user-story promotions.
 
 The full document should include:
 
@@ -552,7 +552,7 @@ Exploration
 │  docs/project/exploration/es-001-conversation-         │
 │  metadata-lifecycle.md                                 │
 │                                                        │
-│  Delivery Epic exploration summary                     │
+│  Delivery Story exploration summary                     │
 │  docs/project/roadmap/.../exploration-summary.md       │
 │                                                        │
 │  includes                                              │
@@ -569,8 +569,8 @@ Exploration
 Boundary:
 
 - Exploration Documentation records learning; it does not create implementation commitment.
-- The Delivery Epic or Story summary is a bridge, not a duplicate of the full exploration document.
-- Epic-level summaries are the default for promoted Exploration candidates; Story-level summaries require an explicit one-story-size justification.
+- The Delivery Story or child story summary is a bridge, not a duplicate of the full exploration document.
+- Delivery Story-level summaries are the default for promoted Exploration candidates; Story-level summaries require an explicit one-story-size justification.
 - Non-promoted Exploratory Stories can still be documented in the Exploration area without creating any roadmap story.
 
 ## Candidate Promoted
@@ -579,7 +579,7 @@ A `Candidate Promoted` component appears when the Navigator accepts a candidate 
 
 It should make the handoff visible. Promotion should not leave the candidate as an abstract idea; it should show where the work enters the Delivery roadmap and what would make it verifiable.
 
-Default rule: promoted Exploration candidates become an Epic or Epic Expansion. Direct promotion to a Delivery Story is rare and should be justified by showing that the candidate has one behavior/capability boundary and one end-to-end validation route.
+Default rule: promoted Exploration candidates become a Delivery Story. Direct promotion to a User Story is rare and should be justified by showing that the candidate has one behavior/capability boundary and one end-to-end validation route.
 
 Required handoff fields:
 
@@ -588,22 +588,22 @@ from Exploration
   source Exploratory Story
 
 suggested roadmap placement
-  Value / CV -> Epic
+  Value / CV -> Delivery Story
 
-Epic seed
+Delivery Story seed
   behavior arc or capability arc discovered by Exploration
 
-candidate Delivery Stories
-  proposed story-sized behavior/capability checkpoints inside the Epic
+candidate User Stories and Technical Stories
+  proposed behavior/capability and internal checkpoints inside the Delivery Story
 
 validation seeds
   first routes by which the Navigator could inspect each behavior/capability
 
 exploration source
-  full Exploration document and Delivery Epic or Story exploration summary
+  full Exploration document and Delivery Story or child story exploration summary
 
 pull state
-  ready for Epic expansion | ready for Navigator pull | backlog | needs more exploration
+  ready for Delivery Story expansion | ready for Navigator pull | backlog | needs more exploration
 ```
 
 Example:
@@ -622,12 +622,12 @@ Exploration → Delivery Handoff
 │  🟪[CV9] Mirror 1.0                                    │
 │    └─ 🟦[E?] Conversation metadata lifecycle           │
 │                                                        │
-│  Epic seed                                             │
+│  Delivery Story seed                                             │
 │  Mirror manages title, summary, tags, and metadata     │
 │  state through lifecycle decisions with per-field      │
 │  readiness.                                            │
 │                                                        │
-│  candidate Delivery Stories                            │
+│  candidate User / Technical Stories                │
 │  🟨[S?] Dry-run metadata lifecycle decisions            │
 │  🟨[S?] Apply safe title repair lifecycle              │
 │  🟨[S?] Summary readiness lifecycle                    │
@@ -638,18 +638,18 @@ Exploration → Delivery Handoff
 │                                                        │
 │  exploration source                                    │
 │  full brief: docs/project/exploration/es-001...md      │
-│  Epic summary: roadmap/.../exploration-summary.md      │
+│  Delivery Story summary: roadmap/.../exploration-summary.md      │
 │                                                        │
 │  pull state                                            │
-│  ready for Epic expansion                              │
+│  ready for Delivery Story expansion                              │
 ╰────────────────────────────────────────────────────────╯
 ```
 
 Boundary:
 
 - Promotion creates Delivery visibility, not automatic implementation.
-- Roadmap placement may be suggested when exact CV/Epic codes are not known yet.
-- If no suitable Epic exists, the handoff may recommend Epic expansion instead of forcing a story into the wrong parent.
+- Roadmap placement may be suggested when exact CV, Delivery Story, User Story, or Technical Story codes are not known yet.
+- If no suitable Delivery Story exists, the handoff may recommend Delivery Story expansion instead of forcing a story into the wrong parent.
 
 ## Capture Flash
 

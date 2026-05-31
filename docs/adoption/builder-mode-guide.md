@@ -46,7 +46,7 @@ Then activate Builder Mode:
 /mm-build <journey-slug>
 ```
 
-The agent should load the journey context, read the project documentation, apply the Driver/Navigator roles, show the delivery field when choosing work, and follow the relevant Ariad path: Exploration for unclear signals, Delivery for pulled Value/CV, Epic, Delivery Story, Task, or Maintenance work. If the project defines Navigator preferences, such as commit frequency or push policy, the agent should follow them. If not, it should use Ariad defaults.
+The agent should load the journey context, read the project documentation, apply the Driver/Navigator roles, show the delivery field when choosing work, and follow the relevant Ariad path: Exploration for unclear signals, Delivery for pulled Value/CV, Delivery Story, User Story, Technical Story, Task, or Maintenance work. If the project defines Navigator preferences, such as commit frequency or push policy, the agent should follow them. If not, it should use Ariad defaults.
 
 ## First Builder Session
 
@@ -71,7 +71,7 @@ When the method is working, the Driver should:
 - provide concrete validation steps,
 - update documentation when the project state changes,
 - name follow-up work instead of absorbing it silently,
-- expand oversized work into Epics and Delivery Stories,
+- expand oversized work into User Stories and User Stories,
 - name release intent when a delivery arc creates a release boundary,
 - propose a commit message before committing unless the local commit policy says otherwise.
 

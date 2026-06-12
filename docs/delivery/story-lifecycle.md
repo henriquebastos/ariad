@@ -14,7 +14,8 @@ Contract distribution:
 
 - **Pull:** choose an explicit focus, classify the work level, and preserve Navigator choice as the commitment boundary.
 - **Prepare:** read the terrain, identify story shape, risks, local guide overrides, and whether expand/collapse is needed.
-- **Plan:** define scope, non-goals, acceptance behavior, validation route, documentation impact, implementation rules, and whether E2E validation is required.
+- **Expand:** when a Delivery Story is pulled, expand it into implementable User Stories and/or Technical Stories before Plan. Delivery Stories are never the implementable unit.
+- **Plan:** define scope, non-goals, acceptance behavior, validation route, documentation impact, implementation rules, and whether E2E validation is required for an implementable User Story or Technical Story.
 - **Implement:** follow the approved Plan, use TDD or characterization tests for behavior changes when practical, keep changes scoped to the active story, and add or update E2E tests when the Plan requires them.
 - **Validate:** run required checks, including E2E tests when defined by the Plan or local guide, and present evidence plus a Navigator validation route when applicable.
 - **Review:** name debt paid, introduced, and carried forward, including revisit criteria and ledger decisions.
@@ -35,7 +36,9 @@ For non-trivial Delivery Work, the Driver presents the plan as a Navigator-facin
 
 The Driver changes the repository to implement the User Story or Technical Story. A User Story should add behavior or capability that can be verified and observed through its validation route. Behavior changes should be test-driven when practical. Refactoring can happen inside the story when it supports the story's coherence, but new scope should not be silently absorbed.
 
-If implementation is too large to reach one coherent behavior validation point, the Driver should not hide that size inside the story. The work should become a Delivery Story and be expanded into smaller User Stories and Technical Stories.
+Delivery Stories are not implemented directly. When a Delivery Story is pulled, the Driver prepares it, expands it into User Stories and Technical Stories, recommends the next implementable child story, and stops for Navigator confirmation before Plan.
+
+If implementation is too large to reach one coherent behavior validation point, the Driver should not hide that size inside the story. The work should become or remain a Delivery Story and be expanded into smaller User Stories and Technical Stories.
 
 ## Validate
 

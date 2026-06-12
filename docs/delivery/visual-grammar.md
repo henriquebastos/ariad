@@ -349,7 +349,7 @@ A `Delivery Lifecycle Ribbon` may appear as a compact breadcrumb above Delivery 
 Current runtime stages:
 
 ```text
-pull -> prepare -> plan -> implement -> validate -> debt review -> coherence -> done
+pull -> prepare -> expand -> plan -> implement -> validate -> debt review -> coherence -> done
 ```
 
 Marker semantics:
@@ -363,7 +363,7 @@ Marker semantics:
 Example:
 
 ```text
-Ariad: ✓ Pull | ◉ Prepare | ○ Plan | ○ Implement | ○ Validate | ○ Debt Review | ○ Coherence | ○ Done
+Ariad: ✓ Pull | ◉ Prepare | ○ Expand | ○ Plan | ○ Implement | ○ Validate | ○ Debt Review | ○ Coherence | ○ Done
 ```
 
 The ribbon is orientation, not permission. A stage marked current still must obey its checkpoint boundary. For example, `Prepare` being current does not allow implementation; `Plan` must be rendered and approved first.

@@ -22,7 +22,7 @@ Ariad uses **Capability Value** as the default meaning of CV. Other projects may
 
 A **Delivery Story** is a coherent delivery arc inside a Value / CV.
 
-It is the story of a meaningful delivery outcome, not the smallest implementable unit. A Delivery Story may contain multiple User Stories and Technical Stories. It has a done condition: when it closes, the project should be able to say what capability, product behavior, operational state, documentation promise, or process maturity emerged.
+It is the story of a meaningful delivery outcome, not the smallest implementable unit. A Delivery Story is never implemented directly in canonical Ariad. It must expand into User Stories and/or Technical Stories before Plan and implementation. It has a done condition: when it closes, the project should be able to say what capability, product behavior, operational state, documentation promise, or process maturity emerged.
 
 Exploration candidates normally promote into Delivery as Delivery Stories, because exploration usually discovers an arc rather than one granular implementation unit.
 
@@ -34,7 +34,15 @@ A **User Story** is an implementable delivery unit with observable behavior or c
 
 A User Story should add behavior or capability that can be validated end to end by the Navigator. In user-facing work, the Navigator should be able to inspect the behavior through a concrete validation route. In process, documentation, tooling, or operational work, the validation route may inspect commands, dry-runs, generated output, docs, runtime state, diagnostics, operation evidence, or operational behavior. Automated tests support the story, but they do not replace Navigator-facing validation for a User Story.
 
-Ariad recommends writing the User Story's acceptance behavior in a lightweight BDD form when planning or expanding work:
+Ariad recommends writing the User Story statement in the traditional agile form:
+
+```text
+As a [user persona],
+I want to [action/feature],
+So that [benefit/value].
+```
+
+Ariad also recommends writing the User Story's acceptance behavior in a lightweight BDD form when planning or expanding work:
 
 ```text
 Given <relevant starting state>
@@ -50,6 +58,15 @@ A User Story should not be reduced to an internal implementation slice. If no ob
 ## Technical Story
 
 A **Technical Story** is an implementable delivery unit whose immediate behavior is internal rather than directly visible to the Navigator.
+
+Ariad recommends writing the Technical Story statement as:
+
+```text
+In order to [achieve a technical benefit/business capability],
+As [an engineering team/system component],
+I want to [perform a technical action],
+So that [expected technical outcome].
+```
 
 Technical Stories are valid when they create necessary internal capability, safety, migration, infrastructure, instrumentation, test support, or operational substrate for a Delivery Story. Their primary validation belongs to the Driver through automated or internal evidence: tests, type checks, diagnostics, fixtures, preflights, internal reports, or contract checks. They may not justify a Navigator behavior checkpoint by themselves, but inside a Delivery Story they should lead toward a later User Story or behavior-visible checkpoint.
 

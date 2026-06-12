@@ -6,6 +6,21 @@ A **User Story** creates observable behavior or capability that the Navigator ca
 
 A **Delivery Story** is the larger delivery arc that these stories close into.
 
+## Lifecycle contracts
+
+Each lifecycle phase has a contract: the minimum rules, outputs, and stop conditions that keep Driver movement inspectable. Contracts are method rules, not visual decorations. A runtime may render them in checkpoint surfaces, enforce them through cursor state, or use them during coherence checks.
+
+Contract distribution:
+
+- **Pull:** choose an explicit focus, classify the work level, and preserve Navigator choice as the commitment boundary.
+- **Prepare:** read the terrain, identify story shape, risks, local guide overrides, and whether expand/collapse is needed.
+- **Plan:** define scope, non-goals, acceptance behavior, validation route, documentation impact, implementation rules, and whether E2E validation is required.
+- **Implement:** follow the approved Plan, use TDD or characterization tests for behavior changes when practical, keep changes scoped to the active story, and add or update E2E tests when the Plan requires them.
+- **Validate:** run required checks, including E2E tests when defined by the Plan or local guide, and present evidence plus a Navigator validation route when applicable.
+- **Review:** name debt paid, introduced, and carried forward, including revisit criteria and ledger decisions.
+- **Coherence:** verify Process, Project, and Product alignment, including differences between Ariad defaults and the local development guide.
+- **Done:** close only after validation, review, and coherence; record history at coherent story boundaries unless local policy overrides; recommend next pull, parent collapse, or release boundary when relevant.
+
 ## Read and orient
 
 The Driver begins by reading the relevant code and project documentation. It identifies what kind of work this is, what context matters, what is in scope, what is out of scope, which risks or trade-offs should be visible before implementation, and whether the pulled work is truly one User Story or Technical Story or should be expanded as a Delivery Story.

@@ -342,6 +342,32 @@ Boundary:
 - The runtime owns polling, streaming, tabs, colors, typography, raw payload shape, and operation-specific rendering.
 - Unknown, attention, blocked, failed, cancelled, and approval-required states should be represented honestly rather than flattened into pass/fail.
 
+## Delivery Lifecycle Ribbon
+
+A `Delivery Lifecycle Ribbon` may appear as a compact breadcrumb above Delivery surfaces. It helps the Navigator see where the current surface sits in the Ariad lifecycle.
+
+Current runtime stages:
+
+```text
+pull -> prepare -> plan -> implement -> validate -> debt review -> coherence -> done
+```
+
+Marker semantics:
+
+```text
+✓ completed stage
+◉ current stage
+○ future stage
+```
+
+Example:
+
+```text
+Ariad: ✓ Pull | ◉ Prepare | ○ Plan | ○ Implement | ○ Validate | ○ Debt Review | ○ Coherence | ○ Done
+```
+
+The ribbon is orientation, not permission. A stage marked current still must obey its checkpoint boundary. For example, `Prepare` being current does not allow implementation; `Plan` must be rendered and approved first.
+
 ## Roadmap Snapshot
 
 A `Roadmap Snapshot` component appears when the Navigator asks to see the delivery field before pulling work.

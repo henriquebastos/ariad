@@ -473,6 +473,62 @@ Delivery
 ╰────────────────────────────────────────────────────────╯
 ```
 
+## Prepare Field Reading
+
+A `Prepare Field Reading` component appears after work has been pulled and before the Plan Checkpoint. It shows what the Driver read, how the pulled item is currently shaped, what risks are visible, and which Ariad rules govern the next transition.
+
+It should make clear that Prepare reads terrain only. It does not create a plan, approve a checkpoint, start implementation, or silently expand scope. If the pulled item is a Delivery Story, the surface may name that Plan should decide whether expansion into User Stories or Technical Stories is required.
+
+Schema:
+
+```text
+Prepare Field Reading
+  active item
+  terrain read
+  story shape
+  risks
+  applicable rules
+  next event
+  boundary
+```
+
+Example:
+
+```text
+Delivery
+╭────────────────────────────────────────────────────────╮
+│        🧭  PREPARE FIELD READING                       │
+│                                                        │
+│  active item                                           │
+│  🟦[CV2.DS1]                                           │
+│                                                        │
+│  terrain read                                          │
+│  ✓ README.md: present                                  │
+│  ✓ docs/project/roadmap/index.md: present              │
+│  ○ docs/process/development-guide.md: missing          │
+│                                                        │
+│  story shape                                           │
+│  Delivery Story candidate. Plan should decide whether  │
+│  to expand into child User Stories before build.       │
+│                                                        │
+│  risks                                                 │
+│  ✕ Scope may expand if checkout mixes address, payment │
+│    and confirmation.                                   │
+│  ✕ Implementation remains blocked until Plan approval. │
+│                                                        │
+│  applicable rules                                      │
+│  ✓ Pull selects active work; Prepare reads terrain.    │
+│  ✓ Plan is next and requires Navigator approval.       │
+│                                                        │
+│  next event                                            │
+│  Plan                                                  │
+│                                                        │
+│  boundary                                              │
+│  Plan was not created.                                 │
+│  Implementation remains blocked.                       │
+╰────────────────────────────────────────────────────────╯
+```
+
 ## Plan Checkpoint
 
 A `Plan Checkpoint` component appears after a User Story or Technical Story is pulled and before implementation begins.

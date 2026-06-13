@@ -10,6 +10,18 @@ Visual components may help operate Delivery, but they do not define it.
 
 A User Story or Technical Story remains itself whether it appears as a terminal card, web task, compact checkpoint, roadmap row, commit proposal, or conversation summary. A checkpoint is a methodological pause before it is a visual component.
 
+## Surface transport contract
+
+A rendered Ariad surface is a runtime artifact, not conversational prose. When a runtime emits a marked Ariad surface, the Driver transports that surface verbatim before adding interpretation.
+
+```text
+transport: verbatim
+marker_protocol: ariad_compact
+interpretation_policy: after_block_only
+```
+
+The Driver may explain what a surface means, but it must not replace the surface with a summary, translation, or reformatted version. If multiple Ariad surfaces are emitted, preserve their order and content. This contract is phase-independent: Roadmap, Pull, Prepare, Expand, Plan, Approval, Implementation Guard, Validation, Debt Review, Coherence, Done, and future delivery surfaces follow the same transport rule.
+
 ## Visual direction
 
 Delivery can use block-like cards because its central structure is the roadmap taxonomy: Value / CV, Delivery Story, User Story, Technical Story, Task, and Maintenance. Its central implementation objects are User Stories and Technical Stories: units bounded enough to become verified change inside a Delivery Story arc.

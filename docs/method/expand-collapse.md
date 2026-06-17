@@ -45,6 +45,7 @@ Examples:
 | Decision into trade-offs | Evaluability |
 | Value into Delivery Stories | Strategic progress |
 | Delivery Story into User Stories / Technical Stories | Behavior validation and internal capability |
+| Refinement Story into Change Requests | Proportional care |
 | User Story / Technical Story into tasks | Executability |
 | Behavior into cases | Testability |
 | Change into risks | Prudence |
@@ -87,18 +88,21 @@ Examples:
 | Documentation collapses facts | Transmissibility |
 | Review collapses changes | Discernment |
 | Coherence check collapses artifacts | Coherence |
+| Change Requests collapse into Refinement Story | Improved habitability |
 | User Stories and Technical Stories collapse into Delivery Story | Capability |
 | Delivery Stories collapse into Value / CV | Value recognition |
 | Release note collapses changes | Public narrativity |
 | Version collapses delivery | Milestone |
 
-## Exploration and Delivery
+## Exploration, Delivery, and Refinement
 
-Exploration and Delivery both use expand/collapse, but they use the rhythm differently.
+Exploration, Delivery, and Refinement all use expand/collapse, but they use the rhythm differently.
 
-Exploration expands weak signals into richer meaning. A signal may expand into an Exploratory Story, gather related material, form clusters, open inquiries, test hypotheses, and then collapse into a candidate for Delivery.
+Exploration expands weak signals into richer meaning. A signal may expand into an Exploratory Story, gather related material, form clusters, open inquiries, test hypotheses, and then collapse into a candidate for Delivery or a requested change for Refinement.
 
-Delivery expands formed intent into verifiable structure. A Value expands into Delivery Stories, a Delivery Story expands into User Stories and Technical Stories, and a User Story or Technical Story expands into tasks. Delivery then collapses in the reverse direction: tasks close User Stories and Technical Stories, child stories close Delivery Stories, Delivery Stories close Values, and release management may name the public boundary.
+Delivery expands formed intent into verifiable roadmap structure. A Value expands into Delivery Stories, a Delivery Story expands into User Stories and Technical Stories, and a User Story or Technical Story expands into tasks. Delivery then collapses in the reverse direction: tasks close User Stories and Technical Stories, child stories close Delivery Stories, Delivery Stories close Values, and release management may name the public boundary.
+
+Refinement expands an existing-capability concern into Change Requests inside a Refinement Story. Each CR moves through a proportional cycle, and the RS collapses the CR outcomes into a reviewed, coherent refinement arc. The emergent property is not new capability; it is improved habitability of what already exists.
 
 ## Making the movement visible
 
@@ -112,6 +116,7 @@ Use short narration at transitions and checkpoints:
 - "I am collapsing the implementation into a validation route."
 - "Before closing, I am collapsing the artifacts through a coherence check."
 - "These User Stories now collapse into the Delivery Story; the next question is release intent."
+- "These Change Requests now collapse into the Refinement Story; the next question is coherence and close."
 
 Do not narrate every micro-step. The goal is orientation, not self-commentary.
 

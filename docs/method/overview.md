@@ -10,13 +10,15 @@ Ariad treats coherence as part of the work, not as polish after the work. The ag
 
 The core operating model is small. The agent is the Driver. The human is the Navigator. The work is held across Process, Project, and Product. Documentation becomes the project's memory surface.
 
-Ariad then distinguishes two kinds of work.
+Ariad then distinguishes three kinds of work.
 
 **Exploratory Work** happens when something matters before it is ready to become a delivery commitment. A signal appears, a friction repeats, an inquiry opens, an experiment teaches something, or a candidate begins to form. [Exploration](../exploration/index.md) keeps that material visible without forcing it into the roadmap too early.
 
 **Delivery Work** happens when intent has enough form to become verified change. A story is bounded, planned, implemented, tested, validated, documented, reviewed, and recorded in history. [Delivery](../delivery/index.md) keeps that change small enough to finish and coherent enough to trust.
 
-The passage between the two matters. Exploration protects discovery from premature commitment. Delivery protects commitment from becoming vague motion. A candidate crosses from Exploration into Delivery only when the Navigator accepts that it has enough form.
+**Refinement Work** happens when existing capability needs care. A bug arrives, a surface feels confusing, a test gap appears, documentation drifts, or use reveals polish that should not become roadmap noise. [Refinement](../refinement/index.md) keeps requested changes visible and validated without inflating them into delivery promises.
+
+The passage between the three matters. Exploration protects discovery from premature commitment. Delivery protects commitment from becoming vague motion. Refinement protects care from becoming either invisible improvisation or roadmap inflation. A candidate crosses from Exploration into Delivery only when the Navigator accepts that it has enough form. A requested change crosses into Refinement when the Navigator can name the existing capability being cared for.
 
 Mirror Mind Builder Mode is the reference runtime for this operating model. Mirror gives the work continuity through journeys, project paths, memory, identity, skills, and context loading. Ariad gives that continuity a process: how the agent reads, explores, plans, validates, documents, pauses, and hands judgment back to the human.
 

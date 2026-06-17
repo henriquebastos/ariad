@@ -8,10 +8,11 @@ The method has a small set of core pieces:
 
 - explicit human-agent roles,
 - a triad for keeping process, project, and product connected,
-- [work areas](work-areas.md) that distinguish Exploration from Delivery,
+- [work areas](work-areas.md) that distinguish Exploration, Delivery, and Refinement,
 - Exploration for preserving and thickening signals before commitment,
 - Delivery for turning formed intent into verified change,
-- mandatory checkpoints that prevent silent drift during delivery,
+- Refinement for caring for existing capability through Workbench, Change Requests, and Refinement Stories,
+- mandatory checkpoints that prevent silent drift during delivery and refinement,
 - living documentation that lets the repository remember itself,
 - a separation between Ariad's method contract, project contract, and configurable Navigator preferences,
 - explicit policies for recurring operational decisions such as coherent updates.
@@ -20,4 +21,4 @@ Ariad is opinionated. It ships with [Navigator preference defaults](contracts-an
 
 Ariad's [explicit policies](explicit-policies.md) make recurring operating rules visible before the pressure of the moment arrives. The first policy defines how to handle coherent updates to runtimes, methods, templates, migrations, and installed tooling.
 
-Ariad's [methodological roots](methodological-roots.md) differ by work area. Delivery draws most strongly from Extreme Programming and Kanban. Exploration draws from Complexity Theory, Cynefin, sensemaking, inquiry, discovery work, and reflective practice. Ariad adapts those roots to human-agent collaboration.
+Ariad's [methodological roots](methodological-roots.md) differ by work area. Delivery draws most strongly from Extreme Programming and Kanban. Exploration draws from Complexity Theory, Cynefin, sensemaking, inquiry, discovery work, and reflective practice. Refinement draws from issue tracking, change requests, maintenance queues, refactoring discipline, and Kanban classes of service. Ariad adapts those roots to human-agent collaboration.

@@ -4,7 +4,7 @@ This document names the conceptual elements of Ariad Exploration.
 
 It does not explain the practical flow. The step-by-step sequence, examples, story thickening, and visual feedback live in [Exploratory Flow](flow.md).
 
-For the method-level distinction between Exploration and Delivery, see [Work Areas](../method/work-areas.md).
+For the method-level distinction between Exploration, Delivery, and Refinement, see [Work Areas](../method/work-areas.md).
 
 ## Progress semantics
 

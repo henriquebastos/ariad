@@ -37,6 +37,10 @@ nav:
       - Release Management: delivery/release-management.md
       - User and Technical Story Lifecycle: delivery/story-lifecycle.md
       - Checkpoints: delivery/checkpoints.md
+  - Refinement:
+      - refinement/index.md
+      - Conceptual Model: refinement/conceptual-model.md
+      - Refinement Flow: refinement/flow.md
   - Project Templates:
       - project-templates/index.md
       - AGENTS.md: project-templates/AGENTS.md

@@ -6,7 +6,7 @@ Ariad uses a delivery taxonomy to keep roadmap work meaningful without turning e
 Value / CV -> Delivery Story -> User Story / Technical Story -> Task
 ```
 
-Maintenance work sits beside the hierarchy. It is real work, but it should not be inflated into Value, Delivery Story, User Story, or Technical Story unless it changes a meaningful product, project, or process capability.
+Refinement and maintenance work sit beside the hierarchy. They are real work, but they should not be inflated into Value, Delivery Story, User Story, or Technical Story unless they change a meaningful product, project, or process capability.
 
 ## Value / CV
 
@@ -78,7 +78,7 @@ A **Task** is concrete work inside a User Story or Technical Story.
 
 Tasks help the Driver execute. They are not normally roadmap items. A task may edit a file, add a test, rename a function, update a command, or adjust a document section. Tasks should not be used to create a false sense of roadmap progress.
 
-## Maintenance
+## Maintenance and Refinement
 
 **Maintenance** is legitimate work that may not belong in the roadmap hierarchy.
 
@@ -87,13 +87,23 @@ Examples:
 - dependency updates;
 - local cleanup;
 - one-off operational repair;
-- documentation correction;
 - release note fix;
 - CI retry or environment adjustment.
 
-Do not inflate maintenance into a Value, Delivery Story, User Story, or Technical Story just to make it visible. Record it in the worklog when meaningful.
+**Refinement** is legitimate work that cares for existing capability outside the roadmap hierarchy. It is organized through the Workbench, Change Requests, and Refinement Stories rather than through Delivery Stories.
 
-Maintenance can still create a release boundary, especially:
+Examples:
+
+- small bug fixes in existing behavior;
+- copy or surface polish;
+- documentation correction;
+- test gap closure;
+- contained refactoring;
+- lifecycle or process surface clarification.
+
+Do not inflate maintenance or refinement into a Value, Delivery Story, User Story, or Technical Story just to make it visible. Record maintenance in the worklog when meaningful. Record refinement in the Workbench when it has a requested-change shape.
+
+Maintenance or refinement can still create a release boundary, especially:
 
 - a patch release, when it changes observable behavior, public documentation, packaging, runtime reliability, or user-facing operation.
 

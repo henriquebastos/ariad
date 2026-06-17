@@ -8,7 +8,9 @@ It does not explain the practical flow. The step-by-step sequence, examples, che
 
 Delivery treats progress as movement toward verified change. A delivery arc is not merely advanced through tasks. It becomes trustworthy as intent, implementation, validation, documentation, review, coherence, and history converge.
 
-Delivery begins when work has enough form to become a bounded commitment. That commitment may come from a roadmap item, direct request, known bug, operational need, or candidate promoted from Exploration.
+Delivery begins when work has enough form to become a bounded roadmap commitment. That commitment may come from a roadmap item, direct request, known bug, operational need, or candidate promoted from Exploration.
+
+A direct request or known bug does not automatically belong to Delivery. If it cares for existing capability without becoming a roadmap-level promise, it belongs in [Refinement](../refinement/index.md). Delivery begins when the Navigator chooses roadmap commitment.
 
 Delivery is centered on the **Delivery Story** as an arc of delivery. The implementable units inside that arc are **User Stories** and **Technical Stories**.
 
@@ -122,7 +124,7 @@ roadmap_snapshot_rendered
   the Driver renders current focus, backlog, promoted candidates, and constraints
 
 pull_recommended
-  the Driver recommends a next Delivery Story, User Story, Technical Story, or Maintenance item without silently choosing it
+  the Driver recommends a next Delivery Story, User Story, Technical Story, Maintenance item, or Refinement Story without silently choosing it
 
 work_pulled
   the Navigator intentionally selects a roadmap item or promoted candidate for active Delivery Work

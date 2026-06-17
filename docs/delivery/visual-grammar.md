@@ -677,7 +677,7 @@ Delivery
 
 A `Review Checkpoint` component appears when the Driver has inspected the changed surface.
 
-It should show what changed and include a refactoring and technical-debt assessment. The component should name refactoring done, refactoring considered, debt paid, new debt introduced, debt carried forward with revisit criteria, whether a Debt Ledger entry is needed, and follow-up. If no refactor was needed or no new debt was introduced, say so explicitly.
+It should show what changed and include a refactoring and technical-debt assessment. The component should name refactoring done, refactoring considered, debt paid, new debt introduced, debt carried forward with revisit criteria, whether a debt item in the Technical Debt Ledger is needed, and follow-up. If no refactor was needed or no new debt was introduced, say so explicitly.
 
 ```text
 Delivery
@@ -705,7 +705,7 @@ Delivery
 │  revisit when a second country-specific case appears   │
 │                                                        │
 │  debt ledger                                           │
-│  no new ledger entry; follow-up is enough              │
+│  no new debt item in the ledger; follow-up is enough   │
 │                                                        │
 │  follow-up                                             │
 │  Review country-specific postal code normalization     │
@@ -776,7 +776,7 @@ Delivery
 │  before apply/mutation behavior in US2                 │
 │                                                        │
 │  action                                                │
-│  record ledger entry or follow-up                      │
+│  record debt item in the ledger or follow-up           │
 ╰────────────────────────────────────────────────────────╯
 ```
 

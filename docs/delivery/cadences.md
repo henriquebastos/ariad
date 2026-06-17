@@ -167,7 +167,7 @@ Questions:
 - What debt was paid?
 - What debt was introduced?
 - What debt is carried forward, and with what revisit trigger?
-- Does debt block closure or become follow-up / ledger entry?
+- Does debt block closure or become follow-up / debt item in the Technical Debt Ledger?
 
 Common surfaces:
 
@@ -179,7 +179,7 @@ Common surfaces:
 Default action:
 
 Name debt movement explicitly. If debt should outlive the story's review notes,
-record it in the Debt Ledger or capture a follow-up with revisit criteria.
+record it as a debt item in the project's Technical Debt Ledger or capture a follow-up with revisit criteria.
 
 Compression rule:
 
@@ -299,7 +299,7 @@ Debt is paid, introduced, carried forward, grows, or begins to affect the next p
 Questions:
 
 - Is the debt still acceptable?
-- Does it need a Debt Ledger entry?
+- Does it need a debt item in the Technical Debt Ledger?
 - Does it block the next story?
 - Should the next pull be debt payment rather than feature work?
 - What revisit trigger prevents silent accumulation?
@@ -318,7 +318,7 @@ drop it.
 
 Compression rule:
 
-Do not require a ledger entry for every small imperfection. Use the ledger when
+Do not require a debt item for every small imperfection. Use the Technical Debt Ledger when
 debt should survive beyond the current story review.
 
 ## Cadence selection

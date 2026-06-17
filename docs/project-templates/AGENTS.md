@@ -18,12 +18,14 @@ Before meaningful work, read the files that exist in this project:
 
 - `README.md`
 - `docs/project/briefing.md`
-- `docs/project/decisions.md`
+- `docs/project/decisions/index.md`
 - `docs/project/roadmap/index.md`
-- `docs/project/debt.md`
+- `docs/project/debt/index.md`
 - `docs/process/development-guide.md`
-- `docs/process/worklog.md`
+- `docs/process/worklog/index.md`
 - `docs/product/principles.md`
+
+Index files explain where records live. Read the index first, then read only the relevant records, items, entries, or roadmap files for the current work.
 
 If a listed file does not exist, continue with the available context and mention the gap when it matters.
 
@@ -101,7 +103,7 @@ Review what was built. Assess:
 - **Debt paid** — existing technical debt reduced by this story.
 - **New debt introduced** — any debt created by this story, with justification.
 - **Debt carried forward** — accepted remaining debt, with revisit criteria.
-- **Debt ledger impact** — whether `docs/project/debt.md` needs a new or updated item.
+- **Technical Debt Ledger impact** — whether `docs/project/debt/items/` needs a new or updated debt item.
 - **Documentation pending** — list every doc that needs updating before the story closes.
 
 **→ Checkpoint 3: stop and present the review, including refactoring and technical-debt assessment. Wait for Navigator confirmation before updating docs and preparing the commit.**
@@ -111,8 +113,8 @@ Review what was built. Assess:
 Update all pending documentation. Then run the coherence check — ask what was forgotten:
 
 - Does the roadmap or current focus need an update?
-- Does the decisions log need a new entry?
-- Does the worklog need a milestone entry?
+- Does `docs/project/decisions/records/` need a new or updated decision record?
+- Does `docs/process/worklog/entries/` need a milestone entry?
 - Do product principles or user-facing docs need to change?
 - Do release notes or the displayed version need to change?
 - Do setup, commands, or validation instructions need to change?

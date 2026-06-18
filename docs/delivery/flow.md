@@ -356,7 +356,7 @@ Documentation is not cleanup. It is part of delivery.
 
 The Driver reviews what changed, why, and what happened to the structure of the codebase or project surface.
 
-Review looks at the changed surface and includes a refactoring and technical-debt assessment. It should say what debt was paid, what debt was introduced, what debt remains, and whether any debt blocks closure. If carried debt should outlive the story, the Driver records it in the project Debt Ledger or captures a follow-up with revisit criteria. Coherence checks whether Process, Project, and Product still agree.
+Review looks at the changed surface and includes a refactoring and technical-debt assessment. It should say what debt was paid, what debt was introduced, what debt remains, and whether any debt blocks closure. If carried debt should outlive the story, the Driver records it as a debt item in the project's Technical Debt Ledger or captures a follow-up with revisit criteria. Coherence checks whether Process, Project, and Product still agree.
 
 ```text
 Delivery
@@ -384,7 +384,7 @@ Delivery
 │  revisit when a second country-specific case appears   │
 │                                                        │
 │  debt ledger                                           │
-│  no new ledger entry; follow-up is enough              │
+│  no new debt item in the ledger; follow-up is enough   │
 │                                                        │
 │  follow-up                                             │
 │  Review country-specific postal code normalization     │

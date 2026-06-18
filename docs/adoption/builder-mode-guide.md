@@ -10,7 +10,7 @@ A Mirror **journey** carries the broader context of an ongoing area of work.
 
 A journey **project path** points Builder Mode to the repository where the work happens.
 
-The target repository contains Ariad's project documentation surface: `AGENTS.md`, project briefing, decisions, roadmap, worklog, and product principles.
+The target repository contains Ariad's project documentation surface: `AGENTS.md`, project briefing, decision records, roadmap items, the Technical Debt Ledger, worklog entries, and product principles.
 
 Builder Mode loads the journey context, then the agent reads the project documentation and operates as the Driver.
 
@@ -23,12 +23,15 @@ Install the project templates into the target repository and adapt the smallest 
 - `AGENTS.md`
 - `docs/project/briefing.md`
 - `docs/project/roadmap/index.md`
+- `docs/project/decisions/index.md`
+- `docs/project/debt/index.md`
 - `docs/process/development-guide.md`
+- `docs/process/worklog/index.md`
 - `docs/product/principles.md`
 
 Use [Agent-Assisted Initialization](agent-assisted-initialization.md) when possible. The Driver can inspect the repository and draft these files; the Navigator reviews and corrects the drafts.
 
-The decisions and worklog files can start mostly empty. They become valuable as work happens.
+The decision records, debt items, and worklog entry directories can start mostly empty. Their indexes should exist because they explain naming, status, and templates.
 
 ## Connect the Journey
 

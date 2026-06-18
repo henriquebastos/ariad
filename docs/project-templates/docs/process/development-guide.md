@@ -48,11 +48,24 @@ Common documentation surfaces:
 
 - `README.md`
 - `docs/project/briefing.md`
-- `docs/project/decisions.md`
-- `docs/project/roadmap/index.md`
-- `docs/project/debt.md`
-- `docs/process/worklog.md`
+- `docs/project/decisions/index.md` and `docs/project/decisions/records/`
+- `docs/project/roadmap/index.md` and roadmap item folders
+- `docs/project/debt/index.md` and `docs/project/debt/items/`
+- `docs/process/worklog/index.md` and `docs/process/worklog/entries/`
 - `docs/product/principles.md`
+
+## Conflict-Resistant Project Memory
+
+Use one file per durable artifact when the surface may be edited by multiple people or agents.
+
+- Worklog milestones live in `docs/process/worklog/entries/`.
+- Decision records live in `docs/project/decisions/records/` and use `status` for open or decided lifecycle state.
+- Debt items in the Technical Debt Ledger live in `docs/project/debt/items/`.
+- Roadmap items own their current `status` in frontmatter or in their own file, not in a central table.
+
+Index files explain structure, naming, and templates. They should not maintain complete lists of every artifact unless this project explicitly accepts that coordination cost.
+
+Prefer status metadata over directory moves for lifecycle state. Directory moves are acceptable for archival or deliberate reorganization, but state should remain explicit in the artifact so links and history stay understandable.
 
 ## Roadmap Taxonomy
 
@@ -69,7 +82,7 @@ Do not inflate maintenance into the roadmap just to make it visible.
 
 Use Ariad's default new-work codes unless this project explicitly adapts them: `CV<N>` for Values, `DS<N>` for Delivery Stories, `US<N>` for User Stories, and `TS<N>` for Technical Stories. Roadmap folders should use lowercase slugs such as `cv9-ds7-conversation-metadata-lifecycle` and child folders such as `cv9-ds7-us1-dry-run-metadata-lifecycle-decision-path`.
 
-Use Ariad's default roadmap states unless this project explicitly adapts them: `Planned`, `Active`, `Blocked`, `Validated`, `Done`, `Deferred`, and `Dropped`. When work cannot proceed, prefer `Blocked` with a reason over runtime warning labels such as `Attention`.
+Use Ariad's default roadmap states unless this project explicitly adapts them: `Planned`, `Active`, `Blocked`, `Validated`, `Done`, `Deferred`, and `Dropped`. Store state in the roadmap item's own metadata or status section. When work cannot proceed, prefer `Blocked` with a reason over runtime warning labels such as `Attention`.
 
 ## Expand and Collapse
 
@@ -93,7 +106,7 @@ Add any project-specific story rules here.
 
 ## Technical Debt Tracking
 
-Use `docs/project/debt.md` when debt should outlive one story's review notes.
+Use the Technical Debt Ledger at `docs/project/debt/`, with debt items in `docs/project/debt/items/`, when debt should outlive one story's review notes.
 
 During Review, name:
 
@@ -101,7 +114,7 @@ During Review, name:
 - new debt introduced;
 - debt carried forward;
 - revisit trigger;
-- whether a Debt Ledger entry should be created or updated.
+- whether a debt item should be created or updated in the Technical Debt Ledger.
 
 Small local debt can be captured as follow-up. Debt that may affect future delivery, safety, maintainability, validation, operation, or product coherence should enter the ledger.
 
@@ -124,7 +137,7 @@ Ariad ships with opinionated defaults. Override them here when this project or N
 - **Push policy:** default is to ask before pushing to a shared remote.
 - **Checkpoint compression:** default is full checkpoints for non-trivial work, compressed checkpoints only for trivial low-risk changes.
 - **Documentation detail:** default is the smallest documentation update that keeps the project coherent.
-- **Worklog policy:** default is to record meaningful milestones, not every edit.
+- **Worklog policy:** default is to record meaningful milestones as one file per entry, not every edit.
 - **Branch/PR habits:** describe local branch, pull request, review, or merge expectations.
 
 ## Commit and Release Rules

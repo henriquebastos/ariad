@@ -460,7 +460,7 @@ Delivery
 │  help mobile users recover from address errors         │
 │                                                        │
 │  exploration source                                    │
-│  full doc: docs/project/exploration/es-042...md        │
+│  full doc: docs/project/exploration/es-042.../index.md │
 │  summary: roadmap/.../exploration-summary.md           │
 │  carry forward notes: preserved                        │
 │                                                        │

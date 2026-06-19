@@ -131,7 +131,8 @@ Exploration
 │    attractor: Conversation metadata lifecycle          │
 │    promoted as: 🟦 CV9.DS7 Conversation Metadata       │
 │                 Lifecycle                              │
-│    full doc: docs/project/exploration/es-001...md      │
+│    full doc: docs/project/exploration/es-001.../       │
+│              index.md                                  │
 │                                                        │
 │  experiments                                           │
 │                                                        │
@@ -550,7 +551,7 @@ Exploration
 │                                                        │
 │  full exploration document                             │
 │  docs/project/exploration/es-001-conversation-         │
-│  metadata-lifecycle.md                                 │
+│  metadata-lifecycle/index.md                           │
 │                                                        │
 │  Delivery Story exploration summary                     │
 │  docs/project/roadmap/.../exploration-summary.md       │
@@ -637,7 +638,8 @@ Exploration → Delivery Handoff
 │  verify summary readiness behavior.                    │
 │                                                        │
 │  exploration source                                    │
-│  full brief: docs/project/exploration/es-001...md      │
+│  full brief: docs/project/exploration/es-001.../       │
+│              index.md                                  │
 │  Delivery Story summary: roadmap/.../exploration-summary.md      │
 │                                                        │
 │  pull state                                            │

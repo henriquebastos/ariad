@@ -21,7 +21,7 @@ Refinement
 │  none                                                  │
 │                                                        │
 │  draft Refinement Stories                             │
-│  RS-001 Builder lifecycle end-to-end refinement        │
+│  RS-001 Lifecycle surface refinement                   │
 │                                                        │
 │  open Change Requests                                 │
 │  9 candidate                                           │
@@ -58,18 +58,20 @@ Refinement
 │  Clarify that Done does not imply push                 │
 │                                                        │
 │  target Refinement Story                               │
-│  RS-001 Builder lifecycle end-to-end refinement        │
+│  RS-001 Lifecycle surface refinement                   │
 │                                                        │
 │  area                                                  │
-│  Builder lifecycle                                     │
+│  Lifecycle surface                                     │
 │                                                        │
 │  status                                                │
 │  candidate                                             │
 ╰────────────────────────────────────────────────────────╯
 ```
 
-A quick refinement can skip separate capture. The runtime creates a minimal RS
-with one CR and pulls it immediately:
+A quick refinement path may be offered as a convenience. In that path, the
+runtime creates a minimal RS, captures one CR, and pulls the RS immediately. The
+shortcut is equivalent to the composed path; it is not a separate method
+requirement.
 
 ```text
 Refinement
@@ -77,7 +79,7 @@ Refinement
 │        🧰  QUICK REFINEMENT OPENED                    │
 │                                                        │
 │  Refinement Story                                      │
-│  RS-014 Fix empty journey label in Builder Home        │
+│  RS-014 Fix empty work-field label                     │
 │                                                        │
 │  Change Requests                                       │
 │  CR-014 Fix empty journey label                        │
@@ -97,10 +99,10 @@ Refinement
 │        🧰▶  REFINEMENT STORY PULLED                   │
 │                                                        │
 │  Refinement Story                                      │
-│  RS-001 Builder lifecycle end-to-end refinement        │
+│  RS-001 Lifecycle surface refinement                   │
 │                                                        │
 │  field being cared for                                 │
-│  Ariad-adopted Builder lifecycle                       │
+│  Ariad-adopted lifecycle surface                       │
 │                                                        │
 │  Change Requests                                       │
 │  12 candidate                                          │
@@ -248,7 +250,9 @@ Refinement
 ╰────────────────────────────────────────────────────────╯
 ```
 
-The RS then returns to CR selection until no accepted CR remains.
+The RS then returns to CR selection until no accepted CR remains. Before the RS
+can close, every attached CR should have a terminal outcome such as done,
+parked, rejected, or promoted.
 
 ## Step 6. Refinement Review
 
@@ -264,7 +268,7 @@ Refinement
 │        🔎  REFINEMENT REVIEW                          │
 │                                                        │
 │  Refinement Story                                      │
-│  RS-001 Builder lifecycle end-to-end refinement        │
+│  RS-001 Lifecycle surface refinement                   │
 │                                                        │
 │  CR outcomes                                           │
 │  8 implemented                                         │
@@ -302,7 +306,7 @@ Refinement
 │  Workbench status and docs match current state         │
 │                                                        │
 │  Product                                               │
-│  Builder lifecycle reads more clearly without changing │
+│  Lifecycle surfaces read more clearly without changing │
 │  release or push policy promises                       │
 │                                                        │
 │  Debt                                                  │
@@ -318,8 +322,9 @@ reopens a CR and returns to the CR cycle.
 
 ## Step 8. Refinement Story Close
 
-The RS closes when its accepted CRs have outcomes, review is complete, coherence
-passes, and follow-up is preserved.
+The RS closes when its CRs have terminal outcomes, review is complete, coherence
+passes, and follow-up is preserved. A Refinement Story should not close while any
+attached Change Request remains unfinished.
 
 ```text
 Refinement
@@ -327,10 +332,10 @@ Refinement
 │        🧰✓  REFINEMENT STORY CLOSED                   │
 │                                                        │
 │  RS-001                                                │
-│  Builder lifecycle end-to-end refinement               │
+│  Lifecycle surface refinement                          │
 │                                                        │
 │  result                                                │
-│  Builder lifecycle surfaces are clearer and more       │
+│  Lifecycle surfaces are clearer and more               │
 │  proportional during Ariad adoption dogfooding.        │
 │                                                        │
 │  CR outcomes                                           │
@@ -346,6 +351,11 @@ Refinement
 Refinement closure may suggest a release boundary when user-facing behavior,
 public documentation, runtime operation, or packaging changed. Release management
 still remains a separate decision.
+
+A runtime should preserve enough outcome evidence for the Navigator to
+understand what changed, how it was validated, what was parked or promoted, and
+why the RS closed. More complete implementations may preserve phase-level event
+history.
 
 ## Working principle
 

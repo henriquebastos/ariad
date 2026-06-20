@@ -46,7 +46,7 @@ Then activate Builder Mode:
 /mm-build <journey-slug>
 ```
 
-The agent should load the journey context, read the project documentation, apply the Driver/Navigator roles, show the situated work fields when choosing work, and follow the relevant Ariad path: Exploration for unclear signals, Delivery for pulled Value/CV, Delivery Story, User Story, Technical Story, Task, or Maintenance work, and Refinement for pulled Workbench / Refinement Story work. If the project defines Navigator preferences, such as commit frequency or push policy, the agent should follow them. If not, it should use Ariad defaults.
+The agent should load the journey context, read the project documentation, apply the Driver/Navigator roles, show the situated work fields when choosing work, and follow the relevant Ariad path: Exploration for unclear signals, Delivery for pulled Value/CV, Delivery Story, User Story, Technical Story, Task, or Maintenance work, and Refinement for pulled Workbench / Refinement Story work. In Refinement, the runtime may choose its own storage model, status names, and surface layout, but the Navigator must be able to see the active field, CR phase, mutation boundary, outcome evidence, and RS closure conditions. If the project defines Navigator preferences, such as commit frequency or push policy, the agent should follow them. If not, it should use Ariad defaults.
 
 ## First Builder Session
 

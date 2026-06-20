@@ -43,14 +43,21 @@ area affected, the reason it matters, and its current outcome. It is smaller
 than a Refinement Story. It says what should change, not the whole story of the
 refinement.
 
-Typical CR outcomes include:
+Typical CR semantic states include:
 
-- `candidate` — captured, not yet accepted into an active cycle;
-- `accepted` — selected for the active Refinement Story cycle;
-- `implemented` — changed and validated;
+- `candidate` or `captured` — recorded, not yet accepted into an active cycle;
+- `accepted`, `selected`, or `active` — chosen for the active Refinement Story cycle;
+- `planned` — the local route and validation expectation have been recorded;
+- `implemented` — the change has been made or implementation evidence has been recorded;
+- `validated` — validation evidence has been recorded;
+- `done` — the CR has a local done note and is complete inside the RS;
 - `parked` — valid but not part of the current refinement;
 - `rejected` — intentionally not pursued;
 - `promoted` — moved to Delivery because it became roadmap-level work.
+
+Ariad does not require these exact status names. It requires the semantic state
+of the CR to be visible enough for the Navigator to understand where the CR is,
+what has been decided, and whether it can block RS closure.
 
 ### Refinement Story
 
@@ -95,7 +102,7 @@ Change Request cycle
   done note
 ```
 
-### Builder Home or work-field orientation
+### Work-field orientation
 
 A runtime may offer an activation surface that renders current work fields before
 work begins.
@@ -156,7 +163,7 @@ refinement_coherence_checked
   process, project, product, Workbench, roadmap links, docs, tests, and debt records are checked for agreement
 
 refinement_story_closed
-  the Refinement Story is closed with CR outcomes, validation evidence, debt entries, and follow-up preserved
+  the Refinement Story is closed with terminal CR outcomes, validation evidence, debt entries, and follow-up preserved
 ```
 
 ## Refinement surfaces
@@ -198,6 +205,17 @@ Refinement Story Close
   Is the refinement arc complete enough to leave active work?
 ```
 
+A runtime may render one surface per phase or a consolidated flow-event surface.
+The method requirement is that the Navigator can see the event, current phase,
+recorded detail, active state, next move, and mutation boundary.
+
 ## Working principle
 
 The CR says what should change. The RS tells the story of the refinement.
+
+Ariad defines semantic obligations, not a particular storage model or visual
+implementation. The Navigator should see the work field before entering work;
+CRs should move through visible phases; mutations should happen only inside CR
+cycles; RS review and coherence should not mutate directly; RS close should
+require terminal CR outcomes; and closure should preserve enough evidence and
+follow-up to understand the arc.

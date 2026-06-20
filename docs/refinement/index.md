@@ -61,3 +61,8 @@ clear enough request to enter the Workbench.
 The roadmap carries delivery commitment. The Workbench carries refinement care.
 The Driver may recommend where work belongs, but the Navigator chooses the field
 before the work begins.
+
+Ariad defines the semantic obligations of Refinement, not a particular runtime
+storage model or surface layout. Implementations may choose their own status
+names and rendering style if the work field, CR phase, mutation boundary,
+outcome evidence, and RS closure conditions remain visible.

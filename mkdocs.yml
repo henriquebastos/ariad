@@ -46,6 +46,7 @@ nav:
       - AGENTS.md: project-templates/AGENTS.md
       - Project Briefing: project-templates/docs/project/briefing.md
       - Decisions: project-templates/docs/project/decisions/index.md
+      - Exploration: project-templates/docs/project/exploration/index.md
       - Roadmap: project-templates/docs/project/roadmap/index.md
       - Technical Debt Ledger: project-templates/docs/project/debt/index.md
       - Local Development Guide: project-templates/docs/process/development-guide.md

@@ -615,7 +615,7 @@ The Driver may first generate documentation:
 ```text
 exploration_documented
   source: ES-042 Checkout address-step abandonment
-  full_document: docs/project/exploration/es-042-checkout-address-step-abandonment.md
+  full_document: docs/project/exploration/es-042-checkout-address-step-abandonment/index.md
   delivery_summary: docs/project/roadmap/cv2-checkout-recovery/cv2-ds3-mobile-validation-recovery/exploration-summary.md
 ```
 
@@ -629,7 +629,7 @@ Exploration
 │                                                        │
 │  full exploration document                             │
 │  docs/project/exploration/es-042-checkout-address-     │
-│  step-abandonment.md                                   │
+│  step-abandonment/index.md                             │
 │                                                        │
 │  delivery story summary                                │
 │  docs/project/roadmap/.../cv2-ds3-mobile-validation-   │
@@ -660,7 +660,7 @@ candidate_promoted
   validation_seeds:
     - inspect rejected value diagnostics
     - reproduce mobile address failure and verify field-level guidance
-  exploration_document: docs/project/exploration/es-042-checkout-address-step-abandonment.md
+  exploration_document: docs/project/exploration/es-042-checkout-address-step-abandonment/index.md
   exploration_summary: docs/project/roadmap/cv2-checkout-recovery/cv2-ds3-mobile-validation-recovery/exploration-summary.md
   pull_state: ready for Delivery Story expansion
 ```
@@ -693,7 +693,8 @@ Exploration
 │  address failure and verify field-level guidance.      │
 │                                                        │
 │  exploration source                                    │
-│  full brief: docs/project/exploration/es-042...md      │
+│  full brief: docs/project/exploration/es-042.../       │
+│              index.md                                  │
 │  Delivery Story summary: roadmap/.../exploration-summary.md      │
 │                                                        │
 │  pull state                                            │

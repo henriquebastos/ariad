@@ -1,8 +1,8 @@
 # Exploration
 
-Exploration preserves material that is real enough to remember, but not yet formed enough to become Delivery.
+Exploration preserves material that is real enough to remember, but not yet formed enough to become Delivery or Refinement.
 
-Use this area for Exploratory Stories: narrative threads opened by signals, thickened by facts, tensions, hypotheses, experiments, Carry Forward Notes, and interpretations. An Exploratory Story may become a candidate for Delivery, pause, or archive.
+Use this area for Exploratory Stories: narrative threads opened by signals, thickened by facts, tensions, hypotheses, experiments, Carry Forward Notes, and interpretations. An Exploratory Story may become a candidate for Delivery, a requested change for Refinement, pause, or archive.
 
 This index explains the structure and template. Do not use it as the mutable state surface for active Exploratory Stories. Each Exploratory Story owns its state in its own directory.
 
@@ -28,8 +28,8 @@ Use these values in the Exploratory Story `index.md` frontmatter unless the proj
 ```text
 Thickening  active sensemaking; material is still gaining form
 Paused      meaningful but not active right now
-Candidate   enough form to consider for Delivery, awaiting Navigator decision
-Promoted    accepted into Delivery with a Delivery handoff or roadmap placement
+Candidate   enough form to consider for Delivery or Refinement, awaiting Navigator decision
+Promoted    accepted into Delivery or Refinement with a handoff or placement
 Archived    preserved but no longer active
 ```
 
@@ -41,8 +41,8 @@ State belongs in the Exploratory Story metadata, not in the top-level Exploratio
 - Use the story directory's `index.md` as the durable story anchor.
 - Keep the top-level `docs/project/exploration/index.md` as this guide and template.
 - Find active Exploration by searching story indexes for `status: Thickening`, `status: Paused`, or `status: Candidate`.
-- Link promoted stories to the Delivery Story or child story that received the handoff.
-- Put the concise Delivery summary beside the Delivery Story; keep the full Exploration Documentation in the story directory.
+- Link promoted stories to the Delivery Story, child story, Change Request, or Refinement Story that received the handoff.
+- Put the concise Delivery or Refinement summary beside the receiving work item; keep the full Exploration Documentation in the story directory.
 
 ## Exploratory Story Template
 
@@ -58,6 +58,7 @@ source:
   - signal-or-context
 attractor:
 promoted_to:
+refinement_request:
 related:
   - decision-or-roadmap-link
 ---
@@ -96,7 +97,7 @@ Preserve implementation-relevant findings only when the Navigator accepts carryi
 
 ## Candidate / Promotion
 
-Describe candidate readiness, Navigator decision, Delivery handoff, roadmap placement, validation seeds, and links to Delivery summaries when relevant.
+Describe candidate readiness, Navigator decision, Delivery or Refinement handoff, roadmap or Workbench placement, validation seeds, and links to Delivery or Refinement summaries when relevant.
 
 ## Kept-for-Later Signals
 

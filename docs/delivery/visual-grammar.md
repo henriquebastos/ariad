@@ -201,6 +201,9 @@ Maestro currently uses structured checkpoint surfaces for Delivery:
 Roadmap Snapshot
   What delivery work is available to pull?
 
+Lifecycle Board
+  Where are active and candidate items in the Delivery lifecycle?
+
 Pull Recommendation
   What should be pulled next, and why?
 
@@ -436,6 +439,96 @@ result of roadmap-snapshot      ready to pull
 ```
 
 Compact runtimes may render the same information as a smaller checkpoint card instead of the full shell.
+
+## Lifecycle Board
+
+A `Lifecycle Board` component appears when the Navigator needs a compact view of
+where multiple roadmap items sit across the Delivery lifecycle. It is an
+orientation surface, not a checkpoint surface. It can show current movement,
+completed phases, pending phases, and blocked gates at a glance, but it should
+not replace Plan, Validation, Review, Coherence, History, or Delivery Story
+Closure components.
+
+The board is most useful when a Delivery Story arc has several candidate items,
+when a runtime resumes work and needs to show active state, or when the Navigator
+asks what is in flight before deciding what to pull or approve.
+
+Schema:
+
+```text
+Lifecycle Board
+  label: LIFECYCLE BOARD
+  title: Delivery lifecycle overview
+  description: source and limits of lifecycle state
+  scope: Value / CV, Delivery Story, or active journey slice
+  legend: done, current, pending, blocked, gate, evidence markers
+  matrix: roadmap items against lifecycle phases
+  current gate: the next Navigator decision or methodological block
+  focus link: the detailed checkpoint surface for the current cell
+```
+
+State markers should remain distinct from roadmap level markers. A row marker
+such as `▣`, `■`, or `◼` says what kind of work item it is; a cell marker such as
+`✓`, `◉`, `○`, or `✕` says where it is in the lifecycle. Checkpoint icons may be
+paired with the current lifecycle marker when the cell represents a gate.
+
+```text
+✓ done       ◉ current       ○ pending       ✕ blocked
+🧭 plan gate ✅ validation    🔎 review       ◉ coherence
+```
+
+Example:
+
+```text
+LIFECYCLE BOARD
+Delivery lifecycle overview
+
+This surface reads the active Delivery cursor and roadmap state. It orients the
+Navigator before a detailed checkpoint surface.
+
+result of lifecycle-board      plan approval required
+
+╭────────────────────────────────────────────────────────╮
+│ 🟪[CV20] Builder Mode Evolution              ◉ active │
+│                                                        │
+│ Item      Lev State    Pull Prep Exp Plan Impl Val Rev │
+│ ────────  ─── ───────  ──── ──── ─── ──── ──── ─── ─── │
+│ ▣ [DS5]   DS  Active    ✓    ✓    ✓   ◉🧭   ○    ○   ○  │
+│ ▣ [DS6]   DS  Planned   ○    ○    ○   ○    ○    ○   ○  │
+│ ▣ [DS7]   DS  Planned   ○    ○    ○   ○    ○    ○   ○  │
+│                                                        │
+│ More phases: Coh ○, Done ○                             │
+│                                                        │
+│ current gate                                           │
+│ 🧭 [DS5] Plan is waiting for Navigator approval.       │
+│                                                        │
+│ focus surface                                          │
+│ Render Plan Checkpoint before implementation begins.   │
+╰────────────────────────────────────────────────────────╯
+```
+
+When the active Delivery Story has child User Stories and Technical Stories, the
+board may expand the parent row. Child story markers should align as siblings;
+technical stories must not appear visually nested under user stories.
+
+```text
+Item          Type   Pull  Prep  Exp   Plan  Impl  Val   Rev   Coh   Done
+────────────  ────   ────  ────  ────  ────  ────  ────  ────  ────  ────
+▣ [DS5]       DS      ✓     ✓     ✓     ◉🧭   ○     ○     ○     ○     ○
+◼ [TS1]       TS      ✓     ✓     —     ○     ○     ○     ○     ○     ○
+■ [US1]       US      ○     ○     —     ○     ○     ○     ○     ○     ○
+■ [US2]       US      ○     ○     —     ○     ○     ○     ○     ○     ○
+↳ Debt note   Debt    —     —     —     —     —     —     △     ○     ○
+```
+
+Boundary:
+
+- The Lifecycle Board shows lifecycle orientation; it does not grant approval.
+- The current gate should link or lead to the appropriate checkpoint component.
+- A completed cell should be backed by durable evidence when evidence is required
+  by the method or local policy.
+- A board row may be compact, but it should not flatten Value / Delivery Story /
+  User Story / Technical Story semantics into a generic task list.
 
 ## Pull Recommendation
 
@@ -771,7 +864,7 @@ Delivery
 
 A `Review Checkpoint` component appears when the Driver has inspected the changed surface.
 
-It should show what changed and include a refactoring and technical-debt assessment. The component should name refactoring done, refactoring considered, debt paid, new debt introduced, debt carried forward with revisit criteria, whether a Debt Ledger entry is needed, and follow-up. If no refactor was needed or no new debt was introduced, say so explicitly.
+It should show what changed and include a refactoring and technical-debt assessment. The component should name refactoring done, refactoring considered, debt paid, new debt introduced, debt carried forward with revisit criteria, whether a debt item in the Technical Debt Ledger is needed, and follow-up. If no refactor was needed or no new debt was introduced, say so explicitly.
 
 ```text
 Delivery
@@ -799,7 +892,7 @@ Delivery
 │  revisit when a second country-specific case appears   │
 │                                                        │
 │  debt ledger                                           │
-│  no new ledger entry; follow-up is enough              │
+│  no new debt item in the ledger; follow-up is enough   │
 │                                                        │
 │  follow-up                                             │
 │  Review country-specific postal code normalization     │
@@ -870,7 +963,7 @@ Delivery
 │  before apply/mutation behavior in US2                 │
 │                                                        │
 │  action                                                │
-│  record ledger entry or follow-up                      │
+│  record debt item in the ledger or follow-up           │
 ╰────────────────────────────────────────────────────────╯
 ```
 

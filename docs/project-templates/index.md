@@ -18,11 +18,13 @@ The canonical Ariad docs are not vendored into target projects during manual ado
 The documentation templates create the minimum memory surface required for coherent work:
 
 - **Project briefing**: stable project context that should not be re-explained every session.
-- **Decisions**: choices and open discussions that should shape future work.
-- **Roadmap**: meaningful progress, active focus, planned work, and radar.
-- **Technical Debt Ledger**: structural cost consciously carried by the project, with revisit triggers.
+- **Decisions**: one decision record per file in `docs/project/decisions/records/`, with `status` distinguishing open, decided, superseded, and dropped records.
+- **Roadmap**: meaningful progress as item files or folders whose own metadata carries lifecycle state.
+- **Technical Debt Ledger**: structural cost consciously carried by the project, stored as one debt item per file in `docs/project/debt/items/`, with revisit triggers and closure conditions.
 - **Local development guide**: project-specific commands, validation, documentation, and release rules.
-- **Worklog**: completed milestones and verification notes.
+- **Worklog**: one milestone entry per file in `docs/process/worklog/entries/`.
 - **Product principles**: product behavior guidance that should influence trade-offs.
+
+Index files explain structure, naming, and templates. They should not become central mutable lists unless a project explicitly accepts that coordination cost.
 
 Copy the templates, then adapt them. Do not try to perfect every section before the first agent session. A useful first draft is better than an empty method.

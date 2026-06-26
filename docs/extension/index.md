@@ -32,7 +32,7 @@ The system has three surfaces that should stay separate.
 
 **Mirror Mind runtime.** The operational environment: journeys, project paths, memory, identity, Builder Mode, extensions, and skills.
 
-**Target project.** The local method instance: `AGENTS.md`, local development guide, project briefing, decisions, roadmap, worklog, and product principles.
+**Target project.** The local method instance: `AGENTS.md`, local development guide, project briefing, decision records, roadmap items, the Technical Debt Ledger, worklog entries, and product principles.
 
 Maestro is the bridge between those surfaces.
 
@@ -54,8 +54,10 @@ Checks:
 
 - `AGENTS.md` exists and mentions Ariad,
 - `docs/process/development-guide.md` exists,
+- `docs/process/worklog/index.md` exists,
 - `docs/project/briefing.md` exists,
-- `docs/project/decisions.md` exists,
+- `docs/project/decisions/index.md` exists,
+- `docs/project/debt/index.md` exists,
 - `docs/project/roadmap/index.md` exists,
 - `docs/product/principles.md` exists,
 - canonical Ariad repository is detected (and treated as such).
@@ -153,8 +155,7 @@ Out of scope initially:
 - destructive overwrite of project docs,
 - runtime-agnostic distribution (Maestro is Mirror-specific),
 - full semantic diff of local process adaptations,
-- automatic reconciliation of divergent local files,
-- migration across multiple Ariad major versions.
+- automatic reconciliation of divergent local files.
 
 The first useful slice makes the pilot flow repeatable: doctor, init, adopt, update, and guide the first Builder Mode session.
 

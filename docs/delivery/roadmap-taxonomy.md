@@ -133,6 +133,10 @@ Dropped; replaced by DS4 runtime update path
 
 Projects may adapt labels for local systems, but new Ariad roadmap docs should keep the method-level meaning visible.
 
+State should live in the roadmap item's own metadata or status section, not in a central index table and not primarily in the directory path. A project may render views of planned, active, blocked, or done work, but those views should be derived from item state or maintained deliberately as coordination artifacts.
+
+Directory moves are not the default state transition mechanism. They make paths unstable, can break links, and hide why the lifecycle changed. Moving files or folders is acceptable for coarse archival or deliberate reorganization, but the item's explicit state should remain readable inside the item itself.
+
 ## Codes and folder names
 
 Ariad recommends stable, readable codes for roadmap levels:
@@ -146,7 +150,7 @@ Task       local checklist item inside a User Story or Technical Story
 ```
 
 Project folders should mirror the delivery hierarchy when the project keeps roadmap work as files.
-Use lowercase slugs and keep the parent code in child folder names so links remain understandable when copied out of context.
+Use lowercase slugs and keep the parent code in child folder names so links remain understandable when copied out of context. Index files should explain structure and conventions; they should not become complete mutable lists unless a project explicitly accepts that coordination cost.
 
 Recommended pattern:
 
@@ -181,7 +185,7 @@ docs/project/roadmap/
         test-guide.md
 ```
 
-Numbering is project-local. A project may keep legacy codes such as `E` and `S` for already-recorded history, but new Ariad delivery work should use `DS`, `US`, and `TS` when adopting this taxonomy.
+Numbering is project-local. New Ariad delivery work should use `DS`, `US`, and `TS` when adopting this taxonomy.
 
 Do not create a folder before the work has crossed the right methodological boundary. Exploration documentation may suggest placement, but the Delivery entry step should confirm whether the candidate is a Delivery Story, User Story, or Technical Story before creating roadmap paths.
 

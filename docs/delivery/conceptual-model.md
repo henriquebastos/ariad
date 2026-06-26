@@ -103,7 +103,7 @@ A Delivery Review should distinguish:
 - **debt carried forward** — known debt accepted for now;
 - **revisit trigger** — the condition that should bring the debt back into active work.
 
-A project may keep a **Debt Ledger** when debt cannot be held safely inside one story's review notes. A debt item should name its source story, kind, severity, carrying reason, revisit trigger, and status.
+A project may keep a **Technical Debt Ledger** when debt cannot be held safely inside one story's review notes. Each debt item should live in its own record and name its source story, kind, severity, carrying reason, revisit trigger, and status.
 
 Technical debt can become Delivery Work. Small local repayment may be Maintenance. Larger internal repayment may be a Technical Story. A broad structural arc may become a Delivery Story.
 
@@ -163,7 +163,7 @@ debt_delta_recorded
   the Driver names debt paid, introduced, or carried forward during review
 
 debt_registered
-  a carried debt item is recorded in the project Debt Ledger with revisit criteria
+  a carried debt item is recorded in the project Technical Debt Ledger with revisit criteria
 
 debt_payment_proposed
   the Driver recommends paying debt before continuing feature work

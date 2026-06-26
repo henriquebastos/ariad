@@ -31,10 +31,11 @@ Prepare drafts for:
 
 - docs/project/briefing.md
 - docs/product/principles.md
-- docs/project/roadmap/index.md
+- docs/project/roadmap/index.md, keeping it as a structure guide rather than a central mutable work list
 - docs/process/development-guide.md
-- docs/project/decisions.md, only if you find real decisions worth preserving
-- docs/process/worklog.md, only if there is meaningful completed work to record
+- docs/project/decisions/records/<timestamp>-<slug>.md, only if you find a real open or decided decision worth preserving
+- docs/process/worklog/entries/<timestamp>-<slug>.md, only if there is meaningful completed work to record
+- docs/project/debt/items/<timestamp>-<slug>.md, only if you find a debt item that should outlive one story review
 
 Also identify any Navigator preferences that should be explicit in the local development guide. If uncertain, use Ariad defaults and mark the uncertainty for Navigator review. Relevant preferences include commit frequency, push policy, checkpoint compression, documentation detail, worklog habits, and branch or pull request rules.
 - AGENTS.md, if it needs project-specific adjustments
@@ -58,10 +59,10 @@ A good initialization produces:
 
 - a briefing that explains what the project is and how work should happen,
 - product principles that guide trade-offs,
-- a roadmap with a current focus,
+- a roadmap guide plus item files or folders for any real active or planned work,
 - a local development guide with commands, validation, documentation, release rules, and Navigator preferences,
-- decisions only when there are real decisions to preserve,
-- a worklog only when there is meaningful completed work,
+- decision records only when there are real open or decided decisions to preserve,
+- worklog entries only when there is meaningful completed work,
 - an `AGENTS.md` that tells future agents how to operate in this project.
 
 The result should make the first Builder Mode session easier, not heavier.

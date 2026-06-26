@@ -6,6 +6,8 @@ Exploration asks what a signal is becoming. Delivery asks what the project is co
 
 Delivery Work begins when the Navigator intentionally pulls work with enough shape to define a meaningful place in the roadmap taxonomy: Value / CV, Delivery Story, User Story, Technical Story, Task, or Maintenance. The work may come from a roadmap item, a clear request, a bug with known acceptance criteria, or a candidate promoted out of Exploration.
 
+A clear request or known bug may instead belong to [Refinement](../refinement/index.md) when it cares for an existing capability without creating a roadmap-level promise. Delivery is the roadmap field. Refinement is the Workbench field.
+
 This area is part of the core method. It defines how Ariad turns formed intent into bounded, validated, documented, coherent, and recorded change. The visual language can support that work, but the concepts and the visuals live in separate layers.
 
 ## What Delivery protects
@@ -43,11 +45,13 @@ Visual grammar
 
 The visual grammar may use cards, blocks, checkpoint panels, flow maps, or other components. Those choices are renderings, not method contracts. A Delivery Story remains a Delivery Story whether it appears as a terminal panel, a web task, a commit proposal, or a spoken summary in conversation.
 
-## Boundary with Exploration
+## Boundary with Exploration and Refinement
 
 Delivery does not replace Exploration. It receives work when enough form has emerged.
 
 A candidate from Exploration becomes Delivery Work only when the Navigator accepts the passage. Until then, it remains exploratory material: useful, alive, and visible, but not yet a commitment to change the product or project.
+
+Delivery also does not absorb every requested change. When the requested change cares for an existing capability without becoming a roadmap-level promise, it belongs in Refinement as a Change Request inside a Refinement Story.
 
 This boundary keeps the roadmap from becoming noisy and keeps delivery from pretending that uncertainty has already been resolved.
 

@@ -10,6 +10,18 @@ Visual components may help operate Delivery, but they do not define it.
 
 A User Story or Technical Story remains itself whether it appears as a terminal card, web task, compact checkpoint, roadmap row, commit proposal, or conversation summary. A checkpoint is a methodological pause before it is a visual component.
 
+## Surface transport contract
+
+A rendered Ariad surface is a runtime artifact, not conversational prose. When a runtime emits a marked Ariad surface, the Driver transports that surface verbatim before adding interpretation.
+
+```text
+transport: verbatim
+marker_protocol: ariad_compact
+interpretation_policy: after_block_only
+```
+
+The Driver may explain what a surface means, but it must not replace the surface with a summary, translation, or reformatted version. If multiple Ariad surfaces are emitted, preserve their order and content. This contract is phase-independent: Roadmap, Pull, Prepare, Expand, Plan, Approval, Implementation Guard, Validation, Debt Review, Coherence, Done, and future delivery surfaces follow the same transport rule.
+
 ## Visual direction
 
 Delivery can use block-like cards because its central structure is the roadmap taxonomy: Value / CV, Delivery Story, User Story, Technical Story, Task, and Maintenance. Its central implementation objects are User Stories and Technical Stories: units bounded enough to become verified change inside a Delivery Story arc.
@@ -345,6 +357,32 @@ Boundary:
 - The runtime owns polling, streaming, tabs, colors, typography, raw payload shape, and operation-specific rendering.
 - Unknown, attention, blocked, failed, cancelled, and approval-required states should be represented honestly rather than flattened into pass/fail.
 
+## Delivery Lifecycle Ribbon
+
+A `Delivery Lifecycle Ribbon` may appear as a compact breadcrumb above Delivery surfaces. It helps the Navigator see where the current surface sits in the Ariad lifecycle.
+
+Current runtime stages:
+
+```text
+pull -> prepare -> expand -> plan -> implement -> validate -> debt review -> coherence -> done
+```
+
+Marker semantics:
+
+```text
+✓ completed stage
+◉ current stage
+○ future stage
+```
+
+Example:
+
+```text
+Ariad: ✓ Pull | ◉ Prepare | ○ Expand | ○ Plan | ○ Implement | ○ Validate | ○ Debt Review | ○ Coherence | ○ Done
+```
+
+The ribbon is orientation, not permission. A stage marked current still must obey its checkpoint boundary. For example, `Prepare` being current does not allow implementation; `Plan` must be rendered and approved first.
+
 ## Roadmap Snapshot
 
 A `Roadmap Snapshot` component appears when the Navigator asks to see the delivery field before pulling work.
@@ -563,6 +601,62 @@ Delivery
 │  current story                                         │
 │  Mobile autofill values are rejected without useful    │
 │  field-level recovery guidance.                        │
+╰────────────────────────────────────────────────────────╯
+```
+
+## Prepare Field Reading
+
+A `Prepare Field Reading` component appears after work has been pulled and before the Plan Checkpoint. It shows what the Driver read, how the pulled item is currently shaped, what risks are visible, and which Ariad rules govern the next transition.
+
+It should make clear that Prepare reads terrain only. It does not create a plan, approve a checkpoint, start implementation, or silently expand scope. If the pulled item is a Delivery Story, the surface may name that Plan should decide whether expansion into User Stories or Technical Stories is required.
+
+Schema:
+
+```text
+Prepare Field Reading
+  active item
+  terrain read
+  story shape
+  risks
+  applicable rules
+  next event
+  boundary
+```
+
+Example:
+
+```text
+Delivery
+╭────────────────────────────────────────────────────────╮
+│        🧭  PREPARE FIELD READING                       │
+│                                                        │
+│  active item                                           │
+│  🟦[CV2.DS1]                                           │
+│                                                        │
+│  terrain read                                          │
+│  ✓ README.md: present                                  │
+│  ✓ docs/project/roadmap/index.md: present              │
+│  ○ docs/process/development-guide.md: missing          │
+│                                                        │
+│  story shape                                           │
+│  Delivery Story candidate. Plan should decide whether  │
+│  to expand into child User Stories before build.       │
+│                                                        │
+│  risks                                                 │
+│  ✕ Scope may expand if checkout mixes address, payment │
+│    and confirmation.                                   │
+│  ✕ Implementation remains blocked until Plan approval. │
+│                                                        │
+│  applicable rules                                      │
+│  ✓ Pull selects active work; Prepare reads terrain.    │
+│  ✓ Plan is next and requires Navigator approval.       │
+│                                                        │
+│  next event                                            │
+│  Plan                                                  │
+│                                                        │
+│  boundary                                              │
+│  Plan was not created.                                 │
+│  Implementation remains blocked.                       │
 ╰────────────────────────────────────────────────────────╯
 ```
 

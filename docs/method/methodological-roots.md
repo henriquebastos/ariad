@@ -4,13 +4,15 @@ Ariad is not a collage of existing methods. It is a method for human-agent softw
 
 Still, it has roots. Naming those roots matters because it keeps Ariad honest about what it inherits and what it transforms.
 
-Ariad's roots differ across its two work areas.
+Ariad's roots differ across its three work areas.
 
 **Delivery** is rooted most strongly in **Extreme Programming** and **Kanban**: small verified change, fast feedback, explicit policies, visible work, refactoring, and limits against uncontrolled scope expansion.
 
 **Exploration** is rooted in Complexity Theory, Cynefin, sensemaking, inquiry, discovery work, and reflective practice: preserving weak signals, thickening context, forming hypotheses, learning through safe experiments, and delaying commitment until enough form has emerged.
 
-This distinction matters. Delivery protects execution from drift. Exploration protects discovery from premature closure.
+**Refinement** is rooted in issue tracking, change requests, maintenance queues, refactoring discipline, and Kanban classes of service: making requested changes visible, keeping small care proportional, and separating local adjustment from roadmap commitment.
+
+This distinction matters. Delivery protects execution from drift. Exploration protects discovery from premature closure. Refinement protects care from invisibility and roadmap inflation.
 
 ## From Extreme Programming
 
@@ -78,6 +80,16 @@ Ariad's exploratory side borrows from Complexity Theory, Cynefin, and traditions
 - archiving material without pretending it was wasted.
 
 This is why Exploration is organized around narrative thickening rather than task completion. Progress is not the closing of a ticket. Progress is the condensation of meaning.
+
+## From Issue Tracking and Change Requests
+
+Refinement inherits the practical discipline of issue tracking without reducing Ariad to a ticket system.
+
+A Change Request names a requested adjustment to existing capability. It is concrete enough to work, but it does not need to become a roadmap item. A Refinement Story groups one or more Change Requests into a coherent refinement arc and gives them a flow: confirm, plan, implement, validate, and close through review and coherence.
+
+Ariad adapts issue tracking by keeping the Navigator in the loop. The goal is not to process tickets mechanically. The goal is to preserve requested changes, choose which refinement arc is active, validate each CR proportionally, and record what the full refinement revealed.
+
+Kanban's class-of-service idea appears here as lane discipline: Delivery and Refinement are different flows. The selected field determines the flow. Roadmap work enters Delivery. Workbench work enters Refinement.
 
 ## What Ariad Changes
 

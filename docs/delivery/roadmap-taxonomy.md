@@ -6,7 +6,7 @@ Ariad uses a delivery taxonomy to keep roadmap work meaningful without turning e
 Value / CV -> Delivery Story -> User Story / Technical Story -> Task
 ```
 
-Maintenance work sits beside the hierarchy. It is real work, but it should not be inflated into Value, Delivery Story, User Story, or Technical Story unless it changes a meaningful product, project, or process capability.
+Refinement and maintenance work sit beside the hierarchy. They are real work, but they should not be inflated into Value, Delivery Story, User Story, or Technical Story unless they change a meaningful product, project, or process capability.
 
 ## Value / CV
 
@@ -22,7 +22,7 @@ Ariad uses **Capability Value** as the default meaning of CV. Other projects may
 
 A **Delivery Story** is a coherent delivery arc inside a Value / CV.
 
-It is the story of a meaningful delivery outcome, not the smallest implementable unit. A Delivery Story may contain multiple User Stories and Technical Stories. It has a done condition: when it closes, the project should be able to say what capability, product behavior, operational state, documentation promise, or process maturity emerged.
+It is the story of a meaningful delivery outcome, not the smallest implementable unit. A Delivery Story is never implemented directly in canonical Ariad. It must expand into User Stories and/or Technical Stories before Plan and implementation. It has a done condition: when it closes, the project should be able to say what capability, product behavior, operational state, documentation promise, or process maturity emerged.
 
 Exploration candidates normally promote into Delivery as Delivery Stories, because exploration usually discovers an arc rather than one granular implementation unit.
 
@@ -34,7 +34,15 @@ A **User Story** is an implementable delivery unit with observable behavior or c
 
 A User Story should add behavior or capability that can be validated end to end by the Navigator. In user-facing work, the Navigator should be able to inspect the behavior through a concrete validation route. In process, documentation, tooling, or operational work, the validation route may inspect commands, dry-runs, generated output, docs, runtime state, diagnostics, operation evidence, or operational behavior. Automated tests support the story, but they do not replace Navigator-facing validation for a User Story.
 
-Ariad recommends writing the User Story's acceptance behavior in a lightweight BDD form when planning or expanding work:
+Ariad recommends writing the User Story statement in the traditional agile form:
+
+```text
+As a [user persona],
+I want to [action/feature],
+So that [benefit/value].
+```
+
+Ariad also recommends writing the User Story's acceptance behavior in a lightweight BDD form when planning or expanding work:
 
 ```text
 Given <relevant starting state>
@@ -51,6 +59,15 @@ A User Story should not be reduced to an internal implementation slice. If no ob
 
 A **Technical Story** is an implementable delivery unit whose immediate behavior is internal rather than directly visible to the Navigator.
 
+Ariad recommends writing the Technical Story statement as:
+
+```text
+In order to [achieve a technical benefit/business capability],
+As [an engineering team/system component],
+I want to [perform a technical action],
+So that [expected technical outcome].
+```
+
 Technical Stories are valid when they create necessary internal capability, safety, migration, infrastructure, instrumentation, test support, or operational substrate for a Delivery Story. Their primary validation belongs to the Driver through automated or internal evidence: tests, type checks, diagnostics, fixtures, preflights, internal reports, or contract checks. They may not justify a Navigator behavior checkpoint by themselves, but inside a Delivery Story they should lead toward a later User Story or behavior-visible checkpoint.
 
 The Navigator should not normally be asked to manually validate private technical substrate. Exceptions include high-risk operations, real data mutation, insufficient automated evidence, or explicit Navigator request.
@@ -61,7 +78,7 @@ A **Task** is concrete work inside a User Story or Technical Story.
 
 Tasks help the Driver execute. They are not normally roadmap items. A task may edit a file, add a test, rename a function, update a command, or adjust a document section. Tasks should not be used to create a false sense of roadmap progress.
 
-## Maintenance
+## Maintenance and Refinement
 
 **Maintenance** is legitimate work that may not belong in the roadmap hierarchy.
 
@@ -70,13 +87,23 @@ Examples:
 - dependency updates;
 - local cleanup;
 - one-off operational repair;
-- documentation correction;
 - release note fix;
 - CI retry or environment adjustment.
 
-Do not inflate maintenance into a Value, Delivery Story, User Story, or Technical Story just to make it visible. Record it in the worklog when meaningful.
+**Refinement** is legitimate work that cares for existing capability outside the roadmap hierarchy. It is organized through the Workbench, Change Requests, and Refinement Stories rather than through Delivery Stories.
 
-Maintenance can still create a release boundary, especially:
+Examples:
+
+- small bug fixes in existing behavior;
+- copy or surface polish;
+- documentation correction;
+- test gap closure;
+- contained refactoring;
+- lifecycle or process surface clarification.
+
+Do not inflate maintenance or refinement into a Value, Delivery Story, User Story, or Technical Story just to make it visible. Record maintenance in the worklog when meaningful. Record refinement in the Workbench when it has a requested-change shape.
+
+Maintenance or refinement can still create a release boundary, especially:
 
 - a patch release, when it changes observable behavior, public documentation, packaging, runtime reliability, or user-facing operation.
 

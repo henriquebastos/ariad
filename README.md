@@ -12,15 +12,17 @@ The [method](docs/method/overview.md) exists to prevent that forgetting.
 
 ## The shape of the method
 
-Ariad distinguishes two kinds of agentic software work: **Exploratory Work** and **Delivery Work**.
+Ariad distinguishes three kinds of agentic software work: **Exploratory Work**, **Delivery Work**, and **Refinement Work**.
 
-[**Exploration**](docs/exploration/index.md) preserves and thickens signals before commitment. It holds bugs that are noticed but not understood, product discomforts that keep returning, methodological gaps that are felt before they can become proposals, and patterns that need attention before they deserve roadmap weight.
+[**Exploration**](docs/exploration/index.md) preserves and thickens signals before commitment. It holds bugs that are noticed but not understood, product discomforts that keep returning, methodological gaps that are felt before they can become proposals, and patterns that need attention before they deserve roadmap or Workbench weight.
 
 [**Delivery**](docs/delivery/index.md) turns formed intent into verified change. It uses stories, checkpoints, validation, documentation, coherence checks, and intentional history to keep bounded change legible and trustworthy.
 
-The [work areas](docs/method/work-areas.md) page explains the boundary and passage between Exploration and Delivery. [Expand and Collapse](docs/method/expand-collapse.md) explains the operating rhythm, while [Roadmap Taxonomy](docs/delivery/roadmap-taxonomy.md) and [Release Management](docs/delivery/release-management.md) define how delivery arcs become recognized value and releases.
+[**Refinement**](docs/refinement/index.md) cares for existing capability. It holds requested adjustments, bug fixes, polish, test gaps, documentation corrections, and small structural care without inflating them into roadmap promises.
 
-Runtimes may implement these areas as modes. Ariad defines them as methodological work areas. Maestro, the Mirror extension, may speak of Exploratory Mode or Builder Mode because it executes and renders the method inside a runtime.
+The [work areas](docs/method/work-areas.md) page explains the boundary and passage between Exploration, Delivery, and Refinement. [Expand and Collapse](docs/method/expand-collapse.md) explains the operating rhythm, while [Roadmap Taxonomy](docs/delivery/roadmap-taxonomy.md) and [Release Management](docs/delivery/release-management.md) define how delivery arcs become recognized value and releases.
+
+Runtimes may implement these areas as modes or lanes. Ariad defines them as methodological work areas. Maestro, the Mirror extension, may speak of Exploratory Mode, Builder Mode, or Refinement lanes because it executes and renders the method inside a runtime.
 
 Ariad is built on a small set of load-bearing ideas. They are simple enough to internalize and complete enough to operate.
 
@@ -28,13 +30,13 @@ Ariad is built on a small set of load-bearing ideas. They are simple enough to i
 
 **Three dimensions.** Every change moves through the [triad](docs/method/triad.md) of **Process**, **Project**, and **Product**: how the work is done, what is being built and why, and how the thing behaves for the people it serves. Coherent work keeps the three in alignment.
 
-**One passage.** Work can begin as exploration and later cross into delivery. A signal becomes an Exploratory Story; an Exploratory Story may thicken into a candidate; a candidate may become a Delivery Story when the Navigator accepts it. Ariad protects that passage so discovery does not prematurely become commitment, and commitment does not lose the inquiry that shaped it.
+**One passage.** Work can begin as exploration and later cross into delivery or refinement. A signal becomes an Exploratory Story; an Exploratory Story may thicken into a candidate; a candidate may become a Delivery Story or a requested change when the Navigator accepts it. Ariad protects that passage so discovery does not prematurely become commitment, and committed work does not lose the inquiry that shaped it.
 
 **Opinionated defaults.** Ariad has a [method contract and Navigator preference defaults](docs/method/contracts-and-preferences.md). The contract protects coherence. The defaults give new users a complete starting posture. Advanced Navigators and projects can override preferences such as commit frequency, push policy, checkpoint compression, and documentation detail.
 
 **Explicit policies.** Ariad makes recurring operational decisions visible through [explicit policies](docs/method/explicit-policies.md), starting with coherent updates to runtimes, methods, migrations, templates, and installed tooling.
 
-**Methodological roots.** Ariad's [roots](docs/method/methodological-roots.md) differ by work area. Delivery draws most strongly from XP and Kanban. Exploration draws from Complexity Theory, Cynefin, sensemaking, inquiry, discovery work, and reflective practice.
+**Methodological roots.** Ariad's [roots](docs/method/methodological-roots.md) differ by work area. Delivery draws most strongly from XP and Kanban. Exploration draws from Complexity Theory, Cynefin, sensemaking, inquiry, discovery work, and reflective practice. Refinement draws from maintenance, continuous improvement, technical stewardship, and product care.
 
 Together these are the thread. Pull on any one and the others come with it.
 

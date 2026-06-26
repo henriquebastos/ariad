@@ -28,9 +28,9 @@ A signal does not need a solution. It does not need a planned action. It only ne
 
 An Exploratory Story is a narrative thread opened by one or more signals.
 
-It thickens as facts, tensions, hypotheses, experiments, and interpretations accumulate. It ends by becoming a candidate for Delivery or by being archived.
+It thickens as facts, tensions, hypotheses, experiments, and interpretations accumulate. It ends by becoming a candidate for Delivery, a requested change for Refinement, or by being archived.
 
-An Exploratory Story does not have to move linearly. It can branch, loop, absorb contradictions, weaken hypotheses, form clusters, generate experiments, or end without delivery.
+An Exploratory Story does not have to move linearly. It can branch, loop, absorb contradictions, weaken hypotheses, form clusters, generate experiments, or end without delivery or refinement.
 
 Signals and Exploratory Stories belong to different surfaces:
 

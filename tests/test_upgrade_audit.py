@@ -36,6 +36,46 @@ class UpgradeAuditTests(unittest.TestCase):
             self.assertIn("docs/process/engineering-conventions.md", data["operations"]["retain_unchanged"])
             self.assertEqual(data["schema_version"], 1)
 
+    def test_repository_wide_references_harness_support_and_semantic_evidence(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            target = Path(tmp)
+            (target / ".agents").mkdir(); (target / ".agents/setup").write_text("#!/bin/sh\n")
+            (target / ".agents/resume").write_text("#!/bin/sh\n")
+            (target / "spec").mkdir(); (target / "spec/contract.md").write_text("See docs/project/briefing.md\n")
+            (target / "README.md").write_text("See docs/product/principles.md\n")
+            (target / "AGENTS.md").write_text("Ariad is canonical. Driver and Navigator rules apply.\nRead docs/process/development-guide.md\n")
+            data = json.loads(self.run_audit(target).stdout)
+            self.assertEqual(data["legacy_inbound_references"]["docs/project/briefing.md"], ["spec/contract.md"])
+            self.assertEqual(data["legacy_inbound_references"]["docs/process/development-guide.md"], ["AGENTS.md"])
+            self.assertEqual(data["legacy_inbound_references"]["docs/product/principles.md"], ["README.md"])
+            self.assertEqual(data["harness_support_files"], [".agents/setup", ".agents/resume"])
+            self.assertEqual(data["semantic_ariad_evidence"], ["AGENTS.md"])
+            self.assertIn("spec/contract.md", data["adjacent_project_docs"])
+            self.assertIn(".agents/setup", data["operations"]["retain_unchanged"])
+
+    def test_memory_summary_preserves_statuses_and_reports_empty_worklog(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            target = Path(tmp); (target / "docs/project/roadmap").mkdir(parents=True)
+            (target / "docs/process/worklog").mkdir(parents=True)
+            (target / "docs/project/roadmap/index.md").write_text("# Roadmap\n")
+            (target / "docs/project/roadmap/item.md").write_text("Status: Accepted Live\n")
+            (target / "docs/project/roadmap/other.md").write_text("**Status:** Qualified Locally\n")
+            (target / "docs/process/worklog/index.md").write_text("# Worklog\n")
+            data = json.loads(self.run_audit(target).stdout)
+            summaries = {item["path"]: item for item in data["project_memory_summary"]}
+            self.assertEqual(summaries["docs/project/roadmap"]["entries"], 2)
+            self.assertEqual(summaries["docs/project/roadmap"]["statuses"], ["Accepted Live", "Qualified Locally"])
+            self.assertTrue(data["intentional_absence_candidates"]["empty_worklog"])
+            self.assertTrue(data["intentional_absence_candidates"]["exploration_memory"])
+
+    def test_human_report_aggregates_large_memory_inventory(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            target = Path(tmp); records = target / "docs/project/decisions/records"; records.mkdir(parents=True)
+            for index in range(30): (records / f"{index}.md").write_text("Status: Decided\n")
+            result = subprocess.run([sys.executable, str(AUDIT), str(target), "--candidate", str(ROOT)], text=True, capture_output=True, check=True)
+            self.assertIn("docs/project/decisions (30 entries, statuses: Decided)", result.stdout)
+            self.assertNotIn("docs/project/decisions/records/0.md", result.stdout)
+
     def test_current_and_old_contract(self):
         with tempfile.TemporaryDirectory() as tmp:
             target = Path(tmp); (target / "docs/ariad").mkdir(parents=True)

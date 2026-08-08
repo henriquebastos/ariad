@@ -11,12 +11,15 @@ DIRECTIVE = "@docs/ariad/index.md"
 OLD_MARKER = "<!-- ariad-skill: using-ariad -->"
 SKILL_LOCATIONS = (".agents/skills/using-ariad", ".claude/skills/using-ariad", ".codex/skills/using-ariad", "skills/using-ariad")
 HARNESSES = ("AGENTS.md", "CLAUDE.md", "GEMINI.md", ".cursorrules", ".github/copilot-instructions.md")
+HARNESS_SUPPORT = (".agents/setup", ".agents/resume", ".amp/services.yaml")
 MEMORY_NAMES = ("decisions", "roadmap", "exploration", "debt", "worklog", "workbench")
 LEGACY = {"briefing": "docs/project/briefing.md", "development_guide": "docs/process/development-guide.md", "principles": "docs/product/principles.md"}
 MODULAR = {k: v.removesuffix(".md") + "/index.md" for k, v in LEGACY.items()}
 DOC_ROOTS = ("docs/process", "docs/project", "docs/product", "docs/references", "docs/operator")
 SHA256 = re.compile(r"^[0-9a-f]{64}$")
 TARGET_EXCLUDES = {".git", ".venv", "node_modules", "site", "build", "dist", ".agents", ".claude", ".codex"}
+TEXT_EXCLUDES = {".git", ".venv", "node_modules", "site", "build", "dist"}
+STATUS = re.compile(r"^\s*(?:[-*]\s*)?(?:\*\*)?status(?:\*\*)?\s*:\s*(.+?)\s*$", re.IGNORECASE)
 
 def safe_relative(value: str) -> bool:
     return bool(value) and "\\" not in value and not PurePosixPath(value).is_absolute() and all(p not in ("", ".", "..") for p in value.split("/"))
@@ -140,6 +143,35 @@ def safe_files(root: Path, pattern: str, excluded: set[str] | None = None) -> li
         found.extend(base/n for n in sorted(filenames) if not (base/n).is_symlink() and (pattern == "*" or (base/n).match(pattern)))
     return found
 
+def target_text_files(root: Path) -> list[Path]:
+    """Return bounded project text candidates without following links or vendored skills."""
+    found=[]
+    for path in safe_files(root,"*",TEXT_EXCLUDES):
+        relative=path.relative_to(root).as_posix()
+        if any(relative.startswith(prefix) for prefix in (".agents/skills/", ".claude/skills/", ".codex/skills/")): continue
+        try:
+            if path.stat().st_size <= 2_000_000 and b"\0" not in path.read_bytes()[:8192]: found.append(path)
+        except OSError: continue
+    return found
+
+def memory_summary(target: Path, memories: list[str]) -> list[dict]:
+    summaries=[]
+    for relative in memories:
+        state,root=probe(target,relative)
+        files=safe_files(root,"*.md",set()) if state == "dir" and root else []
+        statuses=set()
+        for path in files:
+            try: lines=path.read_text(encoding="utf-8",errors="replace").splitlines()
+            except OSError: continue
+            for line in lines:
+                match=STATUS.match(line)
+                if match:
+                    value=match.group(1).strip().strip("*_`").strip()
+                    if value: statuses.add(value)
+        entries=[p for p in files if p.name.lower() not in ("index.md","readme.md")]
+        summaries.append({"path":relative,"markdown_files":len(files),"entries":len(entries),"statuses":sorted(statuses)})
+    return summaries
+
 def contract(boundary: Path, relative: str) -> dict:
     state, path = probe(boundary, relative); lines=[]
     if state == "file" and path:
@@ -167,11 +199,17 @@ def audit(target: Path, candidate: Path, installed_paths: list[str] | None=None,
     refs={v:[] for v in LEGACY.values()}
     docs_state, docs_root = probe(target,"docs")
     markdown = safe_files(docs_root,"*.md",set()) if docs_state == "dir" and docs_root else []
-    for md in markdown:
-        try: text=md.read_text(encoding="utf-8",errors="replace")
+    text_files=target_text_files(target)
+    semantic_evidence=[]
+    for source in text_files:
+        try: text=source.read_text(encoding="utf-8",errors="replace")
         except OSError: continue
+        relative=source.relative_to(target).as_posix()
         for legacy in refs:
-            if legacy in text: refs[legacy].append(md.relative_to(target).as_posix())
+            if legacy in text and relative != legacy: refs[legacy].append(relative)
+        lowered=text.lower()
+        if "ariad" in lowered and any(term in lowered for term in ("canonical", "driver", "navigator", "hermes", "method")):
+            semantic_evidence.append(relative)
     memories=set()
     memory_root = docs_root if docs_state == "dir" and docs_root else None
     for directory, dirnames, _ in os.walk(memory_root, followlinks=False) if memory_root else []:
@@ -179,12 +217,22 @@ def audit(target: Path, candidate: Path, installed_paths: list[str] | None=None,
         for name in dirnames:
             if name.lower() in MEMORY_NAMES: memories.add((base/name).relative_to(target).as_posix())
     memories=sorted(memories)
-    focused=sorted(p.relative_to(target).as_posix() for p in markdown if any(p.relative_to(target).as_posix().startswith(r+"/") for r in DOC_ROOTS) and p.relative_to(target).as_posix() not in LEGACY.values())
+    summaries=memory_summary(target,memories)
+    memory_prefixes=tuple(path+"/" for path in memories)
+    focused=sorted(p.relative_to(target).as_posix() for p in markdown if any(p.relative_to(target).as_posix().startswith(r+"/") for r in DOC_ROOTS) and p.relative_to(target).as_posix() not in LEGACY.values() and not p.relative_to(target).as_posix().startswith(memory_prefixes))
+    adjacent=[]
+    for relative in ("README.md", "CONTEXT.md", "spec"):
+        state,path=probe(target,relative)
+        if state == "file": adjacent.append(relative)
+        elif state == "dir" and path:
+            adjacent.extend(p.relative_to(target).as_posix() for p in safe_files(path,"*.md",set()))
+    adjacent=sorted(set(focused+adjacent))
+    harness_support=[p for p in HARNESS_SUPPORT if probe(target,p)[0]=="file"]
     router=probe(target,"docs/ariad/index.md")[0]=="file"; old=False
     if root["present"]:
         _,rp=probe(target,"AGENTS.md"); old=OLD_MARKER in rp.read_text(encoding="utf-8",errors="replace").splitlines() if rp else False
     integration={"root_agents_present":root["present"],"root_agents_state":root["state"],"marker":root["marker"],"directive":root["directive"],"old_marker":old,"router":router,"router_state":probe(target,"docs/ariad/index.md")[0]}
-    ops={"safe_additive":[],"manual_integration":[],"destructive_ambiguous_denied":[],"retain_unchanged":sorted(set(memories+focused+[p for p in MODULAR.values() if probe(target,p)[0]=="file"]))}
+    ops={"safe_additive":[],"manual_integration":[],"destructive_ambiguous_denied":[],"retain_unchanged":sorted(set(memories+adjacent+harness_support+[p for p in MODULAR.values() if probe(target,p)[0]=="file"]))}
     if not eligible: ops["destructive_ambiguous_denied"].append("candidate package or integration contract invalid; candidate-derived automation denied")
     if installed:
         for p in installed: ops["manual_integration"].append(f"review existing package at {p['path']}; replacement is manual")
@@ -209,7 +257,9 @@ def audit(target: Path, candidate: Path, installed_paths: list[str] | None=None,
                 except (OSError,ValueError,KeyError): pass
     cg=git_report(candidate)
     candidate_report={"path":str(candidate),"source_url":sanitize_url(git(candidate,"config","--get","remote.origin.url")),"revision":cg["head"],"branch":cg["branch"],"dirty":cg["dirty"],"staged":cg["staged"],"version":cm.get("version"),"method_digest":cm.get("method_digest"),"package_digest":cm.get("package_digest"),"package_valid":cm.get("valid",False),"package_invalid_reasons":cm.get("invalid_reasons",[]),"contract_components":components,"contract_compatible":compatible,"using_ariad":candidate_pkg}
-    return {"schema_version":1,"mode":"report-only","target":str(target),"git":git_report(target),"agents_scopes":agents,"harness_files":[p for p in HARNESSES if probe(target,p)[0]=="file"],"integration":integration,"installed_packages":installed,"candidate":candidate_report,"candidate_compatibility":components,"candidate_compatible":compatible,"package_deltas":deltas,"documents":{k:{"legacy":probe(target,LEGACY[k])[0]=="file","modular_index":probe(target,MODULAR[k])[0]=="file"} for k in LEGACY},"legacy_inbound_references":refs,"project_memory":memories,"adjacent_project_docs":focused,"operations":ops}
+    absences={"exploration_memory":not any(p.endswith("/exploration") or p == "exploration" for p in memories),
+              "empty_worklog":any(s["path"].endswith("/worklog") and s["entries"] == 0 for s in summaries)}
+    return {"schema_version":1,"mode":"report-only","target":str(target),"git":git_report(target),"agents_scopes":agents,"harness_files":[p for p in HARNESSES if probe(target,p)[0]=="file"],"harness_support_files":harness_support,"integration":integration,"installed_packages":installed,"candidate":candidate_report,"candidate_compatibility":components,"candidate_compatible":compatible,"package_deltas":deltas,"documents":{k:{"legacy":probe(target,LEGACY[k])[0]=="file","modular_index":probe(target,MODULAR[k])[0]=="file"} for k in LEGACY},"legacy_inbound_references":refs,"semantic_ariad_evidence":sorted(set(semantic_evidence)),"project_memory":memories,"project_memory_summary":summaries,"intentional_absence_candidates":absences,"adjacent_project_docs":adjacent,"operations":ops}
 
 def show(v): return "unknown" if v is None else str(v)
 def render(data: dict) -> str:
@@ -217,7 +267,11 @@ def render(data: dict) -> str:
     documents="; ".join(f"{name}=legacy:{state['legacy']},modular:{state['modular_index']}" for name,state in data["documents"].items())
     inbound=[f"{path} <- {', '.join(refs)}" for path,refs in data["legacy_inbound_references"].items() if refs]
     components=c["contract_components"]
-    lines=["Ariad upgrade audit (report-only)",f"Target: {data['target']}",f"Git: branch={show(data['git']['branch'])} head={show(data['git']['head'])} dirty={show(data['git']['dirty'])} staged={show(data['git']['staged'])}",f"Candidate: source={show(c['source_url'])} revision={show(c['revision'])} branch={show(c['branch'])} dirty={show(c['dirty'])} staged={show(c['staged'])}",f"  version={show(c['version'])} method={show(c['method_digest'])} package={show(c['package_digest'])} valid={c['package_valid']} contract={c['contract_compatible']} reasons={'; '.join(c['package_invalid_reasons']) or 'none'}",f"  contract components: source-template={components['source_template']['marker'] and components['source_template']['directive']} packaged-agents={components['packaged_agents_asset']['marker'] and components['packaged_agents_asset']['directive']} source-router={components['source_router']} packaged-router={components['packaged_router']}",f"AGENTS scopes: {', '.join(data['agents_scopes']) or 'none'}",f"Harness files: {', '.join(data['harness_files']) or 'none'}",f"Entrypoint: marker={data['integration']['marker']} directive={data['integration']['directive']} router={data['integration']['router']} old-marker={data['integration']['old_marker']}",f"Documents: {documents}","Legacy inbound references: "+("; ".join(inbound) or "none"),f"Project memory: {', '.join(data['project_memory']) or 'none'}",f"Focused/adjacent docs: {', '.join(data['adjacent_project_docs']) or 'none'}"]
+    memory="; ".join(f"{s['path']} ({s['entries']} entries, statuses: {', '.join(s['statuses']) or 'none'})" for s in data["project_memory_summary"])
+    absence=data["intentional_absence_candidates"]
+    evidence=data["semantic_ariad_evidence"]
+    evidence_summary=(f"{len(evidence)} paths (examples: {', '.join(evidence[:5])}; full inventory in JSON)" if evidence else "none")
+    lines=["Ariad upgrade audit (report-only)",f"Target: {data['target']}",f"Git: branch={show(data['git']['branch'])} head={show(data['git']['head'])} dirty={show(data['git']['dirty'])} staged={show(data['git']['staged'])}",f"Candidate: source={show(c['source_url'])} revision={show(c['revision'])} branch={show(c['branch'])} dirty={show(c['dirty'])} staged={show(c['staged'])}",f"  version={show(c['version'])} method={show(c['method_digest'])} package={show(c['package_digest'])} valid={c['package_valid']} contract={c['contract_compatible']} reasons={'; '.join(c['package_invalid_reasons']) or 'none'}",f"  contract components: source-template={components['source_template']['marker'] and components['source_template']['directive']} packaged-agents={components['packaged_agents_asset']['marker'] and components['packaged_agents_asset']['directive']} source-router={components['source_router']} packaged-router={components['packaged_router']}",f"AGENTS scopes: {', '.join(data['agents_scopes']) or 'none'}",f"Harness files: {', '.join(data['harness_files']) or 'none'}",f"Harness support (retain): {', '.join(data['harness_support_files']) or 'none'}",f"Entrypoint: marker={data['integration']['marker']} directive={data['integration']['directive']} router={data['integration']['router']} old-marker={data['integration']['old_marker']}",f"Documents: {documents}","Legacy inbound references: "+("; ".join(inbound) or "none"),f"Semantic Ariad evidence: {evidence_summary}",f"Project memory: {memory or 'none'}",f"Possible intentional absences: exploration={absence['exploration_memory']} empty-worklog={absence['empty_worklog']}",f"Adjacent project docs: {len(data['adjacent_project_docs'])} (full inventory in JSON)"]
     if not data["installed_packages"]: lines.append("Installed packages: none")
     for p in data["installed_packages"]:
         m=p.get("manifest") or {}; lines.append(f"Installed: {p['path']} version={show(m.get('version'))} method={show(m.get('method_digest'))} package={show(m.get('package_digest'))} valid={m.get('valid',False)} reasons={'; '.join(m.get('invalid_reasons',[])) or 'none'}")

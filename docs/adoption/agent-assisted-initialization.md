@@ -8,9 +8,9 @@ This keeps adoption aligned with the method: the agent drives the repository wor
 
 ## When to Use
 
-Use agent-assisted initialization after copying the Ariad project templates into a repository and before the first meaningful Builder Mode cycle.
+Use agent-assisted initialization after copying the Ariad project templates into a repository and before the first meaningful Ariad work cycle.
 
-The target project contains a local Ariad instance, not the canonical Ariad documentation. The Driver should draft project-specific docs for the target repository. If the canonical method itself needs to be inspected, ask the Navigator for the Ariad repository path or use the configured Mirror/Ariad extension when available.
+The target project contains project-specific memory plus an installed `using-ariad` skill. The Driver should draft local docs and consult that package for canonical method references. If discovery is unavailable, open its `SKILL.md` manually.
 
 It works for existing projects and for new projects that already have enough context to describe purpose, product direction, and first work.
 
@@ -42,7 +42,7 @@ Also identify any Navigator preferences that should be explicit in `docs/process
 
 For each draft, distinguish what you inferred from the repository from what you need me to confirm.
 
-Keep the first version concise. The goal is not perfect documentation. The goal is enough project memory for Builder Mode to stop starting from zero.
+Keep the first version concise. The goal is not perfect documentation. The goal is enough project memory for the next Driver session to stop starting from zero.
 
 After presenting the drafts, stop for my review before editing files.
 ```

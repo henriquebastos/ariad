@@ -1,18 +1,14 @@
 # Adoption
 
-A project adopts Ariad by giving agents a small, explicit memory surface and a clear operating contract.
+A project adopts Ariad by giving agents a small, explicit memory surface and a clear operating contract. The generic path has two independent layers: install the runtime-independent [`using-ariad` Agent Skill](../skill/index.md), then adopt and adapt its project memory templates.
 
-The reference adoption path uses Mirror Mind Builder Mode. Mirror provides the runtime continuity through journeys, project paths, memory, identity, skills, and context loading. Ariad provides the project-side method that Builder Mode follows.
+Agent Skills is the portable package format. Discovery locations vary; `.agents/skills/using-ariad/` is conventional, not required, and opening `SKILL.md` manually is always valid. Mirror Mind and Maestro are optional adapters consuming the same package.
 
-The first adoption model is deliberately manual. Copy the templates into the project, adapt them to the real context, connect a Mirror journey to the project path, and run one small change using the method. This keeps the method visible and avoids premature tooling.
-
-Future automation lives in [Maestro](../extension/index.md), the Mirror extension that operates the Ariad method. Maestro owns deterministic operations such as initialization, adoption checks, template updates, and diagnostics. Its skill surface guides the agent-assisted workflow where interpretation and Navigator review matter.
+The first adoption should stay visible: preview the no-overwrite adopter, install missing templates, adapt them to the real project, and run one small change. Template migration and later skill replacement are separate operations; neither silently rewrites local project knowledge.
 
 ## Adoption Goal
 
-The goal is not to create perfect documentation before work begins.
-
-The goal is for the next agent session to know:
+The goal is not perfect documentation before work begins. The goal is for the next agent session to know:
 
 - what the project is,
 - what matters about the product,
@@ -22,10 +18,6 @@ The goal is for the next agent session to know:
 
 ## Start Here
 
-Use [Install in a Project](install-in-a-project.md) to copy the templates into a repository.
+Use [Install in a Project](install-in-a-project.md) to install the skill and adopt templates. Then use [Agent-Assisted Initialization](agent-assisted-initialization.md) so the Driver can inspect the project and draft project-specific documentation for Navigator review.
 
-Then use [Agent-Assisted Initialization](agent-assisted-initialization.md) to have the Driver inspect the project and draft the first project-specific documentation for Navigator review.
-
-Use [Builder Mode Guide](builder-mode-guide.md) to connect the project to a Mirror journey.
-
-Use [First Adoption Session](first-adoption-session.md) to run the first real Builder session without turning adoption into an abstract documentation exercise.
+[Runtime Integration Guide](builder-mode-guide.md) explains the expected runtime and Driver behavior, including an optional Mirror Builder Mode path. [First Adoption Session](first-adoption-session.md) takes one real change through the method instead of turning adoption into an abstract documentation exercise.

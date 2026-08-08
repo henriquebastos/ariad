@@ -13,7 +13,7 @@ Ariad works as a canonical method plus a local instance:
 - **Local development guide**: `docs/process/development-guide/index.md` and its focused current-policy documents, the project-specific operating contract.
 - **AGENTS.md**: the agent-facing entry point that connects the canonical method to the local project docs.
 
-The canonical Ariad docs are not vendored into target projects during manual adoption. Target projects receive a local instance of the method. The future Mirror extension will own canonical source discovery, version awareness, updates, and canonical context injection when needed.
+The `using-ariad` Agent Skill is the self-contained, portable method package. Install a vendored snapshot in a runtime-supported project-local skill directory; `.agents/skills/using-ariad/` is conventional but not universal. Mirror and Maestro are optional consumers of the same package.
 
 The documentation templates create the minimum memory surface required for coherent work:
 
@@ -25,6 +25,6 @@ The documentation templates create the minimum memory surface required for coher
 - **Worklog**: one milestone entry per file in `docs/process/worklog/entries/`.
 - **Product principles**: bounded current product behavior guidance under `docs/product/principles/` that should influence trade-offs.
 
-Index files explain structure, naming, and templates. They should not become central mutable lists unless a project explicitly accepts that coordination cost.
+Index files explain local structure, naming, and templates. Untouched local method-policy slots inherit the installed skill's current canonical guidance instead of freezing a copy of old defaults. They should not become central mutable lists unless a project explicitly accepts that coordination cost.
 
 Copy the templates, then adapt them. Do not try to perfect every section before the first agent session. A useful first draft is better than an empty method.

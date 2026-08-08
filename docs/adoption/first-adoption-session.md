@@ -1,80 +1,37 @@
 # First Adoption Session
 
-The first adoption session proves that Ariad is operational.
+The first adoption session proves Ariad is operational. Do not adopt the method abstractly: prepare one real project and run one small change through it.
 
-Do not try to adopt the entire method abstractly. Prepare one real project, connect it to Mirror Mind Builder Mode, and run one small change through the method.
+## Before the session
 
-## Before the Session
+Install a pinned `using-ariad` snapshot, preview and apply template adoption, and use [Agent-Assisted Initialization](agent-assisted-initialization.md) to draft local truth for Navigator review. Confirm your agent discovers the skill or explicitly ask it to open `using-ariad/SKILL.md`.
 
-Make sure the local environment can run Mirror Mind and the target project.
-
-Open the Ariad documentation site:
-
-```bash
-cd /path/to/ariad
-uv run mkdocs serve
-```
-
-Open the target project in another terminal and confirm its current state:
+Check the target repository before editing:
 
 ```bash
 cd /path/to/project
 git status
 ```
 
-If the project has tests or a local verification command, identify it before changing files.
+Identify its setup, test, and verification commands. If useful, inspect the Ariad docs locally with `uv run mkdocs serve`, but the installed skill is the method source for the session. Do not automatically migrate older templates.
 
-## Adoption Route
+## Optional: Mirror setup
 
-Start by copying the Ariad project templates into the target project.
-
-```bash
-cd /path/to/ariad
-cp docs/project-templates/AGENTS.md /path/to/project/AGENTS.md
-mkdir -p /path/to/project/docs/project/roadmap \
-  /path/to/project/docs/project/decisions/records \
-  /path/to/project/docs/project/exploration \
-  /path/to/project/docs/project/debt/items \
-  /path/to/project/docs/process/worklog/entries \
-  /path/to/project/docs/product
-cp -R docs/project-templates/docs/project/briefing /path/to/project/docs/project/
-cp docs/project-templates/docs/project/decisions/index.md /path/to/project/docs/project/decisions/index.md
-cp docs/project-templates/docs/project/exploration/index.md /path/to/project/docs/project/exploration/index.md
-cp docs/project-templates/docs/project/roadmap/index.md /path/to/project/docs/project/roadmap/index.md
-cp docs/project-templates/docs/project/debt/index.md /path/to/project/docs/project/debt/index.md
-cp -R docs/project-templates/docs/process/development-guide /path/to/project/docs/process/
-cp docs/project-templates/docs/process/worklog/index.md /path/to/project/docs/process/worklog/index.md
-cp -R docs/project-templates/docs/product/principles /path/to/project/docs/product/
-touch /path/to/project/docs/project/decisions/records/.gitkeep \
-  /path/to/project/docs/project/debt/items/.gitkeep \
-  /path/to/project/docs/process/worklog/entries/.gitkeep
-```
-
-Then use [Agent-Assisted Initialization](agent-assisted-initialization.md) inside the target project. The Driver drafts the project-specific docs; the Navigator reviews for truth.
-
-## Mirror Setup
-
-Create or choose the Mirror journey that represents the target project.
-
-Set the project path:
+Mirror users may connect a journey to the same prepared project:
 
 ```bash
 uv run python -m memory journey set-path <journey-slug> /path/to/project
 ```
 
-Activate Builder Mode:
-
 ```text
 /mm-build <journey-slug>
 ```
 
-The Driver should load the journey context, read the Ariad project docs, show the roadmap surface, and propose a first small pull: a Delivery Story or maintenance item. If the first useful work is still unclear, the Driver should name it as Exploration instead of forcing delivery.
+This adds journey continuity; it does not replace or redefine `using-ariad`.
 
-## The First Pull
+## The first pull
 
-Choose something small enough to complete in one session.
-
-Good first pulls usually improve confidence without requiring broad architecture changes. They may be a Delivery Story or meaningful maintenance. Examples:
+The Driver should read context, identify Exploration, Delivery, or Refinement, and propose a small pull. Good examples include:
 
 - document the current setup and verification command,
 - add one small missing test,
@@ -82,25 +39,12 @@ Good first pulls usually improve confidence without requiring broad architecture
 - clarify one README section,
 - add one small feature with clear validation.
 
-Avoid vague goals such as "refactor the project", "improve architecture", or "make it production-ready". If the work is too large, expand it into a Delivery Story and choose one User Story or Technical Story. If the work is ambiguous, keep it in Exploration until it can collapse into a candidate. The first pull should test the method, not exhaust it.
+Avoid “refactor the project,” “improve architecture,” or “make it production-ready.” Expand oversized delivery into a smaller User Story or Technical Story; keep ambiguous work in Exploration until it can collapse into a candidate. The first pull tests continuity, not endurance.
 
-## Expected Session Shape
+## Expected session shape
 
-A successful first session should include:
+A successful session includes context reading, a short plan, Navigator confirmation, focused implementation, automated or manual validation, documentation when project state changes, review and coherence checking, and a proposed commit message. The evidence is not file count: it is a coherent path the Navigator can see and judge.
 
-- context reading,
-- a short plan,
-- Navigator confirmation,
-- focused implementation,
-- automated or manual validation,
-- documentation update if project state changed,
-- review and coherence check,
-- proposed commit message.
+## After the session
 
-The main evidence is not that many files changed. The evidence is that the Driver worked inside a coherent path and the Navigator could see and validate the work.
-
-## After the Session
-
-Record what happened as a new file in the target project's `docs/process/worklog/entries/` directory if the session produced a meaningful milestone.
-
-If the adoption flow revealed friction, record it in the Ariad journey, roadmap, worklog, or Exploration surface. Early adoption is not only delivery; it is method discovery.
+If the session produced a meaningful milestone, add a worklog entry under `docs/process/worklog/entries/`. Record adoption friction in the appropriate roadmap, worklog, or Exploration surface without silently expanding the first change. With an optional runtime journey, relevant continuity may also be recorded there.

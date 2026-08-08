@@ -1,6 +1,6 @@
 site_name: Ariad
 site_description: The thread through the labyrinth of agentic software work.
-repo_url: https://github.com/alissonvale/ariad
+repo_url: https://github.com/mirror-mind-ai/ariad
 edit_uri: edit/main/docs/
 theme:
   name: material
@@ -71,7 +71,8 @@ nav:
       - Agent-Assisted Initialization: adoption/agent-assisted-initialization.md
       - Builder Mode Guide: adoption/builder-mode-guide.md
       - First Adoption Session: adoption/first-adoption-session.md
-  - Extension (Maestro):
+  - Agent Skill: skill/index.md
+  - Optional Extension (Maestro):
       - extension/index.md
 markdown_extensions:
   - admonition

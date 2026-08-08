@@ -9,13 +9,15 @@ from pathlib import Path
 
 READY, ALREADY, MANUAL_AGENTS, COLLISION = 0, 0, 3, 4
 ASSETS = Path(__file__).resolve().parents[1] / "assets/project-templates"
-INTEGRATION_MARKER = b"<!-- ariad-skill: using-ariad -->"
+INTEGRATION_MARKER = b"<!-- ariad-entrypoint: docs/ariad/index.md -->"
+INTEGRATION_DIRECTIVE = b"@docs/ariad/index.md"
 
 def files() -> list[tuple[Path, Path]]:
     return [(p, p.relative_to(ASSETS)) for p in sorted(ASSETS.rglob("*")) if p.is_file()]
 
 def integrated_agents(data: bytes) -> bool:
-    return INTEGRATION_MARKER in data
+    lines = {line.strip() for line in data.splitlines()}
+    return INTEGRATION_MARKER in lines and INTEGRATION_DIRECTIVE in lines
 
 def collision(destination: Path, target: Path) -> str | None:
     """Return the first unsafe destination component (cooperative local CLI safety)."""
@@ -64,7 +66,7 @@ def main() -> int:
                         present += 1
                         continue
                     print("manual integration required: existing AGENTS.md does not clearly integrate Ariad", file=sys.stderr)
-                    print("Add both the exact marker and a positive instruction, for example:\n\n  <!-- ariad-skill: using-ariad -->\n  This project uses Ariad. Read the installed using-ariad/SKILL.md; local instructions take precedence.", file=sys.stderr)
+                    print("Add this block without removing project-owned instructions:\n\n<!-- ariad-entrypoint: docs/ariad/index.md -->\n@docs/ariad/index.md\nIf the @path directive is not expanded by this runtime, read `docs/ariad/index.md` directly before meaningful work.", file=sys.stderr)
                     return MANUAL_AGENTS
                 print(f"manual integration required: destination differs: {rel}", file=sys.stderr)
                 return COLLISION

@@ -44,6 +44,7 @@ nav:
   - Project Templates:
       - project-templates/index.md
       - AGENTS.md: project-templates/AGENTS.md
+      - Ariad Router: project-templates/docs/ariad/index.md
       - Project Briefing:
           - project-templates/docs/project/briefing/index.md
           - Identity and Purpose: project-templates/docs/project/briefing/identity-and-purpose.md
@@ -71,7 +72,9 @@ nav:
       - Agent-Assisted Initialization: adoption/agent-assisted-initialization.md
       - Builder Mode Guide: adoption/builder-mode-guide.md
       - First Adoption Session: adoption/first-adoption-session.md
-  - Agent Skill: skill/index.md
+  - Agent Skills:
+      - Using Ariad: skill/index.md
+      - Upgrading Ariad: skill/upgrading.md
   - Optional Extension (Maestro):
       - extension/index.md
 markdown_extensions:

@@ -22,7 +22,7 @@ python /path/to/project/.agents/skills/using-ariad/scripts/adopt.py /path/to/pro
 python /path/to/project/.agents/skills/using-ariad/scripts/adopt.py /path/to/project --apply
 ```
 
-The adopter preflights every destination before normal writes. Exact files and a custom `AGENTS.md` containing the exact marker `<!-- ariad-skill: using-ariad -->` count as present. The custom file must also positively instruct agents to read the installed `using-ariad/SKILL.md`; a mere mention does not integrate it. An unmarked `AGENTS.md` returns a distinct manual-integration result and a ready-to-copy snippet. Any other differing destination or destination/parent symlink stops all writes. Creation is exclusive and never truncates or merges. This is cooperative local-CLI collision safety, not a guarantee against hostile concurrent filesystem races. If it cannot run, copy from `assets/project-templates/` with the same relative paths and no-overwrite rule.
+The adopter preflights every destination before normal writes. Exact files and a project-owned `AGENTS.md` containing exact standalone `<!-- ariad-entrypoint: docs/ariad/index.md -->` and `@docs/ariad/index.md` lines count as present. Ariad integrates with `AGENTS.md`; it does not own or replace it. Missing either line returns a manual-integration result and ready-to-copy block with a direct-read fallback because `@path` expansion is runtime-specific. Any other differing destination or symlink stops all writes. Creation is exclusive and never merges. This is cooperative local-CLI race hardening, not a security boundary: it does not claim safety against a hostile concurrent process swapping ancestor paths.
 
 ## Adapt the modular project context
 

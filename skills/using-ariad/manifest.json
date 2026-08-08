@@ -117,8 +117,13 @@
     },
     {
       "destination": "assets/project-templates/AGENTS.md",
-      "sha256": "7d242e1d8a1a55483e04b289c96aeaa6b9d4100c7af9228e646973ea12f23fd8",
+      "sha256": "86df7dc29532c82e7fa0506a5b13032658774c4ccf50e199d4db4b74b9013385",
       "source": "docs/project-templates/AGENTS.md"
+    },
+    {
+      "destination": "assets/project-templates/docs/ariad/index.md",
+      "sha256": "e6792e14e4f5d959891b482ec0573f61773d47b42a186aa04969945f463b681d",
+      "source": "docs/project-templates/docs/ariad/index.md"
     },
     {
       "destination": "assets/project-templates/docs/process/development-guide/commands-and-verification.md",
@@ -247,14 +252,14 @@
     },
     {
       "destination": "scripts/adopt.py",
-      "sha256": "5d24fff58a24cb5c217980ab3eeaed50ca909d5e27cb87a962e268a77f39e86f",
+      "sha256": "aa39de71e8d83338812dd4d080965e48bddae19b2e9bbc927bf232716a5c02a6",
       "source": "authored:scripts/adopt.py"
     }
   ],
   "format_version": "1",
   "method_digest": "8cd1daf45b9f4590159b64130e89ef8db36029d8549a524f10bf151393bffe45",
   "package": "using-ariad",
-  "package_digest": "7157ddc1c361ca842b427a82252b7283bc11897df6340a81fa5188e8f6bac60c",
+  "package_digest": "5f0afc0f62c1be054a0eaf8e647009e52e6afe9e38be12fc4156c946e522e76b",
   "package_version": "0.1.0",
   "source_path": "skills/using-ariad"
 }

@@ -10,7 +10,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 ADOPT = ROOT / "skills/using-ariad/scripts/adopt.py"
 ASSETS = ROOT / "skills/using-ariad/assets/project-templates"
-MARKER = "<!-- ariad-skill: using-ariad -->"
+MARKER = "<!-- ariad-entrypoint: docs/ariad/index.md -->"
+DIRECTIVE = "@docs/ariad/index.md"
 
 class AdoptTests(unittest.TestCase):
     def run_adopt(self, target: Path, apply: bool = False):
@@ -47,7 +48,7 @@ class AdoptTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             target = Path(tmp)
             agents = target / "AGENTS.md"
-            custom = f"# Local rules\n\n{MARKER}\nRead the installed using-ariad/SKILL.md.\n"
+            custom = f"# Local rules\n\n{MARKER}\n{DIRECTIVE}\nLocal policy remains.\n"
             agents.write_text(custom)
             result = self.run_adopt(target, True)
             self.assertEqual(result.returncode, 0)
@@ -64,6 +65,14 @@ class AdoptTests(unittest.TestCase):
             self.assertEqual(result.returncode, 3)
             self.assertIn(MARKER, result.stderr)
             self.assertEqual([p.name for p in target.iterdir()], ["AGENTS.md"])
+
+    def test_marker_without_standalone_directive_requires_manual_integration(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            target = Path(tmp)
+            (target / "AGENTS.md").write_text(f"{MARKER}\nUse {DIRECTIVE} when possible.\n")
+            result = self.run_adopt(target, True)
+            self.assertEqual(result.returncode, 3)
+            self.assertFalse((target / "docs").exists())
 
     def test_dangling_destination_symlink_is_rejected(self):
         with tempfile.TemporaryDirectory() as tmp, tempfile.TemporaryDirectory() as outside:

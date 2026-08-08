@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$repo_root"
+
+echo "[setup] Ensuring uv is installed"
+if ! command -v uv >/dev/null 2>&1; then
+  if ! command -v curl >/dev/null 2>&1; then
+    apt-get update
+    apt-get install -y curl
+  fi
+
+  curl -LsSf https://astral.sh/uv/install.sh |
+    env UV_UNMANAGED_INSTALL="$HOME/.local/bin" sh
+  export PATH="$HOME/.local/bin:$PATH"
+fi
+
+echo "[setup] Syncing locked Python dependencies"
+uv sync --frozen
+
+echo "[setup] Complete"

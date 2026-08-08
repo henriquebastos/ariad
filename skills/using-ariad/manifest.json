@@ -242,7 +242,7 @@
     },
     {
       "destination": "SKILL.md",
-      "sha256": "1c9b757179df16c3a88f6e5e8b9dc74e603422cb6bee55b758a18cea9d0e8883",
+      "sha256": "0d38d8614b17b10d14eeb009770d34cd46df5935afc402a0c4ec5d0317f78edf",
       "source": "authored:SKILL.md"
     },
     {
@@ -254,7 +254,7 @@
   "format_version": "1",
   "method_digest": "8cd1daf45b9f4590159b64130e89ef8db36029d8549a524f10bf151393bffe45",
   "package": "using-ariad",
-  "package_digest": "d5a7c9c2f7876eba506e6d6a3542039afc9b263eaae93d8ae760c54f33ab2483",
+  "package_digest": "7157ddc1c361ca842b427a82252b7283bc11897df6340a81fa5188e8f6bac60c",
   "package_version": "0.1.0",
-  "source": "https://github.com/mirror-mind-ai/ariad"
+  "source_path": "skills/using-ariad"
 }

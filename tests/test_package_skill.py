@@ -30,6 +30,8 @@ class PackageSkillTests(unittest.TestCase):
         self.assertIn("SKILL.md", destinations)
         self.assertIn("scripts/adopt.py", destinations)
         self.assertIn("package_digest", manifest)
+        self.assertEqual(manifest["source_path"], "skills/using-ariad")
+        self.assertNotIn("source", manifest)
 
 
 if __name__ == "__main__":

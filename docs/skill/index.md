@@ -10,6 +10,8 @@ Copy a released `skills/using-ariad/` directory, intact, into a skill directory 
 
 Treat the installed directory as a vendored snapshot. Pin it by release/package version and `manifest.json` package digest. The **method digest** identifies only canonical method-reference inputs; the **package digest** identifies every packaged payload path and byte except the manifest itself. Manifest file entries include authored `SKILL.md` and `scripts/adopt.py` as well as generated references, assets, and license. No generic automatic update mechanism is implied.
 
+The package records repository-relative source paths rather than a fixed GitHub repository. The same package can therefore be built and distributed from upstream or a fork without changing its bytes. Record the actual repository URL and Git revision used to obtain a snapshot in the adopting project's dependency or decision history.
+
 Replacing the skill snapshot and migrating already-adapted local templates are separate operations. Replace the package deliberately after reviewing release metadata. Do not automatically overwrite, merge, or migrate local project documentation.
 
 ## Adopt templates

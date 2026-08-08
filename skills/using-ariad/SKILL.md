@@ -4,7 +4,7 @@ description: Use Ariad's runtime-independent human-agent development method when
 license: MIT
 metadata:
   version: "0.1.0"
-  source: "https://github.com/mirror-mind-ai/ariad"
+  source-path: "skills/using-ariad"
   method-digest: "sha256:8cd1daf45b9f4590159b64130e89ef8db36029d8549a524f10bf151393bffe45"
 ---
 

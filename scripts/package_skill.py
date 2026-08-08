@@ -15,7 +15,7 @@ from urllib.parse import unquote, urlsplit
 ROOT = Path(__file__).resolve().parents[1]
 PACKAGE = ROOT / "skills/using-ariad"
 VERSION = "0.1.0"
-SOURCE = "https://github.com/mirror-mind-ai/ariad"
+SOURCE_PATH = "skills/using-ariad"
 SIZE_BUDGET = 750_000
 
 # Method authority is intentionally explicit. Adding a canonical page requires review here.
@@ -79,7 +79,7 @@ def expected_generated() -> tuple[dict[str, bytes], str]:
         "format_version": "1",
         "package": "using-ariad",
         "package_version": VERSION,
-        "source": SOURCE,
+        "source_path": SOURCE_PATH,
         "method_digest": method_digest,
         "package_digest": digest_payload(payload),
         "files": entries,
@@ -122,7 +122,7 @@ def check_links(errors: list[str]) -> None:
 def check_authored(method_digest: str, errors: list[str]) -> None:
     skill = (PACKAGE / "SKILL.md").read_text(encoding="utf-8") if (PACKAGE / "SKILL.md").is_file() else ""
     required = ("name: using-ariad", "license: MIT", f'version: "{VERSION}"',
-                f'source: "{SOURCE}"', f'method-digest: "sha256:{method_digest}"')
+                f'source-path: "{SOURCE_PATH}"', f'method-digest: "sha256:{method_digest}"')
     for value in required:
         if value not in skill:
             errors.append(f"SKILL.md missing or inconsistent metadata: {value}")

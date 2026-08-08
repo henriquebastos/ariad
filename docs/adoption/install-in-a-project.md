@@ -13,6 +13,8 @@ cp -R /path/to/ariad/skills/using-ariad /path/to/project/.agents/skills/
 
 `.agents/skills/` is conventional, not universal. Runtime-native installation is valid, or open `using-ariad/SKILL.md` manually. Record the package version and manifest `package_digest` to pin the complete snapshot; `method_digest` identifies canonical reference inputs only.
 
+Also record the actual repository URL and Git revision from which the package was copied. Package metadata uses repository-relative source paths so the same Ariad commit works unchanged from upstream or a fork.
+
 Preview, then explicitly apply template adoption:
 
 ```bash

@@ -4,7 +4,7 @@ This project uses **Ariad**.
 
 Ariad is the canonical method. This repository contains a local Ariad instance, not the canonical Ariad documentation. All project paths below are local to this repository.
 
-This repository's `docs/process/development-guide.md` is the local operating contract. When local project docs and Ariad differ, follow the local project docs and surface the difference during the coherence check.
+This repository's `docs/process/development-guide/` is the local operating contract. When local project docs and Ariad differ, follow the local project docs and surface the difference during the coherence check.
 
 Canonical Ariad documentation is not vendored into this project. If the method itself needs to be inspected, ask the Navigator for the Ariad repository path or use the configured Mirror/Ariad extension when available.
 
@@ -17,15 +17,15 @@ The Driver operates the repository. The Navigator holds direction, product judgm
 Before meaningful work, read the files that exist in this project:
 
 - `README.md`
-- `docs/project/briefing.md`
+- `docs/project/briefing/index.md`
 - `docs/project/decisions/index.md`
 - `docs/project/roadmap/index.md`
 - `docs/project/debt/index.md`
-- `docs/process/development-guide.md`
+- `docs/process/development-guide/index.md`
 - `docs/process/worklog/index.md`
-- `docs/product/principles.md`
+- `docs/product/principles/index.md`
 
-Index files explain where records live. Read the index first, then read only the relevant records, items, entries, or roadmap files for the current work.
+Index files explain where current policy, context, or records live. Read each index first, then read only the focused documents, records, items, entries, or roadmap files relevant to the current work. In particular, do not load every development-guide or briefing document by default.
 
 If a listed file does not exist, continue with the available context and mention the gap when it matters.
 
@@ -45,7 +45,7 @@ If a listed file does not exist, continue with the available context and mention
 
 Ariad ships with opinionated defaults, but local Navigator preferences and project contract rules may override them when explicit.
 
-Follow `docs/process/development-guide.md` for commit frequency, push policy, checkpoint compression, documentation detail, worklog habits, and branch or pull request rules. If no local preference is configured, use Ariad defaults: full checkpoints for non-trivial work, ask before pushing, and record project history with a descriptive reason after the change is validated and accepted.
+Read `docs/process/development-guide/index.md`, then follow its relevant focused documents for commit frequency, push policy, checkpoint compression, documentation detail, worklog habits, and branch or pull request rules. If no local preference is configured, use Ariad defaults: full checkpoints for non-trivial work, ask before pushing, and record project history with a descriptive reason after the change is validated and accepted.
 
 ## Self-Conduct Protocol
 

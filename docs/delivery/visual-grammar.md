@@ -636,7 +636,7 @@ Delivery
 │  terrain read                                          │
 │  ✓ README.md: present                                  │
 │  ✓ docs/project/roadmap/index.md: present              │
-│  ○ docs/process/development-guide.md: missing          │
+│  ○ docs/process/development-guide/index.md: missing    │
 │                                                        │
 │  story shape                                           │
 │  Delivery Story candidate. Plan should decide whether  │

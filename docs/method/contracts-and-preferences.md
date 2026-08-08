@@ -72,7 +72,7 @@ Preferences should be explicit when they affect agent behavior. If they are not 
 
 The **project contract** is the public operating agreement of a repository or team.
 
-It belongs in project files such as `AGENTS.md`, `CLAUDE.md`, `docs/process/development-guide.md`, contribution docs, CI rules, release instructions, or team agreements.
+It belongs in project files such as `AGENTS.md`, `CLAUDE.md`, the focused current-policy documents under `docs/process/development-guide/`, contribution docs, CI rules, release instructions, or team agreements.
 
 Project contract examples:
 

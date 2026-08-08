@@ -37,14 +37,14 @@ mkdir -p /path/to/project/docs/project/roadmap \
   /path/to/project/docs/project/debt/items \
   /path/to/project/docs/process/worklog/entries \
   /path/to/project/docs/product
-cp docs/project-templates/docs/project/briefing.md /path/to/project/docs/project/briefing.md
+cp -R docs/project-templates/docs/project/briefing /path/to/project/docs/project/
 cp docs/project-templates/docs/project/decisions/index.md /path/to/project/docs/project/decisions/index.md
 cp docs/project-templates/docs/project/exploration/index.md /path/to/project/docs/project/exploration/index.md
 cp docs/project-templates/docs/project/roadmap/index.md /path/to/project/docs/project/roadmap/index.md
 cp docs/project-templates/docs/project/debt/index.md /path/to/project/docs/project/debt/index.md
-cp docs/project-templates/docs/process/development-guide.md /path/to/project/docs/process/development-guide.md
+cp -R docs/project-templates/docs/process/development-guide /path/to/project/docs/process/
 cp docs/project-templates/docs/process/worklog/index.md /path/to/project/docs/process/worklog/index.md
-cp docs/project-templates/docs/product/principles.md /path/to/project/docs/product/principles.md
+cp -R docs/project-templates/docs/product/principles /path/to/project/docs/product/
 touch /path/to/project/docs/project/decisions/records/.gitkeep \
   /path/to/project/docs/project/debt/items/.gitkeep \
   /path/to/project/docs/process/worklog/entries/.gitkeep

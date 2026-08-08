@@ -53,13 +53,13 @@ Inspect a project and report Ariad Builder Mode readiness.
 Checks:
 
 - `AGENTS.md` exists and mentions Ariad,
-- `docs/process/development-guide.md` exists,
+- `docs/process/development-guide/index.md` exists,
 - `docs/process/worklog/index.md` exists,
-- `docs/project/briefing.md` exists,
+- `docs/project/briefing/index.md` exists,
 - `docs/project/decisions/index.md` exists,
 - `docs/project/debt/index.md` exists,
 - `docs/project/roadmap/index.md` exists,
-- `docs/product/principles.md` exists,
+- `docs/product/principles/index.md` exists,
 - canonical Ariad repository is detected (and treated as such).
 
 When a project exists but is not ready, the command suggests the corresponding `adopt --dry-run` next step.

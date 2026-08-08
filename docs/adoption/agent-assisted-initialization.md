@@ -29,15 +29,15 @@ Do not overwrite files without showing me the proposed content first.
 
 Prepare drafts for:
 
-- docs/project/briefing.md
-- docs/product/principles.md
+- docs/project/briefing/index.md and its focused identity/purpose, current-state, and constraints/environment documents
+- docs/product/principles/index.md and current-principles.md
 - docs/project/roadmap/index.md, keeping it as a structure guide rather than a central mutable work list
-- docs/process/development-guide.md
+- docs/process/development-guide/index.md and the relevant focused current-policy documents it links
 - docs/project/decisions/records/<timestamp>-<slug>.md, only if you find a real open or decided decision worth preserving
 - docs/process/worklog/entries/<timestamp>-<slug>.md, only if there is meaningful completed work to record
 - docs/project/debt/items/<timestamp>-<slug>.md, only if you find a debt item that should outlive one story review
 
-Also identify any Navigator preferences that should be explicit in the local development guide. If uncertain, use Ariad defaults and mark the uncertainty for Navigator review. Relevant preferences include commit frequency, push policy, checkpoint compression, documentation detail, worklog habits, and branch or pull request rules.
+Also identify any Navigator preferences that should be explicit in `docs/process/development-guide/navigator-preferences.md`. If uncertain, use Ariad defaults and mark the uncertainty for Navigator review. Relevant preferences include commit frequency, push policy, checkpoint compression, documentation detail, worklog habits, and branch or pull request rules.
 - AGENTS.md, if it needs project-specific adjustments
 
 For each draft, distinguish what you inferred from the repository from what you need me to confirm.

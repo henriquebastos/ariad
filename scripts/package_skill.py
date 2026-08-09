@@ -14,7 +14,7 @@ from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 PACKAGE = ROOT / "skills/using-ariad"
-VERSION = "0.2.0"
+VERSION = "0.2.1"
 SOURCE_PATH = "skills/using-ariad"
 SIZE_BUDGET = 750_000
 

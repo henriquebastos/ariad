@@ -47,6 +47,11 @@ class PackageSkillTests(unittest.TestCase):
         self.assertIn("Do not create a second closure ceremony", text)
         self.assertIn("absent push authorization never prevents an otherwise authorized local commit", text)
         self.assertIn("Never treat an uncommitted working tree as transferable long-term memory", text)
+        self.assertIn("If no authorized durable owner exists, do not invent one", text)
+        self.assertIn("retained under the dirty-release rule below", text)
+        template = generated["assets/project-templates/docs/process/development-guide/workflow-and-checkpoints.md"].decode()
+        self.assertIn("## Refinement State Owner", template)
+        self.assertIn("Not configured", template)
 
 
 if __name__ == "__main__":

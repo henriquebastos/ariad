@@ -1,6 +1,6 @@
 [project]
 name = "ariad"
-version = "0.2.0"
+version = "0.2.1"
 description = "The thread through the labyrinth of agentic software work."
 readme = "README.md"
 requires-python = ">=3.10"

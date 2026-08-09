@@ -3,7 +3,7 @@ name: using-ariad
 description: Use Ariad's runtime-independent human-agent development method when orienting, exploring, delivering, refining, or adopting its project memory templates in a software repository.
 license: MIT
 metadata:
-  version: "0.1.0"
+  version: "0.2.0"
   source-path: "skills/using-ariad"
   method-digest: "sha256:55dd4fc024fba15769ef354e783f68235e33fef766e950886bcecb535224ed19"
 ---

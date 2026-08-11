@@ -11,15 +11,15 @@ The detailed agent contract lives at `skills/using-ariad/INSTALL.md` in the sele
 
 ## Install the Skill
 
-The Driver first inspects existing instructions, documentation, and installed skills. It identifies the runtime's supported project-local skill location and previews all destinations. If the destination `using-ariad` directory already exists, it stops for Navigator direction rather than copying into it; updating or replacing a complete snapshot is a separate operation. It must not partially replace an existing skill or overwrite project-owned files.
+The Driver first inspects existing instructions, documentation, and installed skills. It identifies the runtime's supported project-local skill location and previews all destinations. If the destination `using-ariad` directory already exists, it stops for Navigator direction rather than copying into it; [updating Ariad](upgrading-ariad.md) is a separate operation governed by the candidate source. It must not partially replace an existing skill or overwrite project-owned files.
 
 From the selected Ariad source, it creates the `using-ariad` skill directory and copies the authored `SKILL.md` and `INSTALL.md`, the repository `LICENSE`, and the complete canonical `docs/` tree as `references/`, preserving its structure.
 
-Canonical material has one maintained copy under `docs/` in this repository. The installed `references/` directory is a deliberate consumer snapshot: it keeps the selected method revision self-contained, pinned, and available without runtime downloads. Record the actual source repository and resolved commit or immutable release identifier in the target project's chosen dependency or decision history.
+Canonical material has one maintained copy under `docs/` in this repository. The installed `references/` directory is a deliberate consumer snapshot: it keeps the selected method revision self-contained, pinned, and available without runtime downloads. Record the actual project-relative installed `SKILL.md` path, source repository, and resolved commit or immutable release identifier in the target project's chosen dependency or decision history.
 
 ## Adopt the Templates
 
-The Driver then inspects `references/project-templates/` against the target project. It proposes the smallest useful set of files, copies only absent files that fit, and integrates Ariad routing into existing agent instructions rather than replacing them.
+The Driver then inspects `references/project-templates/` against the target project. It proposes the smallest useful set of files, copies only absent files that fit, and integrates the stable `docs/ariad/index.md` router into existing agent instructions rather than replacing them.
 
 When a destination already exists, preserve it. The Driver should explain the difference and propose a semantic reconciliation for Navigator review instead of applying a generic merge. Adopted documents become project-owned adaptations; they are not package files to overwrite during a later skill update.
 

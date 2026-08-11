@@ -44,6 +44,7 @@ nav:
   - Project Templates:
       - project-templates/index.md
       - AGENTS.md: project-templates/AGENTS.md
+      - Ariad Router: project-templates/docs/ariad/index.md
       - Project Briefing:
           - project-templates/docs/project/briefing/index.md
           - Identity and Purpose: project-templates/docs/project/briefing/identity-and-purpose.md
@@ -68,6 +69,7 @@ nav:
   - Adoption:
       - adoption/index.md
       - Install in a Project: adoption/install-in-a-project.md
+      - Upgrading Ariad: adoption/upgrading-ariad.md
       - Agent-Assisted Initialization: adoption/agent-assisted-initialization.md
       - Builder Mode Guide: adoption/builder-mode-guide.md
       - First Adoption Session: adoption/first-adoption-session.md

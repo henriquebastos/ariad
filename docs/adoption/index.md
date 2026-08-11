@@ -24,6 +24,8 @@ The goal is for the next agent session to know:
 
 Use [Install in a Project](install-in-a-project.md) to have the Driver install the skill and integrate the templates into a repository.
 
+Use [Upgrading Ariad](upgrading-ariad.md) to audit and plan a whole-snapshot skill replacement and any separate semantic migration of project-owned documents.
+
 Then use [Agent-Assisted Initialization](agent-assisted-initialization.md) to have the Driver inspect the project and draft the first project-specific documentation for Navigator review.
 
 Use [Builder Mode Guide](builder-mode-guide.md) when connecting the project to an optional Mirror journey.

@@ -10,20 +10,20 @@ Ariad works as a canonical method plus a local instance:
 
 - **Ariad canonical method**: the general method maintained in this repository.
 - **Local Ariad instance**: the project-specific docs copied or adapted into the target project.
-- **Local development guide**: `docs/process/development-guide.md`, the project-specific operating contract.
+- **Local development guide**: `docs/process/development-guide/index.md` and its focused current-policy documents, the project-specific operating contract.
 - **AGENTS.md**: the agent-facing entry point that connects the canonical method to the local project docs.
 
 The canonical Ariad docs are not vendored into target projects during manual adoption. Target projects receive a local instance of the method. The future Mirror extension will own canonical source discovery, version awareness, updates, and canonical context injection when needed.
 
 The documentation templates create the minimum memory surface required for coherent work:
 
-- **Project briefing**: stable project context that should not be re-explained every session.
+- **Project briefing**: focused current project context under `docs/project/briefing/` that should not be re-explained every session.
 - **Decisions**: one decision record per file in `docs/project/decisions/records/`, with `status` distinguishing open, decided, superseded, and dropped records.
 - **Roadmap**: meaningful progress as item files or folders whose own metadata carries lifecycle state.
 - **Technical Debt Ledger**: structural cost consciously carried by the project, stored as one debt item per file in `docs/project/debt/items/`, with revisit triggers and closure conditions.
-- **Local development guide**: project-specific commands, validation, documentation, and release rules.
+- **Local development guide**: focused project-specific commands, validation, workflow, documentation, preferences, exceptions, and release rules.
 - **Worklog**: one milestone entry per file in `docs/process/worklog/entries/`.
-- **Product principles**: product behavior guidance that should influence trade-offs.
+- **Product principles**: bounded current product behavior guidance under `docs/product/principles/` that should influence trade-offs.
 
 Index files explain structure, naming, and templates. They should not become central mutable lists unless a project explicitly accepts that coordination cost.
 

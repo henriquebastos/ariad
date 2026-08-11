@@ -29,13 +29,13 @@ Start with the smallest useful version.
 
 Use [Agent-Assisted Initialization](agent-assisted-initialization.md) to ask the Driver to inspect the project and draft the first version for Navigator review.
 
-In `docs/project/briefing.md`, capture what the project is, where it is now, what constraints matter, and how work should be validated.
+Read `docs/project/briefing/index.md`, then capture identity and purpose, current state, and constraints or environment in their focused documents.
 
-In `docs/product/principles.md`, capture what the product should preserve when trade-offs appear.
+Read `docs/product/principles/index.md`, then capture what the product should preserve when trade-offs appear in `current-principles.md`.
 
 In `docs/project/roadmap/index.md`, keep the roadmap structure and state conventions clear. Put active or planned roadmap work in its own item files or folders with explicit `status` metadata instead of turning the index into a central ledger.
 
-In `docs/process/development-guide.md`, capture the local operating contract: commands, validation rules, documentation expectations, release habits, and any project-specific exceptions to Ariad.
+Read `docs/process/development-guide/index.md`, then capture the local operating contract in the focused current-policy documents for commands and verification, documentation and memory, workflow and checkpoints, Navigator preferences, release and history, and local exceptions.
 
 Leave the artifact directories mostly empty if there are no decisions, debt items, or milestones yet:
 
@@ -44,6 +44,24 @@ Leave the artifact directories mostly empty if there are no decisions, debt item
 - `docs/process/worklog/entries/`
 
 The index files should remain present because they explain naming, status, and templates.
+
+## Migrate an Existing Local Instance
+
+If a project already has the former single-file templates, preserve their content while moving to the directory structure. Start from a clean worktree and use temporary in-repository migration files so nothing is lost between commands:
+
+```bash
+cd /path/to/project
+mkdir -p docs/process/development-guide docs/project/briefing docs/product/principles
+git mv docs/process/development-guide.md docs/process/development-guide/migration-source.md
+git mv docs/project/briefing.md docs/project/briefing/migration-source.md
+git mv docs/product/principles.md docs/product/principles/migration-source.md
+
+cp -n /path/to/ariad/docs/project-templates/docs/process/development-guide/*.md docs/process/development-guide/
+cp -n /path/to/ariad/docs/project-templates/docs/project/briefing/*.md docs/project/briefing/
+cp -n /path/to/ariad/docs/project-templates/docs/product/principles/*.md docs/product/principles/
+```
+
+Move each project's real current content from the three `migration-source.md` files into the focused documents that now own it. Preserve consequential rationale in decision records, not in policy-history sections; rely on Git for ordinary history. Compare and retain local rules rather than replacing them with template defaults. Update `AGENTS.md` and any project-local links to point to each directory's `index.md`, then delete the three migration-source files before committing. Review `git diff` to confirm every local premise, rule, and principle has a current home.
 
 ## Verify the Installation
 

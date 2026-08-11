@@ -21,15 +21,17 @@ The human remains the Navigator.
 Install the Ariad skill, then integrate the project templates into the target repository and adapt the smallest useful context:
 
 - `AGENTS.md`
-- `docs/project/briefing.md`
+- `docs/project/briefing/index.md`
 - `docs/project/roadmap/index.md`
 - `docs/project/decisions/index.md`
 - `docs/project/debt/index.md`
-- `docs/process/development-guide.md`
+- `docs/process/development-guide/index.md`
 - `docs/process/worklog/index.md`
-- `docs/product/principles.md`
+- `docs/product/principles/index.md`
 
 Use [Agent-Assisted Initialization](agent-assisted-initialization.md) when possible. The Driver can inspect the repository and draft these files; the Navigator reviews and corrects the drafts.
+
+For briefing, development-guide, and product-principles directories, read the index first and then only the focused current documents relevant to the work.
 
 The decision records, debt items, and worklog entry directories can start mostly empty. Their indexes should exist because they explain naming, status, and templates.
 

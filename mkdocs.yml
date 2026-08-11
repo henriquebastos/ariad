@@ -44,14 +44,27 @@ nav:
   - Project Templates:
       - project-templates/index.md
       - AGENTS.md: project-templates/AGENTS.md
-      - Project Briefing: project-templates/docs/project/briefing.md
+      - Project Briefing:
+          - project-templates/docs/project/briefing/index.md
+          - Identity and Purpose: project-templates/docs/project/briefing/identity-and-purpose.md
+          - Current State: project-templates/docs/project/briefing/current-state.md
+          - Constraints and Environment: project-templates/docs/project/briefing/constraints-and-environment.md
       - Decisions: project-templates/docs/project/decisions/index.md
       - Exploration: project-templates/docs/project/exploration/index.md
       - Roadmap: project-templates/docs/project/roadmap/index.md
       - Technical Debt Ledger: project-templates/docs/project/debt/index.md
-      - Local Development Guide: project-templates/docs/process/development-guide.md
+      - Local Development Guide:
+          - project-templates/docs/process/development-guide/index.md
+          - Commands and Verification: project-templates/docs/process/development-guide/commands-and-verification.md
+          - Documentation and Memory: project-templates/docs/process/development-guide/documentation-and-memory.md
+          - Workflow and Checkpoints: project-templates/docs/process/development-guide/workflow-and-checkpoints.md
+          - Navigator Preferences: project-templates/docs/process/development-guide/navigator-preferences.md
+          - Release and History: project-templates/docs/process/development-guide/release-and-history.md
+          - Local Exceptions: project-templates/docs/process/development-guide/local-exceptions.md
       - Worklog: project-templates/docs/process/worklog/index.md
-      - Product Principles: project-templates/docs/product/principles.md
+      - Product Principles:
+          - project-templates/docs/product/principles/index.md
+          - Current Principles: project-templates/docs/product/principles/current-principles.md
   - Adoption:
       - adoption/index.md
       - Install in a Project: adoption/install-in-a-project.md

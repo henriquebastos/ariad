@@ -1,8 +1,8 @@
 # Builder Mode Guide
 
-Mirror Mind Builder Mode is the reference runtime for Ariad.
+Mirror Mind Builder Mode is an optional runtime integration for Ariad.
 
-Ariad can be read as a general method for human-agent software work, but its first concrete implementation assumes Mirror Mind. Mirror provides the runtime continuity: journeys, project paths, memory, identity, skills, and context loading. Ariad provides the operating method: Driver/Navigator roles, project documentation, Exploration, Delivery, and Refinement work areas, roadmap taxonomy, Workbench, Delivery Story lifecycle, Refinement Story flow, checkpoints, coherence checks, release handoff, and opinionated Navigator preference defaults.
+Ariad is runtime-independent and installed through its `using-ariad` Agent Skill. Mirror can provide additional runtime continuity through journeys, project paths, memory, identity, skills, and context loading. Ariad provides the operating method: Driver/Navigator roles, project documentation, Exploration, Delivery, and Refinement work areas, roadmap taxonomy, Workbench, Delivery Story lifecycle, Refinement Story flow, checkpoints, coherence checks, release handoff, and opinionated Navigator preference defaults.
 
 ## How the Pieces Fit
 
@@ -18,7 +18,7 @@ The human remains the Navigator.
 
 ## Prepare the Project
 
-Install the project templates into the target repository and adapt the smallest useful context:
+Install the Ariad skill, then integrate the project templates into the target repository and adapt the smallest useful context:
 
 - `AGENTS.md`
 - `docs/project/briefing.md`

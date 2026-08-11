@@ -1,40 +1,39 @@
-# Mirror Extension: Maestro
+# Optional Mirror Extension: Maestro
 
-The durable Ariad implementation target inside Mirror Mind is a Mirror extension called **Maestro**.
+**Maestro** is an optional Mirror-specific adapter for Ariad.
 
 Ariad is the method. Maestro is how Mirror runs the method. The two names are deliberately different:
 
 - **Ariad** lives in its own canonical repository. It is method, docs, templates, and principles. It does not depend on any specific runtime.
-- **Maestro** is a Mirror extension. It depends on Ariad as the source of truth for templates and on Mirror Mind for journeys, project paths, identity, and Builder Mode.
+- **Maestro** is a Mirror extension. It consumes an installed Ariad skill and uses Mirror Mind for journeys, project paths, identity, and Builder Mode.
 
-Other runtimes could implement their own Ariad executors in the future. Maestro is the first one, and the reference one.
+Other runtimes can install and use the same Ariad skill without Maestro.
 
 ## What Maestro Solves
 
-Manual adoption is useful for pilots because it keeps the method visible. It is not enough for repeated use across multiple users and projects. Without an extension, each project has to discover the canonical Ariad source manually, copy templates by hand, track version drift informally, and ask the Navigator where the method lives whenever canonical context is needed.
+Standard adoption is agent-mediated and runtime-independent. Maestro may make repeated Mirror workflows more convenient without becoming Ariad's package manager or method authority.
 
 Maestro solves:
 
-- discovering the canonical Ariad source,
-- installing a local Ariad instance into a project,
+- locating the installed Ariad skill selected by the project,
 - avoiding overwrite of existing project docs,
 - comparing local templates against canonical templates,
 - diagnosing whether a project is ready for Builder Mode,
 - inviting the next step when the project is not ready yet.
 
-Manual adoption remains the learning path. Maestro is the durable product path.
+The `using-ariad` installation contract remains the standard path. Maestro is an optional runtime adapter.
 
 ## Three Surfaces
 
 The system has three surfaces that should stay separate.
 
-**Ariad repository.** The canonical method source: docs, templates, adoption guidance, and versioned method assets.
+**Ariad repository.** The canonical method source: docs, templates, adoption guidance, and the authored skill entrypoint.
 
 **Mirror Mind runtime.** The operational environment: journeys, project paths, memory, identity, Builder Mode, extensions, and skills.
 
 **Target project.** The local method instance: `AGENTS.md`, local development guide, project briefing, decision records, roadmap items, the Technical Debt Ledger, worklog entries, and product principles.
 
-Maestro is the bridge between those surfaces.
+An installed Ariad skill is the portable bridge to a target project. Maestro can additionally bridge that project into Mirror-specific runtime surfaces.
 
 ## Commands
 
@@ -44,7 +43,7 @@ All commands run through Mirror's external skill dispatch:
 uv run python -m memory ext maestro <command> [args]
 ```
 
-Commands resolve the project path from either `--project-path` or `--journey <slug>`. The canonical Ariad repository is resolved from `--ariad-root`, `ARIAD_ROOT`, or `~/ariad`.
+Commands resolve the project path from either `--project-path` or `--journey <slug>`. Implementations should use the project's selected installed Ariad skill rather than silently choosing a canonical checkout or “latest” version.
 
 ### `maestro doctor`
 
@@ -60,7 +59,7 @@ Checks:
 - `docs/project/debt/index.md` exists,
 - `docs/project/roadmap/index.md` exists,
 - `docs/product/principles.md` exists,
-- canonical Ariad repository is detected (and treated as such).
+- the installed Ariad skill is detected.
 
 When a project exists but is not ready, the command suggests the corresponding `adopt --dry-run` next step.
 
@@ -109,14 +108,14 @@ Prepare this existing repo for Mirror Builder Mode.
 
 ### `maestro update`
 
-Compare a local Ariad instance against the canonical templates.
+Compare project-owned adaptations against templates in the explicitly selected installed skill.
 
 The command is report-only. It lists files missing locally, files that differ from canonical, and files that are up to date. It does not overwrite or merge.
 
 Natural-language requests:
 
 ```text
-Check whether this project is out of date relative to canonical Ariad.
+Check how this project differs from its installed Ariad templates.
 ```
 
 ```text
@@ -127,7 +126,7 @@ Show me what changed in Ariad since this project adopted the method.
 
 The skill `ext-maestro` (or `ext:maestro` on Claude) guides the agent-assisted parts of the workflow: interpreting an existing project, drafting local docs, explaining trade-offs, asking the Navigator for confirmation, and preparing the first Builder Mode session.
 
-The command layer owns deterministic operations. The skill surface owns judgment-shaped workflow. Maestro needs both.
+The skill installation contract owns portable installation and adoption. Maestro's command layer may add Mirror-specific diagnostics, while its skill surface guides judgment-shaped workflow.
 
 ## Agent-Assisted Responsibilities
 
@@ -153,7 +152,7 @@ Out of scope initially:
 - hosted Ariad registry,
 - automatic background sync,
 - destructive overwrite of project docs,
-- runtime-agnostic distribution (Maestro is Mirror-specific),
+- portable Ariad distribution, which belongs to the `using-ariad` skill rather than Maestro,
 - full semantic diff of local process adaptations,
 - automatic reconciliation of divergent local files.
 

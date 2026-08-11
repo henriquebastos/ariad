@@ -2,11 +2,11 @@
 
 The first adoption session proves that Ariad is operational.
 
-Do not try to adopt the entire method abstractly. Prepare one real project, connect it to Mirror Mind Builder Mode, and run one small change through the method.
+Do not try to adopt the entire method abstractly. Prepare one real project, optionally connect it to a runtime such as Mirror Mind Builder Mode, and run one small change through the method.
 
 ## Before the Session
 
-Make sure the local environment can run Mirror Mind and the target project.
+Make sure the local environment can run the target project and the selected agent runtime.
 
 Open the Ariad documentation site:
 
@@ -26,33 +26,11 @@ If the project has tests or a local verification command, identify it before cha
 
 ## Adoption Route
 
-Start by copying the Ariad project templates into the target project.
+Ask the Driver to follow [Install in a Project](install-in-a-project.md) from an exact Ariad revision selected by the Navigator. The Driver should install the `using-ariad` skill, preview template destinations, preserve existing project-owned files, and stop for review where integration is ambiguous.
 
-```bash
-cd /path/to/ariad
-cp docs/project-templates/AGENTS.md /path/to/project/AGENTS.md
-mkdir -p /path/to/project/docs/project/roadmap \
-  /path/to/project/docs/project/decisions/records \
-  /path/to/project/docs/project/exploration \
-  /path/to/project/docs/project/debt/items \
-  /path/to/project/docs/process/worklog/entries \
-  /path/to/project/docs/product
-cp docs/project-templates/docs/project/briefing.md /path/to/project/docs/project/briefing.md
-cp docs/project-templates/docs/project/decisions/index.md /path/to/project/docs/project/decisions/index.md
-cp docs/project-templates/docs/project/exploration/index.md /path/to/project/docs/project/exploration/index.md
-cp docs/project-templates/docs/project/roadmap/index.md /path/to/project/docs/project/roadmap/index.md
-cp docs/project-templates/docs/project/debt/index.md /path/to/project/docs/project/debt/index.md
-cp docs/project-templates/docs/process/development-guide.md /path/to/project/docs/process/development-guide.md
-cp docs/project-templates/docs/process/worklog/index.md /path/to/project/docs/process/worklog/index.md
-cp docs/project-templates/docs/product/principles.md /path/to/project/docs/product/principles.md
-touch /path/to/project/docs/project/decisions/records/.gitkeep \
-  /path/to/project/docs/project/debt/items/.gitkeep \
-  /path/to/project/docs/process/worklog/entries/.gitkeep
-```
+After accepting the installation and template-integration plan, use [Agent-Assisted Initialization](agent-assisted-initialization.md) inside the target project. The Driver drafts the project-specific docs; the Navigator reviews for truth.
 
-Then use [Agent-Assisted Initialization](agent-assisted-initialization.md) inside the target project. The Driver drafts the project-specific docs; the Navigator reviews for truth.
-
-## Mirror Setup
+## Optional Mirror Setup
 
 Create or choose the Mirror journey that represents the target project.
 

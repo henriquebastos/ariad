@@ -22,7 +22,7 @@ Ariad distinguishes three kinds of agentic software work: **Exploratory Work**, 
 
 The [work areas](docs/method/work-areas.md) page explains the boundary and passage between Exploration, Delivery, and Refinement. [Expand and Collapse](docs/method/expand-collapse.md) explains the operating rhythm, while [Roadmap Taxonomy](docs/delivery/roadmap-taxonomy.md) and [Release Management](docs/delivery/release-management.md) define how delivery arcs become recognized value and releases.
 
-Runtimes may implement these areas as modes or lanes. Ariad defines them as methodological work areas. Maestro, the Mirror extension, may speak of Exploratory Mode, Builder Mode, or Refinement lanes because it executes and renders the method inside a runtime.
+Runtimes may implement these areas as modes or lanes. Ariad defines them as methodological work areas and remains runtime-independent.
 
 Ariad is built on a small set of load-bearing ideas. They are simple enough to internalize and complete enough to operate.
 
@@ -44,14 +44,16 @@ Together these are the thread. Pull on any one and the others come with it.
 
 A project adopts Ariad by giving its agents a small, explicit memory surface and a clear operating contract. The [adoption guide](docs/adoption/index.md) walks through the path.
 
-The shortest version:
+The portable entrypoint is the [`using-ariad` Agent Skill](skills/using-ariad/SKILL.md). An agent installs it from an explicitly selected Ariad revision by copying canonical `docs/` as the skill's pinned `references/` snapshot, then semantically integrates the project templates under Navigator review. Canonical content remains single-source in this repository; generated package copies are not committed.
 
-- [Install the method in a repository](docs/adoption/install-in-a-project.md). Copy the [project templates](docs/project-templates/index.md) and adapt them to the real context.
+The shortest adoption path:
+
+- [Install the method in a repository](docs/adoption/install-in-a-project.md). Ask the agent to install the skill, preview template integration, and adapt the [project templates](docs/project-templates/index.md) to the real context without overwriting project-owned files.
 - Let the agent help: [agent-assisted initialization](docs/adoption/agent-assisted-initialization.md) explains how to have the Driver inspect the project and draft the first project-specific documentation for Navigator review.
 - Run [the first adoption session](docs/adoption/first-adoption-session.md) to ground the method in a real, small change instead of an abstract documentation exercise.
 - Connect the project to an agentic coding runtime with the [Builder Mode guide](docs/adoption/builder-mode-guide.md).
 
-The reference runtime is **Mirror Mind**. The [Mirror extension Maestro](docs/extension/index.md) automates discovery, readiness checks, initialization, and updates of a local Ariad instance inside a Mirror Mind home.
+[Mirror and its Maestro extension](docs/extension/index.md) are optional runtime integrations. They consume Ariad rather than defining its distribution or method authority.
 
 ## Documentation site
 

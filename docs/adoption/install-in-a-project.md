@@ -1,43 +1,33 @@
 # Install in a Project
 
-This is the manual pilot installation flow.
+The standard installation flow is performed by an agent under Navigator review. Start from an exact Ariad checkout, tag, commit, or release selected by the Navigator; never infer “latest.”
 
-The reference installation path assumes Mirror Mind Builder Mode as the runtime. The target project receives a local Ariad instance, and a Mirror journey points Builder Mode to that project.
+Installation has two distinct operations:
 
-Manual adoption does not vendor the full canonical Ariad documentation into the target project. The canonical source remains the Ariad repository. The project receives local operating docs that tell agents how to work in that project.
+1. Install the runtime-independent `using-ariad` skill as a pinned snapshot.
+2. Adopt and adapt project templates as project-owned documentation.
 
-Manual installation is intentional at this stage. It makes the method visible, keeps the project owner involved in the initial framing, and avoids hiding adoption behind tooling before the method has been tested in enough real contexts.
+The detailed agent contract lives at `skills/using-ariad/INSTALL.md` in the selected Ariad source and is copied alongside the installed skill. The Navigator chooses the source and reviews integration; the Driver inspects, copies, adapts, and verifies.
 
-## Copy the Templates
+## Install the Skill
 
-From the method repository, copy the templates into the target project.
+The Driver first inspects existing instructions, documentation, and installed skills. It identifies the runtime's supported project-local skill location and previews all destinations. If the destination `using-ariad` directory already exists, it stops for Navigator direction rather than copying into it; updating or replacing a complete snapshot is a separate operation. It must not partially replace an existing skill or overwrite project-owned files.
 
-```bash
-cp docs/project-templates/AGENTS.md /path/to/project/AGENTS.md
-mkdir -p /path/to/project/docs/project/roadmap \
-  /path/to/project/docs/project/decisions/records \
-  /path/to/project/docs/project/exploration \
-  /path/to/project/docs/project/debt/items \
-  /path/to/project/docs/process/worklog/entries \
-  /path/to/project/docs/product
-cp docs/project-templates/docs/project/briefing.md /path/to/project/docs/project/briefing.md
-cp docs/project-templates/docs/project/decisions/index.md /path/to/project/docs/project/decisions/index.md
-cp docs/project-templates/docs/project/exploration/index.md /path/to/project/docs/project/exploration/index.md
-cp docs/project-templates/docs/project/roadmap/index.md /path/to/project/docs/project/roadmap/index.md
-cp docs/project-templates/docs/project/debt/index.md /path/to/project/docs/project/debt/index.md
-cp docs/project-templates/docs/process/development-guide.md /path/to/project/docs/process/development-guide.md
-cp docs/project-templates/docs/process/worklog/index.md /path/to/project/docs/process/worklog/index.md
-cp docs/project-templates/docs/product/principles.md /path/to/project/docs/product/principles.md
-touch /path/to/project/docs/project/decisions/records/.gitkeep \
-  /path/to/project/docs/project/debt/items/.gitkeep \
-  /path/to/project/docs/process/worklog/entries/.gitkeep
-```
+From the selected Ariad source, it creates the `using-ariad` skill directory and copies the authored `SKILL.md` and `INSTALL.md`, the repository `LICENSE`, and the complete canonical `docs/` tree as `references/`, preserving its structure.
+
+Canonical material has one maintained copy under `docs/` in this repository. The installed `references/` directory is a deliberate consumer snapshot: it keeps the selected method revision self-contained, pinned, and available without runtime downloads. Record the actual source repository and resolved commit or immutable release identifier in the target project's chosen dependency or decision history.
+
+## Adopt the Templates
+
+The Driver then inspects `references/project-templates/` against the target project. It proposes the smallest useful set of files, copies only absent files that fit, and integrates Ariad routing into existing agent instructions rather than replacing them.
+
+When a destination already exists, preserve it. The Driver should explain the difference and propose a semantic reconciliation for Navigator review instead of applying a generic merge. Adopted documents become project-owned adaptations; they are not package files to overwrite during a later skill update.
 
 ## Adapt the Project Context
 
 Start with the smallest useful version.
 
-You can fill the templates manually, but the recommended pilot flow is agent-assisted. Use [Agent-Assisted Initialization](agent-assisted-initialization.md) to ask the Driver to inspect the project and draft the first version for Navigator review.
+Use [Agent-Assisted Initialization](agent-assisted-initialization.md) to ask the Driver to inspect the project and draft the first version for Navigator review.
 
 In `docs/project/briefing.md`, capture what the project is, where it is now, what constraints matter, and how work should be validated.
 
@@ -55,9 +45,19 @@ Leave the artifact directories mostly empty if there are no decisions, debt item
 
 The index files should remain present because they explain naming, status, and templates.
 
-## Connect Mirror Builder Mode
+## Verify the Installation
 
-Create or choose the Mirror journey that represents this project, then set its project path:
+Before acceptance, the Driver shows the resulting diff and verifies that:
+
+- the runtime can discover the skill or its manual-loading fallback is documented;
+- `SKILL.md` routes to the installed `references/` snapshot;
+- existing project instructions and files were preserved;
+- copied templates describe real project truth or clearly mark Navigator questions;
+- the selected Ariad source and revision are recorded.
+
+## Optional: Connect Mirror Builder Mode
+
+When Mirror is the selected runtime, create or choose the journey that represents this project, then set its project path:
 
 ```bash
 uv run python -m memory journey set-path <journey-slug> /path/to/project

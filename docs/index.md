@@ -16,11 +16,11 @@ Ariad distinguishes three kinds of agentic software work: **Exploratory Work**, 
 
 **Refinement** cares for existing capability. It is where Ariad holds requested adjustments, bug fixes, polish, test gaps, documentation corrections, and small structural care without inflating them into roadmap promises.
 
-Runtimes may implement these areas as modes or lanes. Ariad defines them as methodological work areas. Maestro, the Mirror extension, may speak of modes because it executes and renders Ariad inside a runtime.
+Runtimes may implement these areas as modes or lanes. Ariad defines them as methodological work areas and remains runtime-independent.
 
 Ariad gives the agent an operating model and gives the human a clear place to exercise judgment. The agent becomes the Driver: reading, proposing, implementing, validating, documenting, and checking coherence. The human remains the Navigator: holding intention, product sense, trade-offs, and final validation.
 
-The reference runtime is **Mirror Mind Builder Mode**. Mirror provides journeys, project paths, memory, identity, skills, and context loading. Ariad provides the method that turns those capabilities into a disciplined way of working.
+The portable entrypoint is the `using-ariad` Agent Skill. An agent installs it from an explicitly selected Ariad revision, then integrates project templates under Navigator review. Runtimes such as Mirror may add their own continuity and presentation around the same method.
 
 The promise is not more ceremony. The promise is coherent progress.
 
@@ -43,4 +43,4 @@ The promise is not more ceremony. The promise is coherent progress.
 - [Methodological Roots](method/methodological-roots.md) names the different roots behind Exploration, Delivery, and Refinement.
 - [Install in a Project](adoption/install-in-a-project.md) shows how to adopt the method in a repository.
 - [Builder Mode Guide](adoption/builder-mode-guide.md) explains how to use the method with an agentic coding runtime.
-- [Mirror Extension (Maestro)](extension/index.md) describes the durable implementation path for Ariad inside Mirror Mind.
+- [Mirror Extension (Maestro)](extension/index.md) describes an optional integration for Ariad inside Mirror Mind.

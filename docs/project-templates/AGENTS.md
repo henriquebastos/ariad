@@ -2,11 +2,11 @@
 
 This project uses **Ariad**.
 
-Ariad is the canonical method. This repository contains a local Ariad instance, not the canonical Ariad documentation. All project paths below are local to this repository.
+Ariad is the canonical method. This repository contains project-owned Ariad adaptations and a pinned `using-ariad` skill snapshot. All project paths below are local to this repository.
 
 This repository's `docs/process/development-guide.md` is the local operating contract. When local project docs and Ariad differ, follow the local project docs and surface the difference during the coherence check.
 
-Canonical Ariad documentation is not vendored into this project. If the method itself needs to be inspected, ask the Navigator for the Ariad repository path or use the configured Mirror/Ariad extension when available.
+Load the installed `using-ariad` Agent Skill for canonical method guidance. If automatic skill discovery is unavailable, open its `SKILL.md` manually and follow its reference routing.
 
 The agent is the **Driver**. The human is the **Navigator**.
 

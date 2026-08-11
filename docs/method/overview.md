@@ -20,6 +20,6 @@ Ariad then distinguishes three kinds of work.
 
 The passage between the three matters. Exploration protects discovery from premature commitment. Delivery protects commitment from becoming vague motion. Refinement protects care from becoming either invisible improvisation or roadmap inflation. A candidate crosses from Exploration into Delivery only when the Navigator accepts that it has enough form. A requested change crosses into Refinement when the Navigator can name the existing capability being cared for.
 
-Mirror Mind Builder Mode is the reference runtime for this operating model. Mirror gives the work continuity through journeys, project paths, memory, identity, skills, and context loading. Ariad gives that continuity a process: how the agent reads, explores, plans, validates, documents, pauses, and hands judgment back to the human.
+Ariad is runtime-independent. Its portable entrypoint is the `using-ariad` Agent Skill, installed by an agent from a Navigator-selected revision. Runtimes such as Mirror may give the work additional continuity through journeys, project paths, memory, identity, skills, and context loading; Ariad defines the method those capabilities support.
 
 The result is not a heavier process. It is a way to let acceleration keep its memory.
